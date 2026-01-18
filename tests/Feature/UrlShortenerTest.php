@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Url;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Inertia\Testing\AssertableInertia as Assert;
 use Tests\TestCase;
 
 class UrlShortenerTest extends TestCase
@@ -15,8 +16,10 @@ class UrlShortenerTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
-        $response->assertSee('Nepal URL Shortner');
-        $response->assertSee('npgo.to');
+        $response->assertInertia(
+            fn(Assert $page) => $page
+                ->component('Home')
+        );
     }
 
     public function test_can_shorten_valid_url(): void
@@ -26,7 +29,12 @@ class UrlShortenerTest extends TestCase
         ]);
 
         $response->assertStatus(200);
-        $response->assertSee('URL Shortened!');
+        $response->assertInertia(
+            fn(Assert $page) => $page
+                ->component('Result')
+                ->has('shortUrl')
+                ->has('originalUrl')
+        );
 
         $this->assertDatabaseHas('urls', [
             'original_url' => 'https://laravel.com/docs/12.x',

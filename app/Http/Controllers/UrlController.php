@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ShortenUrlRequest;
 use App\Services\UrlShortenerService;
-use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class UrlController extends Controller
 {
@@ -17,23 +17,22 @@ class UrlController extends Controller
     /**
      * Show the homepage with URL input form.
      */
-    public function create(): View
+    public function create(): Response
     {
-        return view('home');
+        return Inertia::render('Home');
     }
 
     /**
      * Process the URL shortening request.
      */
-    public function store(ShortenUrlRequest $request): View
+    public function store(ShortenUrlRequest $request): Response
     {
         $url = $this->urlShortener->shorten($request->validated('url'));
 
         $shortUrl = config('app.url') . '/' . $url->short_code;
 
-        return view('result', [
+        return Inertia::render('Result', [
             'shortUrl' => $shortUrl,
-            'shortCode' => $url->short_code,
             'originalUrl' => $url->original_url,
         ]);
     }
