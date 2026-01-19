@@ -63,7 +63,7 @@ export default function Home() {
                                         type="text"
                                         value={data.url}
                                         onChange={e => setData('url', e.target.value)}
-                                        placeholder="https://example.com/your-long-url..."
+                                        placeholder="https://example.com/your-long-url/"
                                         className={`h-12 bg-background ${errors.url ? 'border-destructive' : ''}`}
                                     />
                                     {errors.url && (
