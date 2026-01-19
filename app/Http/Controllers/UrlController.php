@@ -33,14 +33,15 @@ class UrlController extends Controller
      * Process the URL shortening request.
      * If not authenticated, store URL in session and redirect to login.
      */
-    public function store(ShortenUrlRequest $request): Response|RedirectResponse
+    public function store(ShortenUrlRequest $request): Response|RedirectResponse|\Symfony\Component\HttpFoundation\Response
     {
         $validatedUrl = $request->validated('url');
 
         // If not logged in, store pending URL and redirect to Google login
+        // Use Inertia::location() for external redirect to avoid CORS issues
         if (!Auth::check()) {
             session(['pending_url' => $validatedUrl]);
-            return redirect()->route('auth.google');
+            return Inertia::location(route('auth.google'));
         }
 
         // User is authenticated - shorten the URL
