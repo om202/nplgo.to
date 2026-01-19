@@ -45,6 +45,10 @@ class HandleInertiaRequests extends Middleware
                     'avatar' => $request->user()->avatar,
                 ] : null,
             ],
+            'flash' => [
+                'new_url' => fn() => $request->session()->get('new_url'),
+                'success' => fn() => $request->session()->get('success'),
+            ],
         ];
     }
 }

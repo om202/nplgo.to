@@ -28,6 +28,8 @@ import {
 import {
     Dialog,
     DialogContent,
+    DialogDescription,
+    DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
@@ -76,6 +78,7 @@ export default function Admin() {
     const { auth, urls, stats, flash } = usePage<PageProps>().props;
     const [copiedId, setCopiedId] = useState<number | null>(null);
     const [newUrlCopied, setNewUrlCopied] = useState(false);
+    const [successDialogOpen, setSuccessDialogOpen] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
 
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -83,8 +86,22 @@ export default function Admin() {
     });
 
     useEffect(() => {
+        // Check for pending URL from localStorage (after login redirect)
+        const pendingUrl = localStorage.getItem('pending_url');
+        if (pendingUrl) {
+            setData('url', pendingUrl);
+            localStorage.removeItem('pending_url');
+        }
+
         inputRef.current?.focus();
     }, []);
+
+    // Separate effect for auto-opening dialog when new URL is created
+    useEffect(() => {
+        if (flash?.new_url?.short_code) {
+            setSuccessDialogOpen(true);
+        }
+    }, [flash?.new_url?.short_code]);
 
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -133,6 +150,28 @@ export default function Admin() {
         img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
     }
 
+    function downloadNewQR() {
+        const svg = document.getElementById('qr-new-url');
+        if (!svg) return;
+
+        const svgData = new XMLSerializer().serializeToString(svg);
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
+
+        img.onload = () => {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx?.drawImage(img, 0, 0);
+            const link = document.createElement('a');
+            link.download = `qr-${flash?.new_url?.short_code || 'new'}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        };
+
+        img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
+    }
+
     return (
         <Layout title="Dashboard">
             <div className="w-full max-w-5xl mx-auto space-y-8">
@@ -146,47 +185,87 @@ export default function Admin() {
                     </div>
                 </div>
 
-                {/* New URL Success Card */}
-                {flash?.new_url && (
-                    <Card className="border-green-500 bg-green-50 dark:bg-green-950/20">
-                        <CardHeader className="pb-2">
-                            <CardTitle className="text-lg text-green-700 dark:text-green-400 flex items-center gap-2">
+                {/* Success Dialog with URL and QR Code */}
+                <Dialog open={successDialogOpen} onOpenChange={setSuccessDialogOpen}>
+                    <DialogContent className="sm:max-w-sm max-h-[90vh] overflow-y-auto">
+                        <DialogHeader>
+                            <DialogTitle className="text-green-600 dark:text-green-400 flex items-center gap-2">
                                 <Check className="h-5 w-5" />
-                                URL Shortened Successfully!
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="flex items-center gap-3">
-                                <code className="flex-1 bg-white dark:bg-gray-900 px-4 py-2 rounded-lg text-lg font-mono">
-                                    {flash.new_url.display_url}
-                                </code>
-                                <Button
-                                    variant="outline"
-                                    size="sm"
-                                    onClick={() => copyNewUrl(flash.new_url!.display_url)}
-                                >
-                                    {newUrlCopied ? (
-                                        <Check className="h-4 w-4 text-green-600" />
-                                    ) : (
-                                        <Copy className="h-4 w-4" />
-                                    )}
-                                </Button>
-                                <Button
-                                    variant="outline"
-                                    size="sm"
-                                    asChild
-                                >
-                                    <a href={'https://' + flash.new_url.display_url} target="_blank" rel="noopener noreferrer">
-                                        <ExternalLink className="h-4 w-4" />
-                                    </a>
-                                </Button>
+                                URL Shortened!
+                            </DialogTitle>
+                            <DialogDescription>
+                                Your short link is ready to share
+                            </DialogDescription>
+                        </DialogHeader>
+                        {flash?.new_url && (
+                            <div className="flex flex-col items-center gap-4">
+                                {/* Shortened URL */}
+                                <div className="w-full space-y-2">
+                                    <div className="flex items-center gap-2 bg-muted p-3 rounded-lg">
+                                        <code className="flex-1 text-sm font-mono font-semibold text-center break-all">
+                                            {flash.new_url.display_url}
+                                        </code>
+                                    </div>
+                                    <div className="flex justify-center gap-2">
+                                        <Button
+                                            variant="outline"
+                                            size="sm"
+                                            onClick={() => copyNewUrl(flash.new_url!.display_url)}
+                                            className="gap-2"
+                                        >
+                                            {newUrlCopied ? (
+                                                <>
+                                                    <Check className="h-4 w-4 text-green-600" />
+                                                    Copied!
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <Copy className="h-4 w-4" />
+                                                    Copy
+                                                </>
+                                            )}
+                                        </Button>
+                                        <Button
+                                            variant="outline"
+                                            size="sm"
+                                            asChild
+                                            className="gap-2"
+                                        >
+                                            <a href={'https://' + flash.new_url.display_url} target="_blank" rel="noopener noreferrer">
+                                                <ExternalLink className="h-4 w-4" />
+                                                Open
+                                            </a>
+                                        </Button>
+                                    </div>
+                                </div>
+
+                                {/* QR Code */}
+                                <div className="space-y-2">
+                                    <div className="bg-white p-3 rounded-lg shadow-sm">
+                                        <QRCodeSVG
+                                            id="qr-new-url"
+                                            value={'https://' + flash.new_url.display_url}
+                                            size={140}
+                                            level="H"
+                                        />
+                                    </div>
+                                    <Button
+                                        variant="secondary"
+                                        size="sm"
+                                        onClick={downloadNewQR}
+                                        className="w-full gap-2"
+                                    >
+                                        <Download className="h-4 w-4" />
+                                        Download QR
+                                    </Button>
+                                </div>
                             </div>
-                            <p className="text-sm text-muted-foreground mt-2 truncate">
-                                → {flash.new_url.original_url}
-                            </p>
-                        </CardContent>
-                    </Card>
-                )}
+                        )}
+                        <DialogFooter className="text-xs text-muted-foreground text-center sm:justify-center break-all">
+                            → {flash?.new_url?.original_url}
+                        </DialogFooter>
+                    </DialogContent>
+                </Dialog>
 
                 {/* Create New URL Card */}
                 <Card>

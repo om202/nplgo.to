@@ -40,8 +40,89 @@ export default function Layout({ children, title }: LayoutProps) {
     return (
         <>
             <Head>
-                <title>{title ? `${title} | Nepal URL Shortner` : 'Nepal URL Shortner | npgo.to'}</title>
-                <meta name="description" content="Nepal URL Shortner - Shorten your long URLs instantly with npgo.to. Free, fast, and reliable." />
+                <title>{title ? `${title} | Nepal URL Shortner` : 'Nepal URL Shortner | npgo.to - Free URL Shortening Service'}</title>
+
+                {/* Primary Meta Tags */}
+                <meta name="title" content="Nepal URL Shortner | npgo.to - Free URL Shortening Service" />
+                <meta name="description" content="Transform long URLs into short, memorable links with npgo.to. Free URL shortener for Nepal featuring Google Sign-In, QR code generation, and powerful admin dashboard." />
+                <meta name="keywords" content="URL shortener, short URL, link shortener, shorten link, tiny URL, bit.ly alternative, free URL shortener, custom short links, QR code generator, link management, URL management, short link generator, link tracking, Nepal URL shortener, npgo.to, shorten URLs free, create short links, branded short links, link analytics, URL redirect, link shortening service, web link shortener, online URL shortener, bitly alternative free, tinyurl alternative, short.io alternative, rebrandly alternative, link in bio, social media links, marketing links, campaign tracking" />
+                <meta name="author" content="NobleStack" />
+                <meta name="robots" content="index, follow" />
+                <meta name="language" content="English" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://npgo.to/" />
+                <meta property="og:title" content="Nepal URL Shortner | npgo.to" />
+                <meta property="og:description" content="Transform long URLs into short, memorable links. Free URL shortener with Google Sign-In, QR codes, and admin dashboard." />
+                <meta property="og:image" content="https://npgo.to/main.png" />
+                <meta property="og:site_name" content="npgo.to" />
+
+                {/* Twitter */}
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://npgo.to/" />
+                <meta property="twitter:title" content="Nepal URL Shortner | npgo.to" />
+                <meta property="twitter:description" content="Transform long URLs into short, memorable links. Free URL shortener with Google Sign-In, QR codes, and admin dashboard." />
+                <meta property="twitter:image" content="https://npgo.to/main.png" />
+
+                {/* Additional Meta Tags */}
+                <meta name="theme-color" content="#DC143C" />
+                <link rel="canonical" href="https://npgo.to/" />
+
+                {/* Schema.org Structured Data */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "WebApplication",
+                        "name": "npgo.to - Nepal URL Shortener",
+                        "url": "https://npgo.to",
+                        "description": "Free URL shortening service for Nepal with Google Sign-In, QR code generation, and admin dashboard",
+                        "applicationCategory": "UtilitiesApplication",
+                        "operatingSystem": "Web",
+                        "offers": {
+                            "@type": "Offer",
+                            "price": "0",
+                            "priceCurrency": "USD"
+                        },
+                        "creator": {
+                            "@type": "Organization",
+                            "name": "NobleStack",
+                            "url": "https://www.noblestack.io"
+                        }
+                    })}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                            {
+                                "@type": "Question",
+                                "name": "Is npgo.to really free?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Yes! npgo.to is completely free to use. Create unlimited short links, generate QR codes, and manage your URLs through our admin dashboard at no cost."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "How is npgo.to different from Bit.ly?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "npgo.to is a free, open alternative to Bit.ly with no premium tiers or paywalls. We focus on simplicity and essential features: URL shortening, QR codes, and link management—all completely free."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Are QR codes included?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Yes! Every shortened link comes with a free QR code generator. Perfect for print materials, business cards, and offline marketing campaigns."
+                                }
+                            }
+                        ]
+                    })}
+                </script>
             </Head>
 
             {/* Header */}
@@ -80,7 +161,7 @@ export default function Layout({ children, title }: LayoutProps) {
                 </div>
             </header>
 
-            <main className="min-h-screen px-4 py-8 pt-20">
+            <main className="min-h-screen px-3 sm:px-4 py-6 sm:py-8 pt-16 sm:pt-20">
                 {children}
             </main>
         </>
