@@ -191,27 +191,10 @@ export default function Admin() {
                     </CardContent>
                 </Card>
 
-                {/* Stats */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <Card>
-                        <CardContent className="pt-6">
-                            <div className="flex items-center gap-3">
-                                <div className="p-2 bg-primary/10 rounded-lg">
-                                    <Link2 className="h-5 w-5 text-primary" />
-                                </div>
-                                <div>
-                                    <p className="text-2xl font-bold">{stats.total_urls}</p>
-                                    <p className="text-sm text-muted-foreground">Total URLs</p>
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
-                </div>
-
                 {/* URLs Table */}
                 <Card>
                     <CardHeader>
-                        <CardTitle>Your URLs</CardTitle>
+                        <CardTitle>Your URLs ({stats.total_urls})</CardTitle>
                         <CardDescription>
                             Manage all your shortened URLs
                         </CardDescription>
