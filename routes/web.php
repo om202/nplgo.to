@@ -13,5 +13,11 @@ Route::get('/auth/google', [GoogleAuthController::class, 'redirect'])->name('aut
 Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback']);
 Route::post('/logout', [GoogleAuthController::class, 'logout'])->name('logout');
 
+// Admin (auth required)
+Route::get('/admin', function () {
+    return inertia('Admin');
+})->middleware('auth')->name('admin');
+
 Route::get('/{code}', RedirectController::class)->name('redirect');
+
 

@@ -36,7 +36,7 @@ class GoogleAuthController extends Controller
 
             Auth::login($user, remember: true);
 
-            return redirect()->route('home');
+            return redirect()->route('admin');
         } catch (\Exception $e) {
             return redirect()->route('home')->with('error', 'Unable to login with Google. Please try again.');
         }
