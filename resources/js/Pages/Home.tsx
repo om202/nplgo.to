@@ -350,10 +350,18 @@ export default function Home() {
                                 alt="NobleStack"
                                 className="h-5 w-5"
                             />
-                            NobleStack
+                            Noble Stack
                         </a>
                     </div>
-                    <div className="flex items-center justify-center gap-4">
+                    <div className="flex flex-wrap items-center justify-center gap-4">
+                        <a href="/about" className="hover:text-foreground transition-colors">
+                            About
+                        </a>
+                        <span>•</span>
+                        <a href="/features" className="hover:text-foreground transition-colors">
+                            Features
+                        </a>
+                        <span>•</span>
                         <a href="/privacy" className="hover:text-foreground transition-colors">
                             Privacy Policy
                         </a>
@@ -362,7 +370,7 @@ export default function Home() {
                             Terms of Service
                         </a>
                     </div>
-                    <p>© 2026 npgo.to • All rights reserved</p>
+                    <p>© 2026 npgo.to by Noble Stack • All rights reserved</p>
                 </footer>
             </div>
 

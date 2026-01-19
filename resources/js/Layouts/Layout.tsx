@@ -8,31 +8,40 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import {
+    NavigationMenu,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu';
+import {
+    Sheet,
+    SheetContent,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from '@/components/ui/sheet';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { LogOut, User, Link2, Crown, LayoutDashboard } from 'lucide-react';
+import { LogOut, User, Link2, Crown, LayoutDashboard, Menu } from 'lucide-react';
 
 interface AuthUser {
     id: number;
     name: string;
     email: string;
-    avatar: string | null;
+    avatar?: string;
     is_admin: boolean;
 }
 
-interface PageProps {
-    auth: {
-        user: AuthUser | null;
-    };
-    [key: string]: unknown;
-}
-
 interface LayoutProps {
-    children: ReactNode;
     title?: string;
+    children: ReactNode;
 }
 
-export default function Layout({ children, title }: LayoutProps) {
-    const { auth } = usePage<PageProps>().props;
+export default function Layout({ title, children }: LayoutProps) {
+    const { auth } = usePage<{ auth: { user: AuthUser | null } }>().props;
+
+    const pageTitle = title ? `${title} | Nepal URL Shortner` : 'Free URL Shortner for Nepal | Free QR Code Generator | npgo.to';
 
     const handleLogout = () => {
         router.post('/logout');
@@ -41,15 +50,14 @@ export default function Layout({ children, title }: LayoutProps) {
     return (
         <>
             <Head>
-                <title>{title ? `${title} | Nepal URL Shortner` : 'Free URL Shortner for Nepal | Free QR Code Generator | npgo.to'}</title>
-
-                {/* Primary Meta Tags */}
+                {/* Basic Meta Tags */}
+                <title>{pageTitle}</title>
                 <meta name="title" content="Free URL Shortner for Nepal | Free QR Code Generator | npgo.to by Noble Stack" />
                 <meta name="description" content="Best free URL shortner for Nepal by Noble Stack. Create short links & QR codes instantly. npgo.to - Nepal's #1 free URL shortening service with QR code generator. No signup required. Made for Nepali businesses, marketers & creators. A Noble Stack product." />
                 <meta name="keywords" content="Noble Stack, NobleStack, Noble Stack Nepal, URL shortner for Nepal, QR code generator for Nepal, free URL shortner, free QR code generator, Nepal URL shortener, Nepali URL shortener, shorten URL Nepal, link shortener Nepal, best URL shortener Nepal, free link shortener, QR code maker Nepal, create short links free, npgo.to, Noble Stack products, URL shortener, short URL, link shortener, shorten link, tiny URL, bit.ly alternative, bitly alternative, free URL shortener, custom short links, QR code generator, link management, short link generator, URL redirect, tinyurl alternative, short.io alternative, rebrandly alternative, link in bio, Kathmandu URL shortener, Nepal digital marketing tools, free marketing tools Nepal, URL shortening service Nepal, Noble Stack URL shortener" />
                 <meta name="author" content="Noble Stack" />
                 <meta name="robots" content="index, follow" />
-                <meta name="language" content="English" />
+                <meta httpEquiv="Content-Language" content="en" />
                 <meta name="geo.region" content="NP" />
                 <meta name="geo.placename" content="Nepal" />
 
@@ -57,16 +65,16 @@ export default function Layout({ children, title }: LayoutProps) {
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://npgo.to/" />
                 <meta property="og:title" content="Free URL Shortner for Nepal | Free QR Code Generator | npgo.to by Noble Stack" />
-                <meta property="og:description" content="Nepal's best free URL shortner & QR code generator by Noble Stack. Create short links instantly. No signup required. Perfect for Nepali businesses, marketers & creators." />
+                <meta property="og:description" content="Nepal's best free URL shortner and QR code generator by Noble Stack. Create short links and QR codes instantly. No signup required." />
                 <meta property="og:image" content="https://npgo.to/main.png" />
-                <meta property="og:site_name" content="npgo.to - A Noble Stack Product" />
                 <meta property="og:locale" content="en_NP" />
+                <meta property="og:site_name" content="npgo.to - A Noble Stack Product" />
 
                 {/* Twitter */}
                 <meta property="twitter:card" content="summary_large_image" />
                 <meta property="twitter:url" content="https://npgo.to/" />
                 <meta property="twitter:title" content="Free URL Shortner for Nepal | Free QR Code Generator | npgo.to by Noble Stack" />
-                <meta property="twitter:description" content="Nepal's best free URL shortner & QR code generator by Noble Stack. Create short links instantly. No signup required. Perfect for Nepali businesses & creators." />
+                <meta property="twitter:description" content="Nepal's best free URL shortner and QR code generator by Noble Stack. Create short links and QR codes instantly." />
                 <meta property="twitter:image" content="https://npgo.to/main.png" />
 
                 {/* Additional Meta Tags */}
@@ -116,18 +124,12 @@ export default function Layout({ children, title }: LayoutProps) {
                         "alternateName": ["Nepal URL Shortener", "Free QR Code Generator Nepal", "Nepali Link Shortener", "Noble Stack URL Shortener"],
                         "url": "https://npgo.to",
                         "description": "Nepal's best free URL shortner and QR code generator by Noble Stack. Create short links and QR codes instantly. No signup required. Made for Nepali businesses, marketers, and creators.",
-                        "applicationCategory": "UtilitiesApplication",
+                        "applicationCategory": "Utility",
                         "operatingSystem": "Web",
                         "offers": {
                             "@type": "Offer",
                             "price": "0",
-                            "priceCurrency": "NPR",
-                            "availability": "https://schema.org/InStock",
-                            "priceValidUntil": "2030-12-31"
-                        },
-                        "areaServed": {
-                            "@type": "Country",
-                            "name": "Nepal"
+                            "priceCurrency": "NPR"
                         },
                         "creator": {
                             "@type": "Organization",
@@ -150,6 +152,8 @@ export default function Layout({ children, title }: LayoutProps) {
                         "keywords": "Noble Stack, URL shortner for Nepal, QR code generator for Nepal, free URL shortner, free QR code generator, Nepal URL shortener"
                     })}
                 </script>
+
+                {/* FAQ Schema */}
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
@@ -168,15 +172,7 @@ export default function Layout({ children, title }: LayoutProps) {
                                 "name": "Is there a free QR code generator for Nepal?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Yes! npgo.to by Noble Stack offers a free QR code generator for Nepal. Every shortened link automatically gets a QR code that you can download and use for business cards, flyers, posters, and marketing materials."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "Is npgo.to really free?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Yes! npgo.to by Noble Stack is 100% free URL shortner for Nepal. Create unlimited short links, generate free QR codes, and manage your URLs through our dashboard at no cost. No hidden fees, no premium tiers."
+                                    "text": "Yes! npgo.to by Noble Stack offers a completely free QR code generator for Nepal. Every shortened link automatically gets a QR code that you can download and use for business cards, flyers, posters, and marketing materials."
                                 }
                             },
                             {
@@ -209,13 +205,128 @@ export default function Layout({ children, title }: LayoutProps) {
             </Head>
 
             {/* Header */}
-            <header className="fixed top-0 left-0 right-0 z-50 border-b bg-background/80">
+            <header className="fixed top-0 left-0 right-0 z-50 border-b bg-background/80 backdrop-blur">
                 <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-                    <a href="/" className="flex items-center gap-2 text-2xl font-bold text-primary">
-                        <Link2 className="h-6 w-6" />
-                        <span>npgo.to</span>
-                    </a>
+                    {/* Logo and Navigation - Left Side */}
+                    <div className="flex items-center gap-6">
+                        {/* Mobile Menu - Hamburger */}
+                        <Sheet>
+                            <SheetTrigger asChild>
+                                <Button variant="ghost" size="icon" className="md:hidden">
+                                    <Menu className="h-5 w-5" />
+                                    <span className="sr-only">Toggle menu</span>
+                                </Button>
+                            </SheetTrigger>
+                            <SheetContent side="left" className="w-80">
+                                <SheetHeader>
+                                    <SheetTitle className="flex items-center gap-2 text-primary text-xl">
+                                        <Link2 className="h-5 w-5" />
+                                        npgo.to
+                                    </SheetTitle>
+                                    <p className="text-xs text-muted-foreground text-left">
+                                        Free URL shortener for Nepal
+                                    </p>
+                                </SheetHeader>
 
+                                <div className="flex flex-col gap-6 mt-8">
+                                    {/* Main Navigation */}
+                                    <nav className="flex flex-col gap-1">
+                                        <a
+                                            href="/about"
+                                            className="group flex items-start gap-3 rounded-lg p-3 hover:bg-accent transition-colors"
+                                        >
+                                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                                                <User className="h-5 w-5" />
+                                            </div>
+                                            <div className="flex flex-col gap-1">
+                                                <span className="font-semibold group-hover:text-primary transition-colors">
+                                                    About
+                                                </span>
+                                                <span className="text-xs text-muted-foreground">
+                                                    Learn about npgo.to and Noble Stack
+                                                </span>
+                                            </div>
+                                        </a>
+
+                                        <a
+                                            href="/features"
+                                            className="group flex items-start gap-3 rounded-lg p-3 hover:bg-accent transition-colors"
+                                        >
+                                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                                                <LayoutDashboard className="h-5 w-5" />
+                                            </div>
+                                            <div className="flex flex-col gap-1">
+                                                <span className="font-semibold group-hover:text-primary transition-colors">
+                                                    Features
+                                                </span>
+                                                <span className="text-xs text-muted-foreground">
+                                                    See all features and benefits
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </nav>
+
+                                    {/* Divider */}
+                                    <div className="h-px bg-border"></div>
+
+                                    {/* Footer Links */}
+                                    <div className="flex flex-col gap-2">
+                                        <p className="text-xs font-medium text-muted-foreground px-3">Legal</p>
+                                        <a
+                                            href="/privacy"
+                                            className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                                        >
+                                            Privacy Policy
+                                        </a>
+                                        <a
+                                            href="/terms"
+                                            className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                                        >
+                                            Terms of Service
+                                        </a>
+                                    </div>
+
+                                    {/* Bottom Section */}
+                                    <div className="mt-auto pt-4 border-t">
+                                        <p className="text-xs text-muted-foreground text-center">
+                                            Built by{' '}
+                                            <a
+                                                href="https://www.noblestack.io"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="font-medium text-primary hover:underline"
+                                            >
+                                                Noble Stack
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </SheetContent>
+                        </Sheet>
+
+                        <a href="/" className="flex items-center gap-2 text-2xl font-bold text-primary">
+                            <Link2 className="h-6 w-6" />
+                            <span>npgo.to</span>
+                        </a>
+
+                        {/* Desktop Navigation Menu */}
+                        <NavigationMenu className="hidden md:block">
+                            <NavigationMenuList>
+                                <NavigationMenuItem>
+                                    <NavigationMenuLink href="/about" className={navigationMenuTriggerStyle()}>
+                                        About
+                                    </NavigationMenuLink>
+                                </NavigationMenuItem>
+                                <NavigationMenuItem>
+                                    <NavigationMenuLink href="/features" className={navigationMenuTriggerStyle()}>
+                                        Features
+                                    </NavigationMenuLink>
+                                </NavigationMenuItem>
+                            </NavigationMenuList>
+                        </NavigationMenu>
+                    </div>
+
+                    {/* User Menu - Right Side */}
                     {auth.user ? (
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
@@ -258,10 +369,10 @@ export default function Layout({ children, title }: LayoutProps) {
                 </div>
             </header>
 
-            <main className="min-h-screen px-3 sm:px-4 py-6 sm:py-8 pt-16 sm:pt-20">
+            {/* Main Content */}
+            <main className="w-full pt-20 min-h-dvh">
                 {children}
             </main>
         </>
     );
 }
-

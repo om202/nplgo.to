@@ -24,6 +24,10 @@ Route::post('/logout', [GoogleAuthController::class, 'logout'])->name('logout');
 Route::get('/privacy', fn() => inertia('PrivacyPolicy'))->name('privacy');
 Route::get('/terms', fn() => inertia('TermsOfService'))->name('terms');
 
+// SEO Pages
+Route::get('/about', fn() => inertia('About'))->name('about');
+Route::get('/features', fn() => inertia('Features'))->name('features');
+
 // Admin (auth required)
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
