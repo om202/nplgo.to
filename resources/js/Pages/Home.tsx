@@ -43,7 +43,7 @@ export default function Home() {
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 -z-10">
                     <img
-                        src="/hero.web"
+                        src="/hero.webp"
                         alt="Hero background"
                         className="w-full h-full object-cover"
                     />

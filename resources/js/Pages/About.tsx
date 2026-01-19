@@ -13,7 +13,7 @@ export default function About() {
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 -z-10">
                     <img
-                        src="/hero.web"
+                        src="/hero.webp"
                         alt="Nepal"
                         className="w-full h-full object-cover"
                     />
