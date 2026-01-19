@@ -63,7 +63,7 @@ class UrlController extends Controller
             // Redirect to admin with success flash
             return redirect()->route('admin')->with('new_url', [
                 'short_code' => $url->short_code,
-                'display_url' => 'npgo.to/' . $url->short_code,
+                'display_url' => url('/' . $url->short_code),
                 'original_url' => $url->original_url,
             ]);
         }
@@ -80,7 +80,7 @@ class UrlController extends Controller
 
         return redirect()->route('admin')->with('new_url', [
             'short_code' => $url->short_code,
-            'display_url' => 'npgo.to/' . $url->short_code,
+            'display_url' => url('/' . $url->short_code),
             'original_url' => $url->original_url,
         ]);
     }

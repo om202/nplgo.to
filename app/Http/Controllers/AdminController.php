@@ -21,7 +21,7 @@ class AdminController extends Controller
                 'id' => $url->id,
                 'short_code' => $url->short_code,
                 'short_url' => config('app.url') . '/' . $url->short_code,
-                'display_url' => 'npgo.to/' . $url->short_code,
+                'display_url' => url('/' . $url->short_code),
                 'original_url' => $url->original_url,
                 'created_at' => $url->created_at->format('M j, Y'),
             ];
