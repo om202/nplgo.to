@@ -41,29 +41,32 @@ export default function Layout({ children, title }: LayoutProps) {
     return (
         <>
             <Head>
-                <title>{title ? `${title} | Nepal URL Shortner` : 'Nepal URL Shortner | npgo.to - Free URL Shortening Service'}</title>
+                <title>{title ? `${title} | Nepal URL Shortner` : 'Free URL Shortner for Nepal | Free QR Code Generator | npgo.to'}</title>
 
                 {/* Primary Meta Tags */}
-                <meta name="title" content="Nepal URL Shortner | npgo.to - Free URL Shortening Service" />
-                <meta name="description" content="Transform long URLs into short, memorable links with npgo.to. Free URL shortener for Nepal featuring Google Sign-In, QR code generation, and powerful admin dashboard." />
-                <meta name="keywords" content="URL shortener, short URL, link shortener, shorten link, tiny URL, bit.ly alternative, free URL shortener, custom short links, QR code generator, link management, URL management, short link generator, link tracking, Nepal URL shortener, npgo.to, shorten URLs free, create short links, branded short links, link analytics, URL redirect, link shortening service, web link shortener, online URL shortener, bitly alternative free, tinyurl alternative, short.io alternative, rebrandly alternative, link in bio, social media links, marketing links, campaign tracking" />
-                <meta name="author" content="NobleStack" />
+                <meta name="title" content="Free URL Shortner for Nepal | Free QR Code Generator | npgo.to by Noble Stack" />
+                <meta name="description" content="Best free URL shortner for Nepal by Noble Stack. Create short links & QR codes instantly. npgo.to - Nepal's #1 free URL shortening service with QR code generator. No signup required. Made for Nepali businesses, marketers & creators. A Noble Stack product." />
+                <meta name="keywords" content="Noble Stack, NobleStack, Noble Stack Nepal, URL shortner for Nepal, QR code generator for Nepal, free URL shortner, free QR code generator, Nepal URL shortener, Nepali URL shortener, shorten URL Nepal, link shortener Nepal, best URL shortener Nepal, free link shortener, QR code maker Nepal, create short links free, npgo.to, Noble Stack products, URL shortener, short URL, link shortener, shorten link, tiny URL, bit.ly alternative, bitly alternative, free URL shortener, custom short links, QR code generator, link management, short link generator, URL redirect, tinyurl alternative, short.io alternative, rebrandly alternative, link in bio, Kathmandu URL shortener, Nepal digital marketing tools, free marketing tools Nepal, URL shortening service Nepal, Noble Stack URL shortener" />
+                <meta name="author" content="Noble Stack" />
                 <meta name="robots" content="index, follow" />
                 <meta name="language" content="English" />
+                <meta name="geo.region" content="NP" />
+                <meta name="geo.placename" content="Nepal" />
 
                 {/* Open Graph / Facebook */}
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://npgo.to/" />
-                <meta property="og:title" content="Nepal URL Shortner | npgo.to" />
-                <meta property="og:description" content="Transform long URLs into short, memorable links. Free URL shortener with Google Sign-In, QR codes, and admin dashboard." />
+                <meta property="og:title" content="Free URL Shortner for Nepal | Free QR Code Generator | npgo.to by Noble Stack" />
+                <meta property="og:description" content="Nepal's best free URL shortner & QR code generator by Noble Stack. Create short links instantly. No signup required. Perfect for Nepali businesses, marketers & creators." />
                 <meta property="og:image" content="https://npgo.to/main.png" />
-                <meta property="og:site_name" content="npgo.to" />
+                <meta property="og:site_name" content="npgo.to - A Noble Stack Product" />
+                <meta property="og:locale" content="en_NP" />
 
                 {/* Twitter */}
                 <meta property="twitter:card" content="summary_large_image" />
                 <meta property="twitter:url" content="https://npgo.to/" />
-                <meta property="twitter:title" content="Nepal URL Shortner | npgo.to" />
-                <meta property="twitter:description" content="Transform long URLs into short, memorable links. Free URL shortener with Google Sign-In, QR codes, and admin dashboard." />
+                <meta property="twitter:title" content="Free URL Shortner for Nepal | Free QR Code Generator | npgo.to by Noble Stack" />
+                <meta property="twitter:description" content="Nepal's best free URL shortner & QR code generator by Noble Stack. Create short links instantly. No signup required. Perfect for Nepali businesses & creators." />
                 <meta property="twitter:image" content="https://npgo.to/main.png" />
 
                 {/* Additional Meta Tags */}
@@ -75,21 +78,42 @@ export default function Layout({ children, title }: LayoutProps) {
                     {JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "WebApplication",
-                        "name": "npgo.to - Nepal URL Shortener",
+                        "name": "npgo.to - Free URL Shortner for Nepal by Noble Stack",
+                        "alternateName": ["Nepal URL Shortener", "Free QR Code Generator Nepal", "Nepali Link Shortener", "Noble Stack URL Shortener"],
                         "url": "https://npgo.to",
-                        "description": "Free URL shortening service for Nepal with Google Sign-In, QR code generation, and admin dashboard",
+                        "description": "Nepal's best free URL shortner and QR code generator by Noble Stack. Create short links and QR codes instantly. No signup required. Made for Nepali businesses, marketers, and creators.",
                         "applicationCategory": "UtilitiesApplication",
                         "operatingSystem": "Web",
                         "offers": {
                             "@type": "Offer",
                             "price": "0",
-                            "priceCurrency": "USD"
+                            "priceCurrency": "NPR",
+                            "availability": "https://schema.org/InStock",
+                            "priceValidUntil": "2030-12-31"
+                        },
+                        "areaServed": {
+                            "@type": "Country",
+                            "name": "Nepal"
                         },
                         "creator": {
                             "@type": "Organization",
-                            "name": "NobleStack",
+                            "name": "Noble Stack",
+                            "alternateName": "NobleStack",
+                            "url": "https://www.noblestack.io",
+                            "sameAs": [
+                                "https://www.noblestack.io"
+                            ],
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressCountry": "NP"
+                            }
+                        },
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "Noble Stack",
                             "url": "https://www.noblestack.io"
-                        }
+                        },
+                        "keywords": "Noble Stack, URL shortner for Nepal, QR code generator for Nepal, free URL shortner, free QR code generator, Nepal URL shortener"
                     })}
                 </script>
                 <script type="application/ld+json">
@@ -99,10 +123,34 @@ export default function Layout({ children, title }: LayoutProps) {
                         "mainEntity": [
                             {
                                 "@type": "Question",
+                                "name": "What is the best free URL shortner for Nepal?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "npgo.to by Noble Stack is Nepal's best free URL shortner. It's completely free, requires no signup, and includes a free QR code generator. Perfect for Nepali businesses, marketers, and content creators."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Is there a free QR code generator for Nepal?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Yes! npgo.to by Noble Stack offers a free QR code generator for Nepal. Every shortened link automatically gets a QR code that you can download and use for business cards, flyers, posters, and marketing materials."
+                                }
+                            },
+                            {
+                                "@type": "Question",
                                 "name": "Is npgo.to really free?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Yes! npgo.to is completely free to use. Create unlimited short links, generate QR codes, and manage your URLs through our admin dashboard at no cost."
+                                    "text": "Yes! npgo.to by Noble Stack is 100% free URL shortner for Nepal. Create unlimited short links, generate free QR codes, and manage your URLs through our dashboard at no cost. No hidden fees, no premium tiers."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Who created npgo.to?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "npgo.to is created by Noble Stack, a technology company based in Nepal. Noble Stack builds digital products and services for the Nepali market. Visit noblestack.io to learn more about our other products."
                                 }
                             },
                             {
@@ -110,15 +158,15 @@ export default function Layout({ children, title }: LayoutProps) {
                                 "name": "How is npgo.to different from Bit.ly?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "npgo.to is a free, open alternative to Bit.ly with no premium tiers or paywalls. We focus on simplicity and essential features: URL shortening, QR codes, and link management—all completely free."
+                                    "text": "npgo.to by Noble Stack is a free Bit.ly alternative made specifically for Nepal. Unlike Bit.ly which has premium tiers and charges for features, npgo.to offers URL shortening, QR code generation, and link management completely free."
                                 }
                             },
                             {
                                 "@type": "Question",
-                                "name": "Are QR codes included?",
+                                "name": "Can I use npgo.to for my business in Nepal?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Yes! Every shortened link comes with a free QR code generator. Perfect for print materials, business cards, and offline marketing campaigns."
+                                    "text": "Absolutely! npgo.to by Noble Stack is perfect for Nepali businesses. Use our free URL shortner for social media marketing, email campaigns, SMS marketing, and print materials. Generate QR codes for business cards and brochures."
                                 }
                             }
                         ]

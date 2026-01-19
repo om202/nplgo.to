@@ -36,7 +36,7 @@ export default function Home() {
     }
 
     return (
-        <Layout title="Home">
+        <Layout>
             {/* Hero Section - Full Width Background */}
             <section className="relative text-center space-y-4 sm:space-y-6 pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 md:pb-24 -mx-3 sm:-mx-4 -mt-16 sm:-mt-20">
                 {/* Background Image with Overlay */}
@@ -67,16 +67,16 @@ export default function Home() {
                     </a>
 
                     <h1
-                        className="text-4xl sm:text-4xl md:text-5xl font-bold tracking-normal leading-tight mt-4 max-w-xl mx-auto"
+                        className="text-4xl sm:text-4xl md:text-5xl font-bold tracking-normal leading-tight mt-4 max-w-2xl mx-auto"
                         style={{
                             textShadow: '0 1px 0 rgba(255,255,255,0.4), 0 -1px 0 rgba(0,0,0,0.6)'
                         }}
                     >
-                        URL Shortner for <span className="text-primary">Nepal</span>
+                        Free URL Shortner for <span className="text-primary">Nepal</span>
                     </h1>
 
-                    <p className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto tracking-normal px-4 mt-4">
-                        Free, fast, and reliable URL shortener and QR code generator made for Nepali market by Noble Stack Team.
+                    <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto tracking-normal px-4 mt-4">
+                        Nepal's #1 free URL shortner & QR code generator by Noble Stack. Create short links instantly. No signup required. Made for Nepali businesses & creators.
                     </p>
 
                     {/* URL Shortener Form */}
@@ -119,8 +119,8 @@ export default function Home() {
                 {/* Features Section */}
                 <section className="space-y-8">
                     <div className="text-center">
-                        <h2 className="text-3xl font-semibold mb-4">Why npgo.to?</h2>
-                        <p className="text-muted-foreground">Fast, secure, and feature-rich URL management.</p>
+                        <h2 className="text-3xl font-semibold mb-4">Why npgo.to? Best Free URL Shortner for Nepal</h2>
+                        <p className="text-muted-foreground">Fast, secure, and feature-rich URL shortening & QR code generation for Nepali users.</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -129,9 +129,20 @@ export default function Home() {
                                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <ArrowRight className="h-6 w-6 -rotate-45" />
                                 </div>
-                                <h3 className="font-semibold text-center">URL Shortener</h3>
+                                <h3 className="font-semibold text-center">Free URL Shortner</h3>
                                 <p className="text-sm text-muted-foreground text-center">
-                                    Transform long URLs into short, memorable links that are easy to share and track across all platforms.
+                                    Best free URL shortner for Nepal. Transform long URLs into short, memorable npgo.to links that are easy to share across all platforms.
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardContent className="pt-6 space-y-3">
+                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                    <QrCode className="h-6 w-6" />
+                                </div>
+                                <h3 className="font-semibold text-center">Free QR Code Generator</h3>
+                                <p className="text-sm text-muted-foreground text-center">
+                                    Free QR code generator for Nepal. Every shortened link automatically gets a QR code. Perfect for business cards, posters & marketing materials.
                                 </p>
                             </CardContent>
                         </Card>
@@ -151,20 +162,9 @@ export default function Home() {
                                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <LayoutDashboard className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-center">Admin Dashboard</h3>
+                                <h3 className="font-semibold text-center">Free Link Management</h3>
                                 <p className="text-sm text-muted-foreground text-center">
-                                    Comprehensive URL management interface with real-time stats, quick search, and powerful one-click actions for efficiency.
-                                </p>
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardContent className="pt-6 space-y-3">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                    <QrCode className="h-6 w-6" />
-                                </div>
-                                <h3 className="font-semibold text-center">QR Code Generation</h3>
-                                <p className="text-sm text-muted-foreground text-center">
-                                    Generate instant QR codes for every shortened link to enable seamless offline sharing across print and digital media.
+                                    Free link management dashboard for Nepal. Track, manage and organize unlimited URLs with real-time stats and one-click actions.
                                 </p>
                             </CardContent>
                         </Card>
@@ -272,44 +272,62 @@ export default function Home() {
                 {/* FAQ Section */}
                 <section className="space-y-6">
                     <div className="text-center">
-                        <h2 className="text-2xl font-semibold mb-4">Frequently Asked Questions</h2>
+                        <h2 className="text-2xl font-semibold mb-4">Frequently Asked Questions - Free URL Shortner Nepal</h2>
                     </div>
                     <div className="max-w-3xl mx-auto">
                         <Accordion type="single" collapsible className="w-full">
                             <AccordionItem value="item-1">
-                                <AccordionTrigger>Is npgo.to really free?</AccordionTrigger>
+                                <AccordionTrigger>What is the best free URL shortner for Nepal?</AccordionTrigger>
                                 <AccordionContent>
-                                    Yes! npgo.to is completely free to use. Create unlimited short links, generate QR codes, and manage your URLs through our admin dashboard at no cost.
+                                    npgo.to by Noble Stack is Nepal's best free URL shortner. It's 100% free, no signup required, and includes a free QR code generator. Perfect for Nepali businesses, marketers, and content creators who need reliable link shortening.
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-2">
-                                <AccordionTrigger>Do I need to create an account?</AccordionTrigger>
+                                <AccordionTrigger>Is there a free QR code generator for Nepal?</AccordionTrigger>
                                 <AccordionContent>
-                                    You can start shortening URLs immediately. Sign in with Google to access your admin dashboard, track all your links, and manage them from one place.
+                                    Yes! npgo.to by Noble Stack offers a completely free QR code generator for Nepal. Every shortened link automatically gets a QR code that you can download and use for business cards, flyers, posters, and marketing materials.
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-3">
-                                <AccordionTrigger>How long do short links last?</AccordionTrigger>
+                                <AccordionTrigger>Is npgo.to really free?</AccordionTrigger>
                                 <AccordionContent>
-                                    Your shortened URLs are permanent and will continue working indefinitely. We maintain high uptime to ensure your links are always accessible.
+                                    Yes! npgo.to is 100% free URL shortner for Nepal. Create unlimited short links, generate free QR codes, and manage your URLs through our dashboard at no cost. No hidden fees, no premium tiers, no paywalls.
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-4">
-                                <AccordionTrigger>Can I customize my short links?</AccordionTrigger>
+                                <AccordionTrigger>Do I need to create an account?</AccordionTrigger>
                                 <AccordionContent>
-                                    Currently, npgo.to generates random short codes automatically. This ensures uniqueness and prevents conflicts. Custom branded links may be added in future updates.
+                                    No signup required! You can start shortening URLs immediately. Optionally, sign in with Google to access your admin dashboard, track all your links, and manage them from one place.
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-5">
                                 <AccordionTrigger>How is npgo.to different from Bit.ly?</AccordionTrigger>
                                 <AccordionContent>
-                                    npgo.to is a free, open alternative to Bit.ly with no premium tiers or paywalls. We focus on simplicity and essential features: URL shortening, QR codes, and link management—all completely free.
+                                    npgo.to is a free Bit.ly alternative made specifically for Nepal. Unlike Bit.ly which has premium tiers and charges for many features, npgo.to offers URL shortening, QR code generation, and link management completely free.
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-6">
-                                <AccordionTrigger>Are QR codes included?</AccordionTrigger>
+                                <AccordionTrigger>Can I use npgo.to for my business in Nepal?</AccordionTrigger>
                                 <AccordionContent>
-                                    Yes! Every shortened link comes with a free QR code generator. Perfect for print materials, business cards, and offline marketing campaigns.
+                                    Absolutely! npgo.to is perfect for Nepali businesses. Use our free URL shortner for social media marketing, email campaigns, SMS marketing, and print materials. Generate QR codes for business cards, brochures, and banners.
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-7">
+                                <AccordionTrigger>Who created npgo.to?</AccordionTrigger>
+                                <AccordionContent>
+                                    npgo.to is created by Noble Stack, a technology company based in Nepal. Noble Stack builds digital products and services for the Nepali market. Visit noblestack.io to learn more about our products and services.
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-8">
+                                <AccordionTrigger>How long do short links last?</AccordionTrigger>
+                                <AccordionContent>
+                                    Your shortened URLs are permanent and will continue working indefinitely. Noble Stack maintains high uptime to ensure your links are always accessible for Nepali users.
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-9">
+                                <AccordionTrigger>Is npgo.to a good TinyURL alternative for Nepal?</AccordionTrigger>
+                                <AccordionContent>
+                                    Yes! npgo.to by Noble Stack is the best TinyURL alternative for Nepal. It's completely free, includes QR code generation, and is designed specifically for the Nepali market with fast, reliable performance.
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>
