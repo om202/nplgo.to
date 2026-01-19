@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\RootAdminController;
 use App\Http\Controllers\UrlController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,9 @@ Route::get('/terms', fn() => inertia('TermsOfService'))->name('terms');
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
     Route::delete('/admin/urls/{url}', [AdminController::class, 'destroy'])->name('admin.urls.destroy');
+
+    // Root Admin Panel (admin only)
+    Route::get('/root-admin', [RootAdminController::class, 'index'])->name('root-admin');
 });
 
 Route::get('/{code}', RedirectController::class)->name('redirect');

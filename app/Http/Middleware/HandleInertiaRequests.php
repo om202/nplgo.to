@@ -43,6 +43,8 @@ class HandleInertiaRequests extends Middleware
                     'name' => $request->user()->name,
                     'email' => $request->user()->email,
                     'avatar' => $request->user()->avatar,
+                    // Hardcoded root admin - only this email has admin access
+                    'is_admin' => $request->user()->email === 'noblestack.io@gmail.com',
                 ] : null,
             ],
             'flash' => [

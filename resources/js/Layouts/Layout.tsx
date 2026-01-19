@@ -9,13 +9,14 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { LogOut, User, Link2 } from 'lucide-react';
+import { LogOut, User, Link2, Crown, LayoutDashboard } from 'lucide-react';
 
 interface AuthUser {
     id: number;
     name: string;
     email: string;
     avatar: string | null;
+    is_admin: boolean;
 }
 
 interface PageProps {
@@ -149,6 +150,20 @@ export default function Layout({ children, title }: LayoutProps) {
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
+                                <DropdownMenuItem asChild>
+                                    <a href="/admin">
+                                        <LayoutDashboard className="mr-2 h-4 w-4" />
+                                        <span>Dashboard</span>
+                                    </a>
+                                </DropdownMenuItem>
+                                {auth.user.is_admin && (
+                                    <DropdownMenuItem asChild>
+                                        <a href="/root-admin" className="text-amber-600 dark:text-amber-400">
+                                            <Crown className="mr-2 h-4 w-4" />
+                                            <span>Root Admin</span>
+                                        </a>
+                                    </DropdownMenuItem>
+                                )}
                                 <DropdownMenuItem onClick={handleLogout}>
                                     <LogOut className="mr-2 h-4 w-4" />
                                     <span>Sign out</span>
