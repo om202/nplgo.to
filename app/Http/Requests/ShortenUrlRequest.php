@@ -22,7 +22,20 @@ class ShortenUrlRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'url' => ['required', 'url', 'max:2048'],
+            'url' => [
+                'required',
+                'url',
+                'max:2048',
+                function ($attribute, $value, $fail) {
+                    $parsedUrl = parse_url(strtolower($value));
+                    $host = $parsedUrl['host'] ?? '';
+
+                    // Check if the URL is from npgo.to domain
+                    if (str_contains($host, 'npgo.to')) {
+                        $fail('This URL is already shortened. You cannot shorten npgo.to links.');
+                    }
+                },
+            ],
         ];
     }
 
