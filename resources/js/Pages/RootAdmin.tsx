@@ -67,7 +67,7 @@ export default function RootAdmin() {
                         <h1 className="text-3xl font-bold">Welcome Root Admin</h1>
                     </div>
                     <p className="text-muted-foreground mt-1">
-                        Complete database overview — all users and URL activity
+                        All users and URL activity
                     </p>
                 </div>
 
