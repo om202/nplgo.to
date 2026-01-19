@@ -1,5 +1,5 @@
 import { useForm } from '@inertiajs/react';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, FormEvent, ReactNode } from 'react';
 import Layout from '@/Layouts/Layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -8,7 +8,7 @@ import { Separator } from '@/components/ui/separator';
 import { Zap, Shield, Globe, ArrowRight } from 'lucide-react';
 
 export default function Home() {
-    const inputRef = useRef(null);
+    const inputRef = useRef<HTMLInputElement>(null);
     const { data, setData, post, processing, errors } = useForm({
         url: '',
     });
@@ -17,7 +17,7 @@ export default function Home() {
         inputRef.current?.focus();
     }, []);
 
-    function handleSubmit(e) {
+    function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         post('/');
     }
@@ -52,7 +52,7 @@ export default function Home() {
 
                     {/* URL Shortener Form */}
                     <Card className="max-w-xl mx-auto bg-muted/50">
-                        <CardHeader className="pb-3">
+                        <CardHeader className="pb-0">
                             <CardTitle className="text-base font-medium">Paste URL to make it small</CardTitle>
                         </CardHeader>
                         <CardContent>
@@ -88,7 +88,7 @@ export default function Home() {
 
                 {/* Features Section */}
                 <section className="space-y-8">
-                    <div className="text-center space-y-2">
+                    <div className="text-center">
                         <h2 className="text-2xl font-semibold">Why npgo.to?</h2>
                         <p className="text-muted-foreground">Simple, fast, and built for everyone.</p>
                     </div>
@@ -138,7 +138,13 @@ export default function Home() {
     );
 }
 
-function FeatureCard({ icon, title, description }) {
+interface FeatureCardProps {
+    icon: ReactNode;
+    title: string;
+    description: string;
+}
+
+function FeatureCard({ icon, title, description }: FeatureCardProps) {
     return (
         <Card>
             <CardContent className="pt-6 text-center space-y-3">

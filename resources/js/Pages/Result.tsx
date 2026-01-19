@@ -5,7 +5,13 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle2, Copy, Check, Plus } from 'lucide-react';
 
-export default function Result({ shortUrl, displayUrl, originalUrl }) {
+interface ResultProps {
+    shortUrl: string;
+    displayUrl: string;
+    originalUrl: string;
+}
+
+export default function Result({ shortUrl, displayUrl, originalUrl }: ResultProps) {
     const [copied, setCopied] = useState(false);
 
     async function copyToClipboard() {
@@ -13,7 +19,7 @@ export default function Result({ shortUrl, displayUrl, originalUrl }) {
             await navigator.clipboard.writeText(shortUrl);
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
-        } catch (err) {
+        } catch {
             const input = document.createElement('input');
             input.value = shortUrl;
             document.body.appendChild(input);

@@ -1,6 +1,12 @@
 import { Head } from '@inertiajs/react';
+import { ReactNode } from 'react';
 
-export default function Layout({ children, title }) {
+interface LayoutProps {
+    children: ReactNode;
+    title?: string;
+}
+
+export default function Layout({ children, title }: LayoutProps) {
     return (
         <>
             <Head>
