@@ -1,6 +1,7 @@
 import { useForm, router } from '@inertiajs/react';
 import { usePage } from '@inertiajs/react';
 import { useState, useRef, useEffect, FormEvent } from 'react';
+import { QRCodeSVG } from 'qrcode.react';
 import Layout from '@/Layouts/Layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -24,8 +25,15 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { Link2, Copy, Trash2, Check, ExternalLink, Plus } from 'lucide-react';
+import { Link2, Copy, Trash2, Check, ExternalLink, Plus, QrCode, Download } from 'lucide-react';
 
 interface UrlItem {
     id: number;
@@ -101,6 +109,28 @@ export default function Admin() {
         router.delete(`/admin/urls/${id}`, {
             preserveScroll: true,
         });
+    }
+
+    function downloadQR(shortCode: string) {
+        const svg = document.getElementById(`qr-${shortCode}`);
+        if (!svg) return;
+
+        const svgData = new XMLSerializer().serializeToString(svg);
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
+
+        img.onload = () => {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx?.drawImage(img, 0, 0);
+            const link = document.createElement('a');
+            link.download = `qr-${shortCode}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        };
+
+        img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
     }
 
     return (
@@ -260,6 +290,42 @@ export default function Admin() {
                                                             <ExternalLink className="h-4 w-4" />
                                                         </a>
                                                     </Button>
+                                                    <Dialog>
+                                                        <DialogTrigger asChild>
+                                                            <Button
+                                                                variant="ghost"
+                                                                size="icon"
+                                                                title="QR Code"
+                                                            >
+                                                                <QrCode className="h-4 w-4" />
+                                                            </Button>
+                                                        </DialogTrigger>
+                                                        <DialogContent className="sm:max-w-md">
+                                                            <DialogHeader>
+                                                                <DialogTitle>QR Code for {url.display_url}</DialogTitle>
+                                                            </DialogHeader>
+                                                            <div className="flex flex-col items-center gap-4 py-4">
+                                                                <div className="bg-white p-4 rounded-lg">
+                                                                    <QRCodeSVG
+                                                                        id={`qr-${url.short_code}`}
+                                                                        value={url.short_url}
+                                                                        size={200}
+                                                                        level="H"
+                                                                    />
+                                                                </div>
+                                                                <p className="text-sm text-muted-foreground text-center">
+                                                                    Scan this code to visit your shortened URL
+                                                                </p>
+                                                                <Button
+                                                                    onClick={() => downloadQR(url.short_code)}
+                                                                    className="gap-2"
+                                                                >
+                                                                    <Download className="h-4 w-4" />
+                                                                    Download PNG
+                                                                </Button>
+                                                            </div>
+                                                        </DialogContent>
+                                                    </Dialog>
                                                     <AlertDialog>
                                                         <AlertDialogTrigger asChild>
                                                             <Button
