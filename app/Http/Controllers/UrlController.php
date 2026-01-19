@@ -29,10 +29,15 @@ class UrlController extends Controller
     {
         $url = $this->urlShortener->shorten($request->validated('url'));
 
-        $shortUrl = config('app.url') . '/' . $url->short_code;
+        $shortCode = $url->short_code;
+        $shortUrl = config('app.url') . '/' . $shortCode;
+
+        // Display URL without protocol (cleaner look)
+        $displayUrl = 'npgo.to/' . $shortCode;
 
         return Inertia::render('Result', [
             'shortUrl' => $shortUrl,
+            'displayUrl' => $displayUrl,
             'originalUrl' => $url->original_url,
         ]);
     }
