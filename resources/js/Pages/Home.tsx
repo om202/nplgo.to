@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Zap, Shield, Globe, ArrowRight } from 'lucide-react';
+import { ArrowRight, QrCode, LayoutDashboard, UserCheck } from 'lucide-react';
 
 export default function Home() {
     const inputRef = useRef<HTMLInputElement>(null);
@@ -53,7 +53,7 @@ export default function Home() {
                     {/* URL Shortener Form */}
                     <Card className="max-w-xl mx-auto bg-muted/50 mt-10">
                         <CardHeader className="pb-0">
-                            <CardTitle className="text-base font-medium">Paste URL to make it small</CardTitle>
+                            <CardTitle className="text-base font-medium">Paste URL to make it short</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <form onSubmit={handleSubmit} className="flex gap-2">
@@ -89,25 +89,30 @@ export default function Home() {
                 {/* Features Section */}
                 <section className="space-y-8">
                     <div className="text-center">
-                        <h2 className="text-2xl font-semibold">Why npgo.to?</h2>
-                        <p className="text-muted-foreground">Simple, fast, and built for everyone.</p>
+                        <h2 className="text-2xl font-semibold mb-4">Why npgo.to?</h2>
+                        <p className="text-muted-foreground">Fast, secure, and feature-rich URL management.</p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-6">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <FeatureCard
-                            icon={<Zap className="h-6 w-6" />}
-                            title="Lightning Fast"
-                            description="Create short URLs in milliseconds. No sign-up required."
+                            icon={<ArrowRight className="h-6 w-6 -rotate-45" />}
+                            title="URL Shortener"
+                            description="Transform long URLs into short, memorable links that are easy to share and track across all platforms."
                         />
                         <FeatureCard
-                            icon={<Shield className="h-6 w-6" />}
-                            title="Reliable"
-                            description="Your links work forever. 99.9% uptime guaranteed."
+                            icon={<UserCheck className="h-6 w-6" />}
+                            title="Google Sign-In"
+                            description="Secure authentication with your Google account to keep all your shortened links organized in one dashboard."
                         />
                         <FeatureCard
-                            icon={<Globe className="h-6 w-6" />}
-                            title="Global Reach"
-                            description="Short domain that works everywhere in the world."
+                            icon={<LayoutDashboard className="h-6 w-6" />}
+                            title="Admin Dashboard"
+                            description="Comprehensive URL management interface with real-time stats, quick search, and powerful one-click actions for efficiency."
+                        />
+                        <FeatureCard
+                            icon={<QrCode className="h-6 w-6" />}
+                            title="QR Code Generation"
+                            description="Generate instant QR codes for every shortened link to enable seamless offline sharing across print and digital media."
                         />
                     </div>
                 </section>
@@ -131,7 +136,16 @@ export default function Home() {
                             NobleStack
                         </a>
                     </div>
-                    <p>© 2026 npgo.to — All rights reserved</p>
+                    <div className="flex items-center justify-center gap-4">
+                        <a href="/privacy" className="hover:text-foreground transition-colors">
+                            Privacy Policy
+                        </a>
+                        <span>•</span>
+                        <a href="/terms" className="hover:text-foreground transition-colors">
+                            Terms of Service
+                        </a>
+                    </div>
+                    <p>© 2026 npgo.to • All rights reserved</p>
                 </footer>
             </div>
         </Layout>

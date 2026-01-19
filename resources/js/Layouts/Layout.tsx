@@ -45,7 +45,7 @@ export default function Layout({ children, title }: LayoutProps) {
             </Head>
 
             {/* Header */}
-            <header className="fixed top-0 left-0 right-0 z-50 border-b bg-background/80 backdrop-blur-sm">
+            <header className="fixed top-0 left-0 right-0 z-50 border-b bg-background/80">
                 <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
                     <a href="/" className="flex items-center gap-2 text-2xl font-bold text-primary">
                         <Link2 className="h-6 w-6" />

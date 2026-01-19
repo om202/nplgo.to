@@ -29,8 +29,8 @@ export function GoogleSignInButton({ className }: GoogleSignInButtonProps) {
     return (
         <Button
             variant="outline"
-            size="sm"
-            className={className}
+            size="default"
+            className={`px-6 py-5 ${className}`}
             asChild
         >
             <a href="/auth/google">

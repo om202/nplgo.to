@@ -19,6 +19,10 @@ Route::get('/auth/google', [GoogleAuthController::class, 'redirect'])->name('aut
 Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback']);
 Route::post('/logout', [GoogleAuthController::class, 'logout'])->name('logout');
 
+// Legal Pages
+Route::get('/privacy', fn() => inertia('PrivacyPolicy'))->name('privacy');
+Route::get('/terms', fn() => inertia('TermsOfService'))->name('terms');
+
 // Admin (auth required)
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
