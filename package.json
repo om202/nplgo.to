@@ -4,7 +4,6 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "build:ssr": "echo 'SSR not configured'",
         "dev": "vite"
     },
     "devDependencies": {
