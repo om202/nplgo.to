@@ -29,7 +29,7 @@ export default function Features() {
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 -z-10">
                     <img
-                        src="/hero.jpg"
+                        src="/hero.web"
                         alt="Nepal"
                         className="w-full h-full object-cover"
                     />

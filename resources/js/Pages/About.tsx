@@ -13,7 +13,7 @@ export default function About() {
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 -z-10">
                     <img
-                        src="/hero.jpg"
+                        src="/hero.web"
                         alt="Nepal"
                         className="w-full h-full object-cover"
                     />
@@ -101,7 +101,7 @@ export default function About() {
                     <div className="flex flex-col md:flex-row items-center gap-8">
                         <div className="flex-shrink-0">
                             <img
-                                src="/images/noblestack-logo.png"
+                                src="/images/noblestack-logo.webp"
                                 alt="Noble Stack Logo"
                                 className="h-24 w-24"
                             />

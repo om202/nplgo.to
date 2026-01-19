@@ -54,7 +54,7 @@ export function Footer() {
                                 className="flex items-center gap-2 text-base text-muted-foreground hover:text-foreground transition-colors"
                             >
                                 <img
-                                    src="/images/noblestack-logo.png"
+                                    src="/images/noblestack-logo.webp"
                                     alt="Noble Stack"
                                     className="h-4 w-4"
                                 />

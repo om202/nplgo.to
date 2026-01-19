@@ -66,7 +66,7 @@ export default function Layout({ title, children }: LayoutProps) {
                 <meta property="og:url" content="https://npgo.to/" />
                 <meta property="og:title" content="Free URL Shortner for Nepal | Free QR Code Generator | npgo.to by Noble Stack" />
                 <meta property="og:description" content="Nepal's best free URL shortner and QR code generator by Noble Stack. Create short links and QR codes instantly. No signup required." />
-                <meta property="og:image" content="https://npgo.to/main.png" />
+                <meta property="og:image" content="https://npgo.to/main.webp" />
                 <meta property="og:locale" content="en_NP" />
                 <meta property="og:site_name" content="npgo.to - A Noble Stack Product" />
 
@@ -75,7 +75,7 @@ export default function Layout({ title, children }: LayoutProps) {
                 <meta property="twitter:url" content="https://npgo.to/" />
                 <meta property="twitter:title" content="Free URL Shortner for Nepal | Free QR Code Generator | npgo.to by Noble Stack" />
                 <meta property="twitter:description" content="Nepal's best free URL shortner and QR code generator by Noble Stack. Create short links and QR codes instantly." />
-                <meta property="twitter:image" content="https://npgo.to/main.png" />
+                <meta property="twitter:image" content="https://npgo.to/main.webp" />
 
                 {/* Additional Meta Tags */}
                 <meta name="theme-color" content="#DC143C" />
@@ -94,7 +94,7 @@ export default function Layout({ title, children }: LayoutProps) {
                         "name": "Noble Stack",
                         "alternateName": "NobleStack",
                         "url": "https://www.noblestack.io",
-                        "logo": "https://npgo.to/images/noblestack-logo.png",
+                        "logo": "https://npgo.to/images/noblestack-logo.webp",
                         "description": "Noble Stack is a technology company based in Nepal, building digital products and services for the Nepali market.",
                         "foundingLocation": {
                             "@type": "Place",

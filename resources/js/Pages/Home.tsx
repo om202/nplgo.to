@@ -43,7 +43,7 @@ export default function Home() {
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 -z-10">
                     <img
-                        src="/hero.jpg"
+                        src="/hero.web"
                         alt="Hero background"
                         className="w-full h-full object-cover"
                     />
@@ -60,7 +60,7 @@ export default function Home() {
                         className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                     >
                         <img
-                            src="/images/noblestack-logo.png"
+                            src="/images/noblestack-logo.webp"
                             alt="NobleStack"
                             className="h-8 w-8"
                         />
