@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { Link2, QrCode, LayoutDashboard, Globe, Users, Zap, Heart, ArrowRight } from 'lucide-react';
+import { Footer } from '@/components/Footer';
 
 export default function About() {
     return (
@@ -200,6 +201,8 @@ export default function About() {
                     </a>
                 </section>
             </div>
+
+            <Footer />
         </Layout>
     );
 }

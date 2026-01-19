@@ -2,6 +2,7 @@ import Layout from '@/Layouts/Layout';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
+import { Footer } from '@/components/Footer';
 import {
     Link2,
     QrCode,
@@ -344,6 +345,8 @@ export default function Features() {
                     </a>
                 </section>
             </div>
+
+            <Footer />
         </Layout>
     );
 }

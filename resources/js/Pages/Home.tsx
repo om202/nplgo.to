@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { ArrowRight, QrCode, LayoutDashboard, UserCheck, Share2, Mail, Printer, MessageSquare } from 'lucide-react';
 import { GoogleSignInButton } from '@/components/GoogleSignInButton';
+import { Footer } from '@/components/Footer';
 import {
     Accordion,
     AccordionContent,
@@ -334,44 +335,7 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* Footer */}
-                <footer className="text-center text-sm text-muted-foreground pt-8 pb-24 space-y-4">
-                    <Separator />
-                    <div className="flex items-center justify-center gap-2">
-                        <span>Built by</span>
-                        <a
-                            href="https://www.noblestack.io/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 font-medium text-foreground hover:text-primary transition-colors"
-                        >
-                            <img
-                                src="/images/noblestack-logo.png"
-                                alt="NobleStack"
-                                className="h-5 w-5"
-                            />
-                            Noble Stack
-                        </a>
-                    </div>
-                    <div className="flex flex-wrap items-center justify-center gap-4">
-                        <a href="/about" className="hover:text-foreground transition-colors">
-                            About
-                        </a>
-                        <span>•</span>
-                        <a href="/features" className="hover:text-foreground transition-colors">
-                            Features
-                        </a>
-                        <span>•</span>
-                        <a href="/privacy" className="hover:text-foreground transition-colors">
-                            Privacy Policy
-                        </a>
-                        <span>•</span>
-                        <a href="/terms" className="hover:text-foreground transition-colors">
-                            Terms of Service
-                        </a>
-                    </div>
-                    <p>© 2026 npgo.to by Noble Stack • All rights reserved</p>
-                </footer>
+                <Footer />
             </div>
 
             {/* Fixed Bottom Login Banner */}
