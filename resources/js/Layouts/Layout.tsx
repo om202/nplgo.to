@@ -73,6 +73,40 @@ export default function Layout({ children, title }: LayoutProps) {
                 <meta name="theme-color" content="#DC143C" />
                 <link rel="canonical" href="https://npgo.to/" />
 
+                {/* Hreflang - Geographic Targeting */}
+                <link rel="alternate" hrefLang="en" href="https://npgo.to/" />
+                <link rel="alternate" hrefLang="en-NP" href="https://npgo.to/" />
+                <link rel="alternate" hrefLang="x-default" href="https://npgo.to/" />
+
+                {/* Organization Schema for Noble Stack */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Organization",
+                        "name": "Noble Stack",
+                        "alternateName": "NobleStack",
+                        "url": "https://www.noblestack.io",
+                        "logo": "https://npgo.to/images/noblestack-logo.png",
+                        "description": "Noble Stack is a technology company based in Nepal, building digital products and services for the Nepali market.",
+                        "foundingLocation": {
+                            "@type": "Place",
+                            "name": "Nepal"
+                        },
+                        "areaServed": {
+                            "@type": "Country",
+                            "name": "Nepal"
+                        },
+                        "sameAs": [
+                            "https://www.noblestack.io"
+                        ],
+                        "owns": {
+                            "@type": "WebApplication",
+                            "name": "npgo.to",
+                            "url": "https://npgo.to"
+                        }
+                    })}
+                </script>
+
                 {/* Schema.org Structured Data */}
                 <script type="application/ld+json">
                     {JSON.stringify({

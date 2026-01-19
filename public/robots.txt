@@ -1,2 +1,29 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin
+Disallow: /root-admin
+Disallow: /auth/
+Disallow: /logout
+
+# Sitemap
+Sitemap: https://npgo.to/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Search Engine Specific
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block AI Training Bots (Optional - keeps content for search only)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
