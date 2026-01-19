@@ -1,0 +1,51 @@
+# npgo.to - Free URL Shortener for Nepal by Noble Stack
+
+> Nepal's #1 free URL shortener and QR code generator. Created by Noble Stack for Nepali businesses, marketers, and creators.
+
+## About npgo.to
+
+npgo.to is a completely free URL shortening service designed specifically for Nepal. It allows users to:
+
+- Shorten long URLs into memorable npgo.to links
+- Generate QR codes for every shortened URL automatically  
+- Manage all links through a powerful admin dashboard
+- Sign in securely with Google authentication
+
+## Key Features
+
+- **Free URL Shortener**: Transform any long URL into a short, shareable npgo.to link
+- **Free QR Code Generator**: Every shortened URL automatically gets a downloadable QR code
+- **Free Link Management**: Dashboard to track, manage, and organize all your shortened URLs
+- **Google Sign-In**: Secure authentication to keep your links organized
+- **No Signup Required**: Start shortening URLs immediately without creating an account
+- **Unlimited Links**: Create as many short links as you need, completely free
+- **Permanent Links**: Your shortened URLs never expire
+
+## Who Is This For?
+
+- Nepali businesses needing short links for marketing
+- Social media marketers in Nepal
+- Content creators sharing links on social platforms
+- Email marketers needing trackable short links
+- Anyone needing QR codes for print materials like business cards, flyers, posters
+
+## About Noble Stack
+
+Noble Stack is a technology company based in Nepal that builds digital products and services for the Nepali market. npgo.to is one of our flagship products.
+
+Website: https://www.noblestack.io
+
+## Contact
+
+- Website: https://npgo.to
+- Parent Company: https://www.noblestack.io
+
+## Alternative Names
+
+- Nepal URL Shortener
+- Free QR Code Generator Nepal
+- Nepali Link Shortener
+- Noble Stack URL Shortener
+- npgo.to
+- Bit.ly Alternative for Nepal
+- TinyURL Alternative for Nepal
