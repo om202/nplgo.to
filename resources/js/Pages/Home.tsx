@@ -42,8 +42,10 @@ export default function Home() {
                         <span>A NobleStack Product</span>
                     </a>
 
-                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                        Nepali URL Shortner
+                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight flex items-center justify-center gap-2">
+                        Nepali
+                        <img src="/images/nepal-flag.png" alt="Nepal Flag" className="h-9 w-auto" />
+                        URL Shortner
                     </h1>
 
                     <p className="text-muted-foreground text-lg max-w-xl mx-auto tracking-tight">
@@ -77,7 +79,7 @@ export default function Home() {
                                     className="h-12 px-6"
                                 >
                                     {processing ? 'Wait...' : 'Shorten'}
-                                    <ArrowRight className="ml-2 h-4 w-4" />
+                                    <ArrowRight className="ml-0.5 h-6 w-6" />
                                 </Button>
                             </form>
                         </CardContent>
