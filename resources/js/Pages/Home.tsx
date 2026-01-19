@@ -24,7 +24,7 @@ export default function Home() {
 
     return (
         <Layout title="Home">
-            <div className="w-full max-w-4xl mx-auto space-y-16">
+            <div className="w-full max-w-5xl mx-auto space-y-16">
                 {/* Hero Section */}
                 <section className="text-center space-y-6 pt-12">
                     {/* NobleStack Branding */}

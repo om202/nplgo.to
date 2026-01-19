@@ -36,6 +36,11 @@ class GoogleAuthController extends Controller
 
             Auth::login($user, remember: true);
 
+            // Check if there's a pending URL to process
+            if (session('pending_url')) {
+                return redirect()->route('urls.process-pending');
+            }
+
             return redirect()->route('admin');
         } catch (\Exception $e) {
             return redirect()->route('home')->with('error', 'Unable to login with Google. Please try again.');

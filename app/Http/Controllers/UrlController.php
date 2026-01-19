@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ShortenUrlRequest;
 use App\Services\UrlShortenerService;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -16,29 +18,70 @@ class UrlController extends Controller
 
     /**
      * Show the homepage with URL input form.
+     * Redirect authenticated users to admin.
      */
-    public function create(): Response
+    public function create(): Response|RedirectResponse
     {
+        if (Auth::check()) {
+            return redirect()->route('admin');
+        }
+
         return Inertia::render('Home');
     }
 
     /**
      * Process the URL shortening request.
+     * If not authenticated, store URL in session and redirect to login.
      */
-    public function store(ShortenUrlRequest $request): Response
+    public function store(ShortenUrlRequest $request): Response|RedirectResponse
     {
-        $url = $this->urlShortener->shorten($request->validated('url'));
+        $validatedUrl = $request->validated('url');
 
-        $shortCode = $url->short_code;
-        $shortUrl = config('app.url') . '/' . $shortCode;
+        // If not logged in, store pending URL and redirect to Google login
+        if (!Auth::check()) {
+            session(['pending_url' => $validatedUrl]);
+            return redirect()->route('auth.google');
+        }
 
-        // Display URL without protocol (cleaner look)
-        $displayUrl = 'npgo.to/' . $shortCode;
+        // User is authenticated - shorten the URL
+        return $this->shortenAndRedirect($validatedUrl);
+    }
 
-        return Inertia::render('Result', [
-            'shortUrl' => $shortUrl,
-            'displayUrl' => $displayUrl,
-            'originalUrl' => $url->original_url,
+    /**
+     * Process a pending URL after login.
+     */
+    public function processPending(): RedirectResponse
+    {
+        $pendingUrl = session('pending_url');
+
+        if ($pendingUrl && Auth::check()) {
+            session()->forget('pending_url');
+
+            $url = $this->urlShortener->shorten($pendingUrl, Auth::id());
+
+            // Redirect to admin with success flash
+            return redirect()->route('admin')->with('new_url', [
+                'short_code' => $url->short_code,
+                'display_url' => 'npgo.to/' . $url->short_code,
+                'original_url' => $url->original_url,
+            ]);
+        }
+
+        return redirect()->route('admin');
+    }
+
+    /**
+     * Shorten URL and redirect to result.
+     */
+    private function shortenAndRedirect(string $originalUrl): RedirectResponse
+    {
+        $url = $this->urlShortener->shorten($originalUrl, Auth::id());
+
+        return redirect()->route('admin')->with('new_url', [
+            'short_code' => $url->short_code,
+            'display_url' => 'npgo.to/' . $url->short_code,
+            'original_url' => $url->original_url,
         ]);
     }
 }
+

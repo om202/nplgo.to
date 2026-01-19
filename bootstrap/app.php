@@ -14,7 +14,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             \App\Http\Middleware\HandleInertiaRequests::class,
         ]);
+
+        // Redirect guests to Google OAuth instead of login page
+        $middleware->redirectGuestsTo('/auth/google');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();
+

@@ -25,10 +25,13 @@ class UrlShortenerService
     /**
      * Shorten a URL and return the Url model.
      */
-    public function shorten(string $originalUrl): Url
+    public function shorten(string $originalUrl, int $userId): Url
     {
-        // Check if URL already exists
-        $existing = Url::where('original_url', $originalUrl)->first();
+        // Check if this user already shortened this URL
+        $existing = Url::where('original_url', $originalUrl)
+            ->where('user_id', $userId)
+            ->first();
+
         if ($existing) {
             return $existing;
         }
@@ -39,6 +42,7 @@ class UrlShortenerService
         return Url::create([
             'short_code' => $shortCode,
             'original_url' => $originalUrl,
+            'user_id' => $userId,
         ]);
     }
 
