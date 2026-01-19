@@ -46,12 +46,12 @@ export default function Home() {
                         Nepali URL Shortner
                     </h1>
 
-                    <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+                    <p className="text-muted-foreground text-lg max-w-xl mx-auto tracking-tight">
                         Free, fast, and reliable URL shortener made for Nepal
                     </p>
 
                     {/* URL Shortener Form */}
-                    <Card className="max-w-xl mx-auto bg-muted/50">
+                    <Card className="max-w-xl mx-auto bg-muted/50 mt-10">
                         <CardHeader className="pb-0">
                             <CardTitle className="text-base font-medium">Paste URL to make it small</CardTitle>
                         </CardHeader>
