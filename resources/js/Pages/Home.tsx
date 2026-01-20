@@ -39,9 +39,9 @@ export default function Home() {
     return (
         <Layout>
             {/* Hero Section - Full Width Background */}
-            <section className="relative text-center space-y-4 sm:space-y-6 pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 md:pb-24 -mx-3 sm:-mx-4 -mt-16 sm:-mt-20">
+            <section className="relative text-center space-y-4 sm:space-y-6 -mt-20 pt-24 sm:pt-32 pb-16 sm:pb-20 md:pb-24">
                 {/* Background Image with Overlay */}
-                <div className="absolute inset-0 -z-10">
+                <div className="absolute inset-0 -z-10 left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
                     <img
                         src="/hero.webp"
                         alt="Hero background"
@@ -93,7 +93,7 @@ export default function Home() {
                                         type="text"
                                         value={data.url}
                                         onChange={e => setData('url', e.target.value)}
-                                        placeholder="https://example.com.np/your-long-url/"
+                                        placeholder="example.com/your-long-url/"
                                         className={`h-12 md:h-14 bg-background text-base md:text-lg ${errors.url ? 'border-destructive' : ''}`}
                                     />
                                     {errors.url && (

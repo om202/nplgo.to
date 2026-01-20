@@ -15,6 +15,19 @@ class ShortenUrlRequest extends FormRequest
     }
 
     /**
+     * Prepare the data for validation.
+     * Add https:// if no protocol is present.
+     */
+    protected function prepareForValidation(): void
+    {
+        $url = $this->input('url');
+
+        if ($url && !preg_match('/^https?:\/\//i', trim($url))) {
+            $this->merge(['url' => 'https://' . trim($url)]);
+        }
+    }
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>

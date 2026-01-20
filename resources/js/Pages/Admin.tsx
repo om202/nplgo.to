@@ -291,21 +291,21 @@ export default function Admin() {
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <form onSubmit={handleSubmit} className="flex gap-3">
+                        <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-3">
                             <div className="flex-1">
                                 <Input
                                     ref={inputRef}
                                     type="text"
                                     value={data.url}
                                     onChange={e => setData('url', e.target.value)}
-                                    placeholder="https://example.com/your-long-url/"
+                                    placeholder="example.com/your-long-url/"
                                     className={`h-11 ${errors.url ? 'border-destructive' : ''}`}
                                 />
                                 {errors.url && (
                                     <p className="text-sm text-destructive mt-1">{errors.url}</p>
                                 )}
                             </div>
-                            <Button type="submit" disabled={processing} size="lg" className="h-11">
+                            <Button type="submit" disabled={processing} size="lg" className="h-11 w-full md:w-auto">
                                 {processing ? 'Creating...' : 'Shorten'}
                             </Button>
                         </form>
