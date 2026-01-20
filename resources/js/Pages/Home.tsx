@@ -342,16 +342,16 @@ export default function Home() {
             {/* Fixed Bottom Login Banner */}
             <div className="fixed bottom-0 left-0 right-0 z-40 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 shadow-lg">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-4">
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                        <div className="text-center sm:text-left">
-                            <h3 className="text-base sm:text-lg font-semibold mb-1">
-                                Sign in to access your dashboard
+                    <div className="flex flex-col gap-2">
+                        <div className="flex items-center justify-between gap-4">
+                            <h3 className="text-base sm:text-lg font-semibold">
+                                Sign in to continue
                             </h3>
-                            <p className="text-sm text-muted-foreground">
-                                Track, manage, and organize all your shortened URLs in one place
-                            </p>
+                            <GoogleSignInButton />
                         </div>
-                        <GoogleSignInButton />
+                        <p className="text-sm text-muted-foreground hidden sm:block">
+                            Track, manage, and organize all your shortened URLs in one place
+                        </p>
                     </div>
                 </div>
             </div>
