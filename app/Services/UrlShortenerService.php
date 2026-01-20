@@ -27,8 +27,11 @@ class UrlShortenerService
      */
     public function shorten(string $originalUrl, int $userId): Url
     {
-        // Check if this user already shortened this URL
-        $existing = Url::where('original_url', $originalUrl)
+        // Generate hash for duplicate checking
+        $urlHash = hash('sha256', $originalUrl);
+
+        // Check if this user already shortened this URL (using indexed hash)
+        $existing = Url::where('url_hash', $urlHash)
             ->where('user_id', $userId)
             ->first();
 

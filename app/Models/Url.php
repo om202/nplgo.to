@@ -18,8 +18,23 @@ class Url extends Model
     protected $fillable = [
         'short_code',
         'original_url',
+        'url_hash',
         'user_id',
     ];
+
+    /**
+     * Boot the model and add event listeners.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($url) {
+            if ($url->original_url && !$url->url_hash) {
+                $url->url_hash = hash('sha256', $url->original_url);
+            }
+        });
+    }
 
     /**
      * Get the user that owns this URL.

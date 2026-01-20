@@ -16,15 +16,32 @@ class ShortenUrlRequest extends FormRequest
 
     /**
      * Prepare the data for validation.
-     * Add https:// if no protocol is present.
+     * Normalize URL: add https://, convert to lowercase, remove trailing slashes.
      */
     protected function prepareForValidation(): void
     {
         $url = $this->input('url');
 
-        if ($url && !preg_match('/^https?:\/\//i', trim($url))) {
-            $this->merge(['url' => 'https://' . trim($url)]);
+        if (!$url) {
+            return;
         }
+
+        $url = trim($url);
+
+        // Add https:// if no protocol is present
+        if (!preg_match('/^https?:\/\//i', $url)) {
+            $url = 'https://' . $url;
+        }
+
+        // Convert to lowercase for consistency
+        $url = strtolower($url);
+
+        // Remove trailing slash (but keep if it's just the domain)
+        if (preg_match('/^https?:\/\/[^\/]+\/.+\/$/', $url)) {
+            $url = rtrim($url, '/');
+        }
+
+        $this->merge(['url' => $url]);
     }
 
     /**

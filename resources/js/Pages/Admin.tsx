@@ -79,6 +79,8 @@ export default function Admin() {
     const [copiedId, setCopiedId] = useState<number | null>(null);
     const [newUrlCopied, setNewUrlCopied] = useState(false);
     const [successDialogOpen, setSuccessDialogOpen] = useState(false);
+    const [downloadingQR, setDownloadingQR] = useState<number | null>(null);
+    const [downloadingNewQR, setDownloadingNewQR] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
 
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -128,9 +130,15 @@ export default function Admin() {
         });
     }
 
-    function downloadQR(shortCode: string) {
+    function downloadQR(shortCode: string, id: number) {
+        if (downloadingQR) return; // Prevent multiple downloads
+
+        setDownloadingQR(id);
         const svg = document.getElementById(`qr-${shortCode}`);
-        if (!svg) return;
+        if (!svg) {
+            setDownloadingQR(null);
+            return;
+        }
 
         const svgData = new XMLSerializer().serializeToString(svg);
         const canvas = document.createElement('canvas');
@@ -148,14 +156,25 @@ export default function Admin() {
             link.download = `qr-${shortCode}.png`;
             link.href = canvas.toDataURL('image/png');
             link.click();
+            setDownloadingQR(null);
+        };
+
+        img.onerror = () => {
+            setDownloadingQR(null);
         };
 
         img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
     }
 
     function downloadNewQR() {
+        if (downloadingNewQR) return; // Prevent multiple downloads
+
+        setDownloadingNewQR(true);
         const svg = document.getElementById('qr-new-url');
-        if (!svg) return;
+        if (!svg) {
+            setDownloadingNewQR(false);
+            return;
+        }
 
         const svgData = new XMLSerializer().serializeToString(svg);
         const canvas = document.createElement('canvas');
@@ -173,6 +192,11 @@ export default function Admin() {
             link.download = `qr-${flash?.new_url?.short_code || 'new'}.png`;
             link.href = canvas.toDataURL('image/png');
             link.click();
+            setDownloadingNewQR(false);
+        };
+
+        img.onerror = () => {
+            setDownloadingNewQR(false);
         };
 
         img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
@@ -265,10 +289,11 @@ export default function Admin() {
                                         variant="secondary"
                                         size="sm"
                                         onClick={downloadNewQR}
+                                        disabled={downloadingNewQR}
                                         className="w-full gap-2"
                                     >
                                         <Download className="h-4 w-4" />
-                                        Download QR
+                                        {downloadingNewQR ? 'Downloading...' : 'Download QR'}
                                     </Button>
                                 </div>
                             </div>
@@ -414,7 +439,8 @@ export default function Admin() {
                                                                     Scan this code to visit your shortened URL
                                                                 </p>
                                                                 <Button
-                                                                    onClick={() => downloadQR(url.short_code)}
+                                                                    onClick={() => downloadQR(url.short_code, url.id)}
+                                                                    disabled={downloadingQR === url.id}
                                                                     className="gap-2"
                                                                 >
                                                                     <Download className="h-4 w-4" />
