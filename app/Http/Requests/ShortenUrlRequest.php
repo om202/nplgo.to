@@ -63,6 +63,20 @@ class ShortenUrlRequest extends FormRequest
                     // Check if the URL is from npgo.to domain
                     if (str_contains($host, 'npgo.to')) {
                         $fail('This URL is already shortened. You cannot shorten npgo.to links.');
+                        return;
+                    }
+
+                    // Require at least one dot in the domain (TLD required)
+                    // e.g., "bing" is invalid, "bing.com" is valid
+                    if (!str_contains($host, '.')) {
+                        $fail('Please enter a valid domain (e.g., example.com).');
+                        return;
+                    }
+
+                    // Ensure domain has at least 2 parts (domain + TLD)
+                    $parts = explode('.', $host);
+                    if (count($parts) < 2 || strlen($parts[count($parts) - 1]) < 2) {
+                        $fail('Please enter a valid domain with a proper extension (e.g., .com, .org).');
                     }
                 },
             ],
