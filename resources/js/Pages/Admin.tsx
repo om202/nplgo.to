@@ -138,8 +138,11 @@ export default function Admin() {
         const img = new Image();
 
         img.onload = () => {
-            canvas.width = img.width;
-            canvas.height = img.height;
+            // High resolution for printing: 2000x2000 pixels
+            const scale = 2000 / img.width;
+            canvas.width = 2000;
+            canvas.height = 2000;
+            ctx?.scale(scale, scale);
             ctx?.drawImage(img, 0, 0);
             const link = document.createElement('a');
             link.download = `qr-${shortCode}.png`;
@@ -160,8 +163,11 @@ export default function Admin() {
         const img = new Image();
 
         img.onload = () => {
-            canvas.width = img.width;
-            canvas.height = img.height;
+            // High resolution for printing: 2000x2000 pixels
+            const scale = 2000 / img.width;
+            canvas.width = 2000;
+            canvas.height = 2000;
+            ctx?.scale(scale, scale);
             ctx?.drawImage(img, 0, 0);
             const link = document.createElement('a');
             link.download = `qr-${flash?.new_url?.short_code || 'new'}.png`;
@@ -247,6 +253,12 @@ export default function Admin() {
                                             value={flash.new_url.display_url}
                                             size={140}
                                             level="H"
+                                            imageSettings={{
+                                                src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 70 14'%3E%3Crect width='70' height='14' fill='white' rx='2'/%3E%3Ctext x='35' y='11' font-family='Arial, sans-serif' font-size='10' font-weight='bold' fill='%23DC143C' text-anchor='middle'%3Ewww.npgo.to%3C/text%3E%3C/svg%3E",
+                                                height: 14,
+                                                width: 70,
+                                                excavate: true,
+                                            }}
                                         />
                                     </div>
                                     <Button
@@ -390,6 +402,12 @@ export default function Admin() {
                                                                         value={url.short_url}
                                                                         size={200}
                                                                         level="H"
+                                                                        imageSettings={{
+                                                                            src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 16'%3E%3Crect width='80' height='16' fill='white' rx='2'/%3E%3Ctext x='40' y='12.5' font-family='Arial, sans-serif' font-size='12' font-weight='bold' fill='%23DC143C' text-anchor='middle'%3Ewww.npgo.to%3C/text%3E%3C/svg%3E",
+                                                                            height: 16,
+                                                                            width: 80,
+                                                                            excavate: true,
+                                                                        }}
                                                                     />
                                                                 </div>
                                                                 <p className="text-sm text-muted-foreground text-center">
