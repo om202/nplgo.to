@@ -35,7 +35,7 @@ import {
     DialogTrigger,
 } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { Link2, Copy, Trash2, Check, ExternalLink, Plus, QrCode, Download } from 'lucide-react';
+import { Link2, Copy, Trash2, Check, ExternalLink, Plus, QrCode, Download, Scissors } from 'lucide-react';
 
 interface UrlItem {
     id: number;
@@ -330,7 +330,8 @@ export default function Admin() {
                                     <p className="text-sm text-destructive mt-1">{errors.url}</p>
                                 )}
                             </div>
-                            <Button type="submit" disabled={processing} size="lg" className="h-11 w-full md:w-auto">
+                            <Button type="submit" disabled={processing} size="lg" className="h-11 w-full md:w-auto gap-2">
+                                <Scissors className="h-4 w-4" />
                                 {processing ? 'Creating...' : 'Shorten'}
                             </Button>
                         </form>

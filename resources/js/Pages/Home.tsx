@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { ArrowRight, QrCode, LayoutDashboard, UserCheck, Share2, Mail, Printer, MessageSquare } from 'lucide-react';
+import { ArrowRight, QrCode, LayoutDashboard, UserCheck, Share2, Mail, Printer, MessageSquare, Scissors } from 'lucide-react';
 import { GoogleSignInButton } from '@/components/GoogleSignInButton';
 import { Footer } from '@/components/Footer';
 import {
@@ -106,6 +106,7 @@ export default function Home() {
                                     size="lg"
                                     className="h-12 md:h-14 px-6 w-full sm:w-auto text-base md:text-lg"
                                 >
+                                    <Scissors className="h-5 w-5" />
                                     {processing ? 'Wait...' : 'Shorten'}
                                 </Button>
                             </form>
