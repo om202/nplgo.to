@@ -36,9 +36,10 @@ interface AuthUser {
 interface LayoutProps {
     title?: string;
     children: ReactNode;
+    hideNavigation?: boolean;
 }
 
-export default function Layout({ title, children }: LayoutProps) {
+export default function Layout({ title, children, hideNavigation = false }: LayoutProps) {
     const { auth } = usePage<{ auth: { user: AuthUser | null } }>().props;
 
     const pageTitle = title ? `${title} | Nepal URL Shortner` : 'Free URL Shortner for Nepal | Free QR Code Generator | npgo.to';
@@ -210,99 +211,103 @@ export default function Layout({ title, children }: LayoutProps) {
                     {/* Logo and Navigation - Left Side */}
                     <div className="flex items-center gap-6">
                         {/* Mobile Menu - Hamburger */}
-                        <Sheet>
-                            <SheetTrigger asChild>
-                                <Button variant="ghost" size="icon" className="md:hidden">
-                                    <Menu className="h-5 w-5" />
-                                    <span className="sr-only">Toggle menu</span>
-                                </Button>
-                            </SheetTrigger>
-                            <SheetContent side="left" className="w-80">
-                                <SheetHeader>
-                                    <SheetTitle className="flex items-center gap-2 text-primary text-xl">
-                                        <Link2 className="h-5 w-5" />
-                                        npgo.to
-                                    </SheetTitle>
-                                    <p className="text-xs text-muted-foreground text-left">
-                                        Free URL shortener for Nepal
-                                    </p>
-                                </SheetHeader>
-
-                                <div className="flex flex-col gap-6 mt-8">
-                                    {/* Main Navigation */}
-                                    <nav className="flex flex-col gap-1">
-                                        <a
-                                            href="/about"
-                                            className="group flex items-start gap-3 rounded-lg p-3 hover:bg-accent transition-colors"
-                                        >
-                                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                                                <User className="h-5 w-5" />
-                                            </div>
-                                            <div className="flex flex-col gap-1">
-                                                <span className="font-semibold group-hover:text-primary transition-colors">
-                                                    About
-                                                </span>
-                                                <span className="text-xs text-muted-foreground">
-                                                    Learn about npgo.to and Noble Stack
-                                                </span>
-                                            </div>
-                                        </a>
-
-                                        <a
-                                            href="/features"
-                                            className="group flex items-start gap-3 rounded-lg p-3 hover:bg-accent transition-colors"
-                                        >
-                                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                                                <LayoutDashboard className="h-5 w-5" />
-                                            </div>
-                                            <div className="flex flex-col gap-1">
-                                                <span className="font-semibold group-hover:text-primary transition-colors">
-                                                    Features
-                                                </span>
-                                                <span className="text-xs text-muted-foreground">
-                                                    See all features and benefits
-                                                </span>
-                                            </div>
-                                        </a>
-                                    </nav>
-
-                                    {/* Divider */}
-                                    <div className="h-px bg-border"></div>
-
-                                    {/* Footer Links */}
-                                    <div className="flex flex-col gap-2">
-                                        <p className="text-xs font-medium text-muted-foreground px-3">Legal</p>
-                                        <a
-                                            href="/privacy"
-                                            className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                                        >
-                                            Privacy Policy
-                                        </a>
-                                        <a
-                                            href="/terms"
-                                            className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                                        >
-                                            Terms of Service
-                                        </a>
-                                    </div>
-
-                                    {/* Bottom Section */}
-                                    <div className="mt-auto pt-4 border-t">
-                                        <p className="text-xs text-muted-foreground text-center">
-                                            Built by{' '}
-                                            <a
-                                                href="https://www.noblestack.io"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="font-medium text-primary hover:underline"
-                                            >
-                                                Noble Stack
-                                            </a>
+                        {!hideNavigation && (
+                            <Sheet>
+                                <SheetTrigger asChild>
+                                    <Button variant="ghost" size="icon" className="md:hidden">
+                                        <Menu className="h-5 w-5" />
+                                        <span className="sr-only">Toggle menu</span>
+                                    </Button>
+                                </SheetTrigger>
+                                <SheetContent side="left" className="w-80">
+                                    <SheetHeader>
+                                        <SheetTitle className="flex items-center gap-2 text-primary text-xl">
+                                            <Link2 className="h-5 w-5" />
+                                            npgo.to
+                                        </SheetTitle>
+                                        <p className="text-xs text-muted-foreground text-left">
+                                            Free URL shortener for Nepal
                                         </p>
+                                    </SheetHeader>
+
+                                    <div className="flex flex-col gap-6 mt-8">
+                                        {/* Main Navigation */}
+                                        {!hideNavigation && (
+                                            <nav className="flex flex-col gap-1">
+                                                <a
+                                                    href="/about"
+                                                    className="group flex items-start gap-3 rounded-lg p-3 hover:bg-accent transition-colors"
+                                                >
+                                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                                                        <User className="h-5 w-5" />
+                                                    </div>
+                                                    <div className="flex flex-col gap-1">
+                                                        <span className="font-semibold group-hover:text-primary transition-colors">
+                                                            About
+                                                        </span>
+                                                        <span className="text-xs text-muted-foreground">
+                                                            Learn about npgo.to and Noble Stack
+                                                        </span>
+                                                    </div>
+                                                </a>
+
+                                                <a
+                                                    href="/features"
+                                                    className="group flex items-start gap-3 rounded-lg p-3 hover:bg-accent transition-colors"
+                                                >
+                                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                                                        <LayoutDashboard className="h-5 w-5" />
+                                                    </div>
+                                                    <div className="flex flex-col gap-1">
+                                                        <span className="font-semibold group-hover:text-primary transition-colors">
+                                                            Features
+                                                        </span>
+                                                        <span className="text-xs text-muted-foreground">
+                                                            See all features and benefits
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            </nav>
+                                        )}
+
+                                        {/* Divider */}
+                                        <div className="h-px bg-border"></div>
+
+                                        {/* Footer Links */}
+                                        <div className="flex flex-col gap-2">
+                                            <p className="text-xs font-medium text-muted-foreground px-3">Legal</p>
+                                            <a
+                                                href="/privacy"
+                                                className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                                            >
+                                                Privacy Policy
+                                            </a>
+                                            <a
+                                                href="/terms"
+                                                className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                                            >
+                                                Terms of Service
+                                            </a>
+                                        </div>
+
+                                        {/* Bottom Section */}
+                                        <div className="mt-auto pt-4 border-t">
+                                            <p className="text-xs text-muted-foreground text-center">
+                                                Built by{' '}
+                                                <a
+                                                    href="https://www.noblestack.io"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="font-medium text-primary hover:underline"
+                                                >
+                                                    Noble Stack
+                                                </a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </SheetContent>
-                        </Sheet>
+                                </SheetContent>
+                            </Sheet>
+                        )}
 
                         <a href="/" className="flex items-center gap-2 text-2xl font-bold text-primary">
                             <Link2 className="h-6 w-6" />
@@ -310,20 +315,22 @@ export default function Layout({ title, children }: LayoutProps) {
                         </a>
 
                         {/* Desktop Navigation Menu */}
-                        <NavigationMenu className="hidden md:block">
-                            <NavigationMenuList>
-                                <NavigationMenuItem>
-                                    <NavigationMenuLink href="/about" className={navigationMenuTriggerStyle()}>
-                                        About
-                                    </NavigationMenuLink>
-                                </NavigationMenuItem>
-                                <NavigationMenuItem>
-                                    <NavigationMenuLink href="/features" className={navigationMenuTriggerStyle()}>
-                                        Features
-                                    </NavigationMenuLink>
-                                </NavigationMenuItem>
-                            </NavigationMenuList>
-                        </NavigationMenu>
+                        {!hideNavigation && (
+                            <NavigationMenu className="hidden md:block">
+                                <NavigationMenuList>
+                                    <NavigationMenuItem>
+                                        <NavigationMenuLink href="/about" className={navigationMenuTriggerStyle()}>
+                                            About
+                                        </NavigationMenuLink>
+                                    </NavigationMenuItem>
+                                    <NavigationMenuItem>
+                                        <NavigationMenuLink href="/features" className={navigationMenuTriggerStyle()}>
+                                            Features
+                                        </NavigationMenuLink>
+                                    </NavigationMenuItem>
+                                </NavigationMenuList>
+                            </NavigationMenu>
+                        )}
                     </div>
 
                     {/* User Menu - Right Side */}

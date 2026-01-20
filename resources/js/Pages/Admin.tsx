@@ -117,7 +117,7 @@ export default function Admin() {
     }
 
     function copyNewUrl(url: string) {
-        navigator.clipboard.writeText('https://' + url);
+        navigator.clipboard.writeText(url);
         setNewUrlCopied(true);
         setTimeout(() => setNewUrlCopied(false), 2000);
     }
@@ -173,8 +173,8 @@ export default function Admin() {
     }
 
     return (
-        <Layout title="Dashboard">
-            <div className="w-full max-w-5xl mx-auto space-y-8">
+        <Layout title="Dashboard" hideNavigation={true}>
+            <div className="w-full max-w-5xl mx-auto px-4 space-y-8">
                 {/* Header */}
                 <div className="flex items-center justify-between">
                     <div>
@@ -231,7 +231,7 @@ export default function Admin() {
                                             asChild
                                             className="gap-2"
                                         >
-                                            <a href={'https://' + flash.new_url.display_url} target="_blank" rel="noopener noreferrer">
+                                            <a href={flash.new_url.display_url} target="_blank" rel="noopener noreferrer">
                                                 <ExternalLink className="h-4 w-4" />
                                                 Open
                                             </a>
@@ -244,7 +244,7 @@ export default function Admin() {
                                     <div className="bg-white p-3 rounded-lg shadow-sm">
                                         <QRCodeSVG
                                             id="qr-new-url"
-                                            value={'https://' + flash.new_url.display_url}
+                                            value={flash.new_url.display_url}
                                             size={140}
                                             level="H"
                                         />
@@ -381,7 +381,7 @@ export default function Admin() {
                                                         </DialogTrigger>
                                                         <DialogContent className="sm:max-w-md">
                                                             <DialogHeader>
-                                                                <DialogTitle>QR Code for {url.display_url}</DialogTitle>
+                                                                <DialogTitle>{url.display_url}</DialogTitle>
                                                             </DialogHeader>
                                                             <div className="flex flex-col items-center gap-4 py-4">
                                                                 <div className="bg-white p-4 rounded-lg">
