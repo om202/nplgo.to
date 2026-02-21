@@ -45,6 +45,11 @@ class AdminController extends Controller
             abort(403);
         }
 
+        // Prevent deletion of locked URLs (created via API by other Noble Stack apps)
+        if ($url->is_locked) {
+            return redirect()->route('admin')->with('error', 'This URL is locked and cannot be deleted. It was created by a Noble Stack service.');
+        }
+
         $url->delete();
 
         return redirect()->route('admin')->with('success', 'URL deleted successfully.');

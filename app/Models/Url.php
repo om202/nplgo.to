@@ -19,7 +19,12 @@ class Url extends Model
         'short_code',
         'original_url',
         'url_hash',
+        'is_locked',
         'user_id',
+    ];
+
+    protected $casts = [
+        'is_locked' => 'boolean',
     ];
 
     /**
