@@ -41,4 +41,19 @@ return [
         'redirect' => env('GOOGLE_REDIRECT_URI'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Internal API (Service-to-Service)
+    |--------------------------------------------------------------------------
+    |
+    | Used by other Noble Stack apps (e.g. Noble Appointments) to consume
+    | npgo.to as a URL shortening service via Bearer token auth.
+    |
+    */
+
+    'api' => [
+        'token' => env('API_SERVICE_TOKEN', ''),
+        'service_user_id' => env('API_SERVICE_USER_ID', 1),
+    ],
+
 ];
