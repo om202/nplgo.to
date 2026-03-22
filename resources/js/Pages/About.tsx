@@ -229,7 +229,7 @@ export default function About() {
                 <section className="text-center space-y-4 py-8">
                     <h2 className="text-2xl font-semibold">Ready to Get Started?</h2>
                     <p className="text-muted-foreground">
-                        Create short links and QR codes in seconds — completely free.
+                        Create short links and QR codes in seconds. Completely free.
                     </p>
                     <a href="/">
                         <Button size="lg" className="gap-2">

@@ -93,7 +93,7 @@ export default function Home() {
                                 "name": "How do I shorten a URL with npgo.to?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Simply paste your long URL into the input box on npgo.to and click 'Shorten'. You'll instantly get a short npgo.to link and a QR code. No signup required — it's completely free."
+                                    "text": "Simply paste your long URL into the input box on npgo.to and click 'Shorten'. You'll instantly get a short npgo.to link and a QR code. No signup required. It's completely free."
                                 }
                             }
                         ]

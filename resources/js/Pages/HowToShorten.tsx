@@ -83,7 +83,7 @@ export default function HowToShorten() {
                         How to Shorten a URL <span className="text-primary">for Free</span>
                     </h1>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto tracking-normal px-4 mt-4">
-                        A step-by-step guide to creating short links and QR codes using npgo.to — Nepal's free URL shortener by Noble Stack.
+                        A step-by-step guide to creating short links and QR codes using npgo.to, Nepal's free URL shortener by Noble Stack.
                     </p>
                 </div>
             </section>
@@ -111,7 +111,7 @@ export default function HowToShorten() {
                                     </p>
                                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                         <CheckCircle className="h-4 w-4 text-green-500" />
-                                        Works on any device — phone, tablet, or laptop
+                                        Works on any device: phone, tablet, or laptop
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@ export default function HowToShorten() {
                                         Paste Your Long URL
                                     </h3>
                                     <p className="text-muted-foreground">
-                                        Copy the long URL you want to shorten and paste it into the input box. It can be any valid URL — a website link, a Google Drive document, a YouTube video, a social media post, or any other web address.
+                                        Copy the long URL you want to shorten and paste it into the input box. It can be any valid URL: a website link, a Google Drive document, a YouTube video, a social media post, or any other web address.
                                     </p>
                                     <div className="bg-muted rounded-lg p-4 font-mono text-sm break-all">
                                         <span className="text-muted-foreground">Example:</span><br />
@@ -162,7 +162,7 @@ export default function HowToShorten() {
                                     </div>
                                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                         <CheckCircle className="h-4 w-4 text-green-500" />
-                                        Your short link never expires — use it forever
+                                        Your short link never expires. Use it forever
                                     </div>
                                 </div>
                             </div>
@@ -182,7 +182,7 @@ export default function HowToShorten() {
                                         Copy & Share (+ Free QR Code!)
                                     </h3>
                                     <p className="text-muted-foreground">
-                                        Copy your new short link with one click and share it anywhere. Every shortened link also comes with a <strong>free QR code</strong> that you can download and use for print materials — no extra tools needed.
+                                        Copy your new short link with one click and share it anywhere. Every shortened link also comes with a <strong>free QR code</strong> that you can download and use for print materials. No extra tools needed.
                                     </p>
                                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                         <QrCode className="h-4 w-4 text-primary" />
@@ -205,7 +205,7 @@ export default function HowToShorten() {
                                     Include the Full URL
                                 </h3>
                                 <p className="text-muted-foreground">
-                                    Always paste the complete URL including <code className="text-xs bg-muted px-1.5 py-0.5 rounded">https://</code>. If you forget, npgo.to will add it for you automatically — but it's best practice to include it.
+                                    Always paste the complete URL including <code className="text-xs bg-muted px-1.5 py-0.5 rounded">https://</code>. If you forget, npgo.to will add it for you automatically, but it's best practice to include it.
                                 </p>
                             </CardContent>
                         </Card>
@@ -238,7 +238,7 @@ export default function HowToShorten() {
                                     Sign In to Track Links
                                 </h3>
                                 <p className="text-muted-foreground">
-                                    Guest links work fine, but signing in with Google lets you see all your links in a dashboard — copy, manage, or delete them anytime.
+                                    Guest links work fine, but signing in with Google lets you see all your links in a dashboard. Copy, manage, or delete them anytime.
                                 </p>
                             </CardContent>
                         </Card>
@@ -260,42 +260,42 @@ export default function HowToShorten() {
                                     <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
                                     <div>
                                         <span className="font-medium">Website URLs</span>
-                                        <span className="text-muted-foreground"> — your business site, blog, portfolio</span>
+                                        <span className="text-muted-foreground"> - your business site, blog, portfolio</span>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
                                     <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
                                     <div>
                                         <span className="font-medium">Google Drive / Docs links</span>
-                                        <span className="text-muted-foreground"> — share documents with clean URLs</span>
+                                        <span className="text-muted-foreground"> - share documents with clean URLs</span>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
                                     <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
                                     <div>
                                         <span className="font-medium">YouTube videos</span>
-                                        <span className="text-muted-foreground"> — short links for sharing video content</span>
+                                        <span className="text-muted-foreground"> - short links for sharing video content</span>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
                                     <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
                                     <div>
                                         <span className="font-medium">Social media profiles</span>
-                                        <span className="text-muted-foreground"> — Facebook pages, Instagram profiles</span>
+                                        <span className="text-muted-foreground"> - Facebook pages, Instagram profiles</span>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
                                     <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
                                     <div>
                                         <span className="font-medium">Google Maps locations</span>
-                                        <span className="text-muted-foreground"> — share your shop or office location easily</span>
+                                        <span className="text-muted-foreground"> - share your shop or office location easily</span>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
                                     <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
                                     <div>
                                         <span className="font-medium">Any HTTPS URL</span>
-                                        <span className="text-muted-foreground"> — payment links, forms, surveys, and more</span>
+                                        <span className="text-muted-foreground"> - payment links, forms, surveys, and more</span>
                                     </div>
                                 </div>
                             </div>
@@ -391,7 +391,7 @@ export default function HowToShorten() {
                 <section className="text-center space-y-4 py-8">
                     <h2 className="text-2xl font-semibold">Ready to Create Your First Short Link?</h2>
                     <p className="text-muted-foreground">
-                        It takes less than 30 seconds. Paste a URL — get a short link and QR code instantly.
+                        It takes less than 30 seconds. Paste a URL, get a short link and QR code instantly.
                     </p>
                     <a href="/">
                         <Button size="lg" className="gap-2 w-full sm:w-auto">

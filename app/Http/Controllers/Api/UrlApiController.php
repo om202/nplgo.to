@@ -52,7 +52,7 @@ class UrlApiController extends Controller
 
         $url = $this->urlShortener->shorten($validated['url'], $serviceUser->id);
 
-        // Auto-lock API-created URLs — they cannot be deleted via the admin panel
+        // Auto-lock API-created URLs - they cannot be deleted via the admin panel
         if (!$url->is_locked) {
             $url->update(['is_locked' => true]);
         }

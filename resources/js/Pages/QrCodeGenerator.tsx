@@ -101,7 +101,7 @@ export default function QrCodeGenerator() {
                         <a href="/">
                             <Button size="lg" className="gap-2">
                                 <QrCode className="h-5 w-5" />
-                                Generate a QR Code — Free
+                                Generate a Free QR Code
                             </Button>
                         </a>
                     </div>
@@ -122,7 +122,7 @@ export default function QrCodeGenerator() {
                                 </div>
                                 <h3 className="font-semibold text-lg">Paste a URL</h3>
                                 <p className="text-sm text-muted-foreground">
-                                    Go to npgo.to and paste any URL — website, Google Drive, YouTube, or any web link.
+                                    Go to npgo.to and paste any URL: website, Google Drive, YouTube, or any web link.
                                 </p>
                             </CardContent>
                         </Card>
@@ -133,7 +133,7 @@ export default function QrCodeGenerator() {
                                 </div>
                                 <h3 className="font-semibold text-lg">Shorten It</h3>
                                 <p className="text-sm text-muted-foreground">
-                                    Click "Shorten" and you'll get a short npgo.to link plus a QR code — automatically.
+                                    Click "Shorten" and you'll get a short npgo.to link plus a QR code, generated automatically.
                                 </p>
                             </CardContent>
                         </Card>
@@ -175,7 +175,7 @@ export default function QrCodeGenerator() {
                                 </div>
                                 <h3 className="font-semibold text-lg">High Resolution</h3>
                                 <p className="text-muted-foreground">
-                                    Download QR codes at 2000×2000 pixels — perfect for printing on posters, banners, and large format materials without losing quality.
+                                    Download QR codes at 2000×2000 pixels, perfect for printing on posters, banners, and large format materials without losing quality.
                                 </p>
                             </CardContent>
                         </Card>
@@ -197,7 +197,7 @@ export default function QrCodeGenerator() {
                                 </div>
                                 <h3 className="font-semibold text-lg">Short Link Included</h3>
                                 <p className="text-muted-foreground">
-                                    Every QR code comes with a short npgo.to link. Use the QR code for print and the short link for digital — both point to the same destination.
+                                    Every QR code comes with a short npgo.to link. Use the QR code for print and the short link for digital. Both point to the same destination.
                                 </p>
                             </CardContent>
                         </Card>
@@ -333,7 +333,7 @@ export default function QrCodeGenerator() {
                             <CardContent className="pt-6">
                                 <h3 className="font-semibold text-lg mb-2">Do the QR codes expire?</h3>
                                 <p className="text-muted-foreground">
-                                    No. QR codes from npgo.to are static — they never expire and have unlimited scans. Once generated, your QR code will work forever.
+                                    No. QR codes from npgo.to are static. They never expire and have unlimited scans. Once generated, your QR code will work forever.
                                 </p>
                             </CardContent>
                         </Card>
@@ -357,7 +357,7 @@ export default function QrCodeGenerator() {
                             <CardContent className="pt-6">
                                 <h3 className="font-semibold text-lg mb-2">How is npgo.to different from QRCode Monkey or other generators?</h3>
                                 <p className="text-muted-foreground">
-                                    npgo.to combines URL shortening and QR code generation in one step. You get both a short link and a QR code for every URL. Other generators create QR codes only — npgo.to gives you a shortened link you can share digitally too. Plus, it's made in Nepal by <a href="https://www.noblestack.io" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Noble Stack</a>.
+                                    npgo.to combines URL shortening and QR code generation in one step. You get both a short link and a QR code for every URL. Other generators create QR codes only, but npgo.to gives you a shortened link you can share digitally too. Plus, it's made in Nepal by <a href="https://www.noblestack.io" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Noble Stack</a>.
                                 </p>
                             </CardContent>
                         </Card>
