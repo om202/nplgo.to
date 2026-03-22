@@ -11,10 +11,6 @@ import {
     QrCode,
     ArrowRight,
     CheckCircle,
-    Smartphone,
-    Mail,
-    Printer,
-    MessageSquare,
 } from 'lucide-react';
 
 export default function HowToShorten() {
@@ -198,56 +194,51 @@ export default function HowToShorten() {
                     </Card>
                 </section>
 
-                <Separator />
-
-                {/* Use Cases Section */}
+                {/* Tips Section - Unique to this page */}
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-semibold text-center">Where to Use Your Short Links</h2>
-                    <p className="text-muted-foreground text-center max-w-2xl mx-auto">
-                        Short links from npgo.to work everywhere. Here are the most popular ways Nepali businesses and creators use them:
-                    </p>
+                    <h2 className="text-2xl font-semibold text-center">Tips for Better Short Links</h2>
                     <div className="grid md:grid-cols-2 gap-6">
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                    <Smartphone className="h-6 w-6" />
-                                </div>
-                                <h3 className="font-semibold text-lg">Social Media</h3>
+                                <h3 className="font-semibold text-lg flex items-center gap-2">
+                                    <CheckCircle className="h-5 w-5 text-green-500" />
+                                    Include the Full URL
+                                </h3>
                                 <p className="text-muted-foreground">
-                                    Short links look cleaner on Facebook, Instagram, Twitter, and TikTok. They save character space and get more clicks.
+                                    Always paste the complete URL including <code className="text-xs bg-muted px-1.5 py-0.5 rounded">https://</code>. If you forget, npgo.to will add it for you automatically — but it's best practice to include it.
                                 </p>
                             </CardContent>
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                    <MessageSquare className="h-6 w-6" />
-                                </div>
-                                <h3 className="font-semibold text-lg">SMS & Viber</h3>
+                                <h3 className="font-semibold text-lg flex items-center gap-2">
+                                    <CheckCircle className="h-5 w-5 text-green-500" />
+                                    Same URL = Same Short Link
+                                </h3>
                                 <p className="text-muted-foreground">
-                                    Long URLs break in text messages. Short links from npgo.to are perfect for SMS campaigns and Viber marketing in Nepal.
+                                    If you shorten the same URL twice, npgo.to will return the existing short link instead of creating a duplicate. No wasted links.
                                 </p>
                             </CardContent>
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                    <Mail className="h-6 w-6" />
-                                </div>
-                                <h3 className="font-semibold text-lg">Email Marketing</h3>
+                                <h3 className="font-semibold text-lg flex items-center gap-2">
+                                    <CheckCircle className="h-5 w-5 text-green-500" />
+                                    Test Before Sharing
+                                </h3>
                                 <p className="text-muted-foreground">
-                                    Use short links in your email newsletters and campaigns. They look more professional and trustworthy to recipients.
+                                    After creating a short link, click "Open" to verify it redirects correctly. This ensures your audience reaches the right destination.
                                 </p>
                             </CardContent>
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                    <Printer className="h-6 w-6" />
-                                </div>
-                                <h3 className="font-semibold text-lg">Print Materials</h3>
+                                <h3 className="font-semibold text-lg flex items-center gap-2">
+                                    <CheckCircle className="h-5 w-5 text-green-500" />
+                                    Sign In to Track Links
+                                </h3>
                                 <p className="text-muted-foreground">
-                                    Print short links and QR codes on business cards, brochures, flyers, and product packaging. Easy for customers to type or scan.
+                                    Guest links work fine, but signing in with Google lets you see all your links in a dashboard — copy, manage, or delete them anytime.
                                 </p>
                             </CardContent>
                         </Card>
@@ -256,38 +247,60 @@ export default function HowToShorten() {
 
                 <Separator />
 
-                {/* Why npgo.to Section */}
+                {/* What URLs Can You Shorten - Unique to this page */}
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-semibold text-center">Why Use npgo.to?</h2>
-                    <div className="grid md:grid-cols-3 gap-6">
-                        <div className="text-center space-y-3">
-                            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-500/10 text-green-500">
-                                <CheckCircle className="h-6 w-6" />
+                    <h2 className="text-2xl font-semibold text-center">What URLs Can You Shorten?</h2>
+                    <p className="text-muted-foreground text-center max-w-2xl mx-auto">
+                        npgo.to works with any valid web address. Here are some popular examples:
+                    </p>
+                    <Card>
+                        <CardContent className="pt-6">
+                            <div className="grid gap-4 text-sm">
+                                <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
+                                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
+                                    <div>
+                                        <span className="font-medium">Website URLs</span>
+                                        <span className="text-muted-foreground"> — your business site, blog, portfolio</span>
+                                    </div>
+                                </div>
+                                <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
+                                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
+                                    <div>
+                                        <span className="font-medium">Google Drive / Docs links</span>
+                                        <span className="text-muted-foreground"> — share documents with clean URLs</span>
+                                    </div>
+                                </div>
+                                <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
+                                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
+                                    <div>
+                                        <span className="font-medium">YouTube videos</span>
+                                        <span className="text-muted-foreground"> — short links for sharing video content</span>
+                                    </div>
+                                </div>
+                                <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
+                                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
+                                    <div>
+                                        <span className="font-medium">Social media profiles</span>
+                                        <span className="text-muted-foreground"> — Facebook pages, Instagram profiles</span>
+                                    </div>
+                                </div>
+                                <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
+                                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
+                                    <div>
+                                        <span className="font-medium">Google Maps locations</span>
+                                        <span className="text-muted-foreground"> — share your shop or office location easily</span>
+                                    </div>
+                                </div>
+                                <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
+                                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
+                                    <div>
+                                        <span className="font-medium">Any HTTPS URL</span>
+                                        <span className="text-muted-foreground"> — payment links, forms, surveys, and more</span>
+                                    </div>
+                                </div>
                             </div>
-                            <h3 className="font-semibold">100% Free</h3>
-                            <p className="text-sm text-muted-foreground">
-                                No hidden fees, no premium tiers. All features are completely free, forever.
-                            </p>
-                        </div>
-                        <div className="text-center space-y-3">
-                            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                                <QrCode className="h-6 w-6" />
-                            </div>
-                            <h3 className="font-semibold">Free QR Codes</h3>
-                            <p className="text-sm text-muted-foreground">
-                                Every link gets a free QR code. Download in high resolution for print.
-                            </p>
-                        </div>
-                        <div className="text-center space-y-3">
-                            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                                <Scissors className="h-6 w-6" />
-                            </div>
-                            <h3 className="font-semibold">No Signup Required</h3>
-                            <p className="text-sm text-muted-foreground">
-                                Start shortening URLs instantly. No account needed (optional sign-in for managing links).
-                            </p>
-                        </div>
-                    </div>
+                        </CardContent>
+                    </Card>
                 </section>
 
                 {/* CTA */}

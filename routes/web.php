@@ -28,6 +28,7 @@ Route::get('/terms', fn() => inertia('TermsOfService'))->name('terms');
 Route::get('/about', fn() => inertia('About'))->name('about');
 Route::get('/features', fn() => inertia('Features'))->name('features');
 Route::get('/how-to-shorten-url', fn() => inertia('HowToShorten'))->name('how-to-shorten');
+Route::get('/qr-code-generator', fn() => inertia('QrCodeGenerator'))->name('qr-code-generator');
 
 // Admin (auth required)
 Route::middleware('auth')->group(function () {
