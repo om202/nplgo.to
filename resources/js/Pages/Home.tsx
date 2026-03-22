@@ -145,7 +145,7 @@ export default function Home() {
                 <div className="absolute inset-0 -z-10 left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
                     <img
                         src="/hero.webp"
-                        alt="Hero background"
+                        alt="Nepal landscape - npgo.to free URL shortener and QR code generator"
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/75 to-background"></div>

@@ -66,6 +66,56 @@ export default function HowToShorten() {
                         ]
                     })}
                 </script>
+
+                {/* FAQPage Schema for visible FAQ section */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                            {
+                                "@type": "Question",
+                                "name": "Is it really free to shorten a URL on npgo.to?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Yes, 100% free. There are no premium tiers, no hidden fees, and no limits on how many URLs you can shorten. npgo.to is built by Noble Stack as a free service for Nepal."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Do short links from npgo.to expire?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "No, your short links are permanent and will work forever. Once you create a short link, it will continue redirecting to your destination URL indefinitely."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Do I need an account to shorten a URL?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "No account is required. You can start shortening URLs instantly as a guest. However, signing in with Google lets you view and manage all your links from a personal dashboard."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Can I get a QR code with my short link?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Yes! Every short link automatically generates a free high-resolution QR code (2000x2000px). Download it and use it on business cards, flyers, or posters."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "What happens if I shorten the same URL twice?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "npgo.to detects duplicate URLs and returns the existing short link instead of creating a new one. This keeps your links clean and avoids duplicates."
+                                }
+                            }
+                        ]
+                    })}
+                </script>
             </Head>
 
             {/* Hero Section */}
@@ -73,7 +123,7 @@ export default function HowToShorten() {
                 <div className="absolute inset-0 -z-10">
                     <img
                         src="/hero.webp"
-                        alt="Nepal"
+                        alt="Nepal landscape - how to shorten a URL for free"
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-linear-to-b from-background/95 via-background/90 to-background"></div>

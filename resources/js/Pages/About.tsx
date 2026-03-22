@@ -1,4 +1,5 @@
 import Layout from '@/Layouts/Layout';
+import { Head } from '@inertiajs/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
@@ -12,13 +13,51 @@ export default function About() {
             description="Learn about npgo.to, Nepal's free URL shortener and QR code generator by Noble Stack. Our mission is to empower Nepali businesses and creators with free link management tools."
             canonicalPath="/about"
         >
+            {/* About page structured data */}
+            <Head>
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "AboutPage",
+                        "name": "About npgo.to - Free URL Shortener for Nepal",
+                        "description": "Learn about npgo.to, Nepal's free URL shortener and QR code generator by Noble Stack.",
+                        "url": "https://npgo.to/about",
+                        "mainEntity": {
+                            "@type": "Organization",
+                            "name": "Noble Stack",
+                            "alternateName": "NobleStack",
+                            "url": "https://www.noblestack.io",
+                            "description": "Noble Stack is a technology company based in Nepal, dedicated to building digital products and services for the Nepali market.",
+                            "foundingLocation": {
+                                "@type": "Place",
+                                "name": "Nepal"
+                            },
+                            "areaServed": {
+                                "@type": "Country",
+                                "name": "Nepal"
+                            },
+                            "owns": {
+                                "@type": "WebApplication",
+                                "name": "npgo.to",
+                                "url": "https://npgo.to",
+                                "applicationCategory": "Utility",
+                                "offers": {
+                                    "@type": "Offer",
+                                    "price": "0",
+                                    "priceCurrency": "NPR"
+                                }
+                            }
+                        }
+                    })}
+                </script>
+            </Head>
             {/* Hero Section - Full Width Background */}
             <section className="relative text-center space-y-4 sm:space-y-6 pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 md:pb-24 -mt-20">
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 -z-10">
                     <img
                         src="/hero.webp"
-                        alt="Nepal"
+                        alt="Nepal landscape - about npgo.to by Noble Stack"
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background"></div>

@@ -152,7 +152,7 @@ export default function QrCodeGenerator() {
                 <div className="absolute inset-0 -z-10">
                     <img
                         src="/hero.webp"
-                        alt="Nepal"
+                        alt="Nepal landscape - free QR code generator for Nepal"
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-linear-to-b from-background/95 via-background/90 to-background"></div>

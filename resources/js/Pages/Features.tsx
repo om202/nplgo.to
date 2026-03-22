@@ -1,4 +1,5 @@
 import Layout from '@/Layouts/Layout';
+import { Head } from '@inertiajs/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
@@ -28,13 +29,95 @@ export default function Features() {
             description="Explore all npgo.to features: free URL shortening, QR code generation, link management dashboard, and secure Google Sign-In. Compare with Bit.ly and TinyURL. 100% free for Nepal."
             canonicalPath="/features"
         >
+            {/* Features page structured data */}
+            <Head>
+                {/* ItemList Schema for features */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "ItemList",
+                        "name": "npgo.to Features",
+                        "description": "Complete list of features offered by npgo.to, Nepal's free URL shortener and QR code generator.",
+                        "url": "https://npgo.to/features",
+                        "numberOfItems": 4,
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Free URL Shortener for Nepal",
+                                "description": "Transform any long URL into a short, memorable npgo.to link. Unlimited shortened URLs, permanent links, lightning-fast redirects."
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Free QR Code Generator for Nepal",
+                                "description": "Every shortened link automatically gets a QR code. Download for business cards, flyers, posters, and marketing materials."
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "name": "Free Link Management Dashboard",
+                                "description": "Track and manage all your shortened URLs in one powerful dashboard with search, copy, delete, and statistics features."
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 4,
+                                "name": "Secure Google Sign-In",
+                                "description": "Sign in securely with your Google account. No passwords needed. Access your links from any device."
+                            }
+                        ]
+                    })}
+                </script>
+
+                {/* FAQPage Schema */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                            {
+                                "@type": "Question",
+                                "name": "Is npgo.to really 100% free?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Yes! npgo.to is completely free with no premium tiers, no hidden fees, and no paywalls. All features including URL shortening, QR code generation, and link management are free forever."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "What features does npgo.to offer?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "npgo.to offers free URL shortening with unlimited links, automatic QR code generation for every link, a full link management dashboard with search and statistics, and secure Google Sign-In authentication."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "How does npgo.to compare to Bit.ly?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "npgo.to offers unlimited free URL shortening and QR codes while Bit.ly limits free usage and charges for QR codes. npgo.to is specifically designed for the Nepal market with a free link management dashboard."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Do I need to sign in to use npgo.to?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "No! You can shorten URLs instantly without signing in. Optionally sign in with Google to access your personal dashboard where you can track and manage all your links."
+                                }
+                            }
+                        ]
+                    })}
+                </script>
+            </Head>
             {/* Hero Section - Full Width Background */}
             <section className="relative text-center space-y-4 sm:space-y-6 pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 md:pb-24 -mt-20">
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 -z-10">
                     <img
                         src="/hero.webp"
-                        alt="Nepal"
+                        alt="Nepal landscape - npgo.to features overview"
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background"></div>
@@ -334,6 +417,47 @@ export default function Features() {
                             </div>
                         </CardContent>
                     </Card>
+                </section>
+
+                <Separator />
+
+                {/* FAQ Section */}
+                <section className="space-y-6">
+                    <h2 className="text-2xl font-semibold text-center">Frequently Asked Questions</h2>
+                    <div className="space-y-4">
+                        <Card>
+                            <CardContent className="pt-6">
+                                <h3 className="font-semibold text-lg mb-2">Is npgo.to really 100% free?</h3>
+                                <p className="text-muted-foreground">
+                                    Yes! npgo.to is completely free with no premium tiers, no hidden fees, and no paywalls. All features including URL shortening, QR code generation, and link management are free forever. Built by <a href="https://www.noblestack.io" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Noble Stack</a> for Nepal.
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardContent className="pt-6">
+                                <h3 className="font-semibold text-lg mb-2">What features does npgo.to offer?</h3>
+                                <p className="text-muted-foreground">
+                                    npgo.to offers free URL shortening with unlimited links, automatic QR code generation for every link, a full link management dashboard with search and statistics, and secure Google Sign-In authentication. See the <a href="/how-to-shorten-url" className="text-primary hover:underline">step-by-step guide</a> to get started.
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardContent className="pt-6">
+                                <h3 className="font-semibold text-lg mb-2">How does npgo.to compare to Bit.ly?</h3>
+                                <p className="text-muted-foreground">
+                                    npgo.to offers unlimited free URL shortening and QR codes while Bit.ly limits free usage and charges for QR codes. npgo.to is specifically designed for the Nepal market with a free link management dashboard. See the full comparison table above.
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardContent className="pt-6">
+                                <h3 className="font-semibold text-lg mb-2">Do I need to sign in to use npgo.to?</h3>
+                                <p className="text-muted-foreground">
+                                    No! You can shorten URLs instantly without signing in. Optionally sign in with Google to access your personal dashboard where you can track and manage all your links. Learn more on our <a href="/qr-code-generator" className="text-primary hover:underline">QR code generator</a> page.
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </div>
                 </section>
 
                 {/* CTA */}

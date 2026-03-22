@@ -48,7 +48,7 @@ export default function Layout({ title, description, canonicalPath = '/', childr
     const pageTitle = title ? `${title} | Nepal URL Shortner` : 'Free URL Shortner for Nepal | Free QR Code Generator | npgo.to';
     const pageDescription = description || "Best free URL shortner for Nepal by Noble Stack. Create short links & QR codes instantly. npgo.to - Nepal's #1 free URL shortening service with QR code generator. No signup required. Made for Nepali businesses, marketers & creators. A Noble Stack product.";
     const canonicalUrl = `https://npgo.to${canonicalPath === '/' ? '' : canonicalPath}`;
-    const fullCanonicalUrl = `https://npgo.to${canonicalPath}`;
+    const fullCanonicalUrl = canonicalUrl;
 
     const handleLogout = () => {
         router.post('/logout');

@@ -28,6 +28,15 @@ export function Footer() {
                                 <a href="/features" className="text-base text-muted-foreground hover:text-foreground transition-colors">
                                     Features
                                 </a>
+                                <a href="/how-to-shorten-url" className="text-base text-muted-foreground hover:text-foreground transition-colors">
+                                    How to Shorten a URL
+                                </a>
+                                <a href="/qr-code-generator" className="text-base text-muted-foreground hover:text-foreground transition-colors">
+                                    QR Code Generator
+                                </a>
+                                <a href="/url-shortener" className="text-base text-muted-foreground hover:text-foreground transition-colors">
+                                    URL Shortener
+                                </a>
                             </nav>
                         </div>
 

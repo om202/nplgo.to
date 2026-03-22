@@ -18,6 +18,7 @@ npgo.to is a completely free URL shortening service designed specifically for Ne
 - Features: https://npgo.to/features
 - How to Shorten a URL: https://npgo.to/how-to-shorten-url
 - Free QR Code Generator: https://npgo.to/qr-code-generator
+- URL Shortener Guide: https://npgo.to/url-shortener
 - Privacy Policy: https://npgo.to/privacy
 - Terms of Service: https://npgo.to/terms
 
