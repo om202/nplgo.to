@@ -160,52 +160,24 @@ export default function Layout({ title, description, canonicalPath = '/', childr
                     })}
                 </script>
 
-                {/* FAQ Schema */}
+                {/* BreadcrumbList Schema */}
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": [
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
                             {
-                                "@type": "Question",
-                                "name": "What is the best free URL shortner for Nepal?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "npgo.to by Noble Stack is Nepal's best free URL shortner. It's completely free, requires no signup, and includes a free QR code generator. Perfect for Nepali businesses, marketers, and content creators."
-                                }
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://npgo.to/"
                             },
-                            {
-                                "@type": "Question",
-                                "name": "Is there a free QR code generator for Nepal?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Yes! npgo.to by Noble Stack offers a completely free QR code generator for Nepal. Every shortened link automatically gets a QR code that you can download and use for business cards, flyers, posters, and marketing materials."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "Who created npgo.to?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "npgo.to is created by Noble Stack, a technology company based in Nepal. Noble Stack builds digital products and services for the Nepali market. Visit noblestack.io to learn more about our other products."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "How is npgo.to different from Bit.ly?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "npgo.to by Noble Stack is a free Bit.ly alternative made specifically for Nepal. Unlike Bit.ly which has premium tiers and charges for features, npgo.to offers URL shortening, QR code generation, and link management completely free."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "Can I use npgo.to for my business in Nepal?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Absolutely! npgo.to by Noble Stack is perfect for Nepali businesses. Use our free URL shortner for social media marketing, email campaigns, SMS marketing, and print materials. Generate QR codes for business cards and brochures."
-                                }
-                            }
+                            ...(canonicalPath !== '/' ? [{
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": title || "Page",
+                                "item": `https://npgo.to${canonicalPath}`
+                            }] : [])
                         ]
                     })}
                 </script>

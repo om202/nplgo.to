@@ -1,4 +1,5 @@
 import { useForm } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import { useRef, useEffect, FormEvent } from 'react';
 import Layout from '@/Layouts/Layout';
 import { Button } from '@/components/ui/button';
@@ -38,6 +39,105 @@ export default function Home() {
 
     return (
         <Layout>
+            {/* Homepage-only structured data */}
+            <Head>
+                {/* FAQ Schema - Homepage only */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                            {
+                                "@type": "Question",
+                                "name": "What is the best free URL shortner for Nepal?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "npgo.to by Noble Stack is Nepal's best free URL shortner. It's completely free, requires no signup, and includes a free QR code generator. Perfect for Nepali businesses, marketers, and content creators."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Is there a free QR code generator for Nepal?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Yes! npgo.to by Noble Stack offers a completely free QR code generator for Nepal. Every shortened link automatically gets a QR code that you can download and use for business cards, flyers, posters, and marketing materials."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Who created npgo.to?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "npgo.to is created by Noble Stack, a technology company based in Nepal. Noble Stack builds digital products and services for the Nepali market. Visit noblestack.io to learn more about our other products."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "How is npgo.to different from Bit.ly?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "npgo.to by Noble Stack is a free Bit.ly alternative made specifically for Nepal. Unlike Bit.ly which has premium tiers and charges for features, npgo.to offers URL shortening, QR code generation, and link management completely free."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Can I use npgo.to for my business in Nepal?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Absolutely! npgo.to by Noble Stack is perfect for Nepali businesses. Use our free URL shortner for social media marketing, email campaigns, SMS marketing, and print materials. Generate QR codes for business cards and brochures."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "How do I shorten a URL with npgo.to?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Simply paste your long URL into the input box on npgo.to and click 'Shorten'. You'll instantly get a short npgo.to link and a QR code. No signup required — it's completely free."
+                                }
+                            }
+                        ]
+                    })}
+                </script>
+
+                {/* HowTo Schema - targets 'how to shorten url' queries */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "HowTo",
+                        "name": "How to Shorten a URL for Free in Nepal",
+                        "description": "Shorten any URL for free using npgo.to, Nepal's free URL shortener by Noble Stack. Get a short link and QR code instantly.",
+                        "totalTime": "PT30S",
+                        "tool": {
+                            "@type": "HowToTool",
+                            "name": "npgo.to - Free URL Shortener"
+                        },
+                        "step": [
+                            {
+                                "@type": "HowToStep",
+                                "position": 1,
+                                "name": "Paste Your URL",
+                                "text": "Go to npgo.to and paste your long URL into the input box. Any valid URL will work.",
+                                "url": "https://npgo.to/"
+                            },
+                            {
+                                "@type": "HowToStep",
+                                "position": 2,
+                                "name": "Click Shorten",
+                                "text": "Click the 'Shorten' button. Your short npgo.to link will be generated instantly.",
+                                "url": "https://npgo.to/"
+                            },
+                            {
+                                "@type": "HowToStep",
+                                "position": 3,
+                                "name": "Copy & Share",
+                                "text": "Copy your short link or download the auto-generated QR code. Use it on social media, SMS, email, or print materials.",
+                                "url": "https://npgo.to/"
+                            }
+                        ]
+                    })}
+                </script>
+            </Head>
+
             {/* Hero Section - Full Width Background */}
             <section className="relative text-center space-y-4 sm:space-y-6 -mt-20 pt-24 sm:pt-32 pb-16 sm:pb-20 md:pb-24">
                 {/* Background Image with Overlay */}
