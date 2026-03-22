@@ -303,11 +303,95 @@ export default function HowToShorten() {
                     </Card>
                 </section>
 
+                <Separator />
+
+                {/* Visible FAQ Section - targets featured snippets */}
+                <section className="space-y-6">
+                    <h2 className="text-2xl font-semibold text-center">Frequently Asked Questions</h2>
+                    <div className="space-y-4">
+                        <Card>
+                            <CardContent className="pt-6">
+                                <h3 className="font-semibold text-lg mb-2">Is it really free to shorten a URL on npgo.to?</h3>
+                                <p className="text-muted-foreground">
+                                    Yes, 100% free. There are no premium tiers, no hidden fees, and no limits on how many URLs you can shorten. npgo.to is built by <a href="https://www.noblestack.io" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Noble Stack</a> as a free service for Nepal.
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardContent className="pt-6">
+                                <h3 className="font-semibold text-lg mb-2">Do short links from npgo.to expire?</h3>
+                                <p className="text-muted-foreground">
+                                    No, your short links are permanent and will work forever. Once you create a short link, it will continue redirecting to your destination URL indefinitely.
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardContent className="pt-6">
+                                <h3 className="font-semibold text-lg mb-2">Do I need an account to shorten a URL?</h3>
+                                <p className="text-muted-foreground">
+                                    No account is required. You can start shortening URLs instantly as a guest. However, <a href="/" className="text-primary hover:underline">signing in with Google</a> lets you view and manage all your links from a personal dashboard.
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardContent className="pt-6">
+                                <h3 className="font-semibold text-lg mb-2">Can I get a QR code with my short link?</h3>
+                                <p className="text-muted-foreground">
+                                    Yes! Every short link automatically generates a free high-resolution QR code (2000×2000px). Download it and use it on business cards, flyers, or posters. Learn more on our <a href="/qr-code-generator" className="text-primary hover:underline">QR Code Generator</a> page.
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardContent className="pt-6">
+                                <h3 className="font-semibold text-lg mb-2">What happens if I shorten the same URL twice?</h3>
+                                <p className="text-muted-foreground">
+                                    npgo.to detects duplicate URLs and returns the existing short link instead of creating a new one. This keeps your links clean and avoids duplicates.
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </section>
+
+                <Separator />
+
+                {/* Internal Cross-Links */}
+                <section className="space-y-4">
+                    <h2 className="text-2xl font-semibold text-center">Explore More</h2>
+                    <div className="grid md:grid-cols-2 gap-4">
+                        <a href="/qr-code-generator" className="block">
+                            <Card className="hover:border-primary/50 transition-colors h-full">
+                                <CardContent className="pt-6">
+                                    <div className="flex items-center gap-3">
+                                        <QrCode className="h-8 w-8 text-primary shrink-0" />
+                                        <div>
+                                            <h3 className="font-semibold">Free QR Code Generator</h3>
+                                            <p className="text-sm text-muted-foreground">Create QR codes for business cards, flyers & posters</p>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </a>
+                        <a href="/features" className="block">
+                            <Card className="hover:border-primary/50 transition-colors h-full">
+                                <CardContent className="pt-6">
+                                    <div className="flex items-center gap-3">
+                                        <ArrowRight className="h-8 w-8 text-primary shrink-0" />
+                                        <div>
+                                            <h3 className="font-semibold">All Features</h3>
+                                            <p className="text-sm text-muted-foreground">Dashboard, Google sign-in, link management & more</p>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </a>
+                    </div>
+                </section>
+
                 {/* CTA */}
                 <section className="text-center space-y-4 py-8">
-                    <h2 className="text-2xl font-semibold">Ready to Shorten Your First URL?</h2>
+                    <h2 className="text-2xl font-semibold">Ready to Create Your First Short Link?</h2>
                     <p className="text-muted-foreground">
-                        It takes less than 30 seconds. Try it now — completely free.
+                        It takes less than 30 seconds. Paste a URL — get a short link and QR code instantly.
                     </p>
                     <a href="/">
                         <Button size="lg" className="gap-2 w-full sm:w-auto">

@@ -2,7 +2,7 @@ import Layout from '@/Layouts/Layout';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import { Link2, QrCode, LayoutDashboard, Globe, Users, Zap, Heart, ArrowRight } from 'lucide-react';
+import { Link2, QrCode, LayoutDashboard, Globe, Users, Zap, Heart, ArrowRight, BookOpen } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 
 export default function About() {
@@ -178,12 +178,12 @@ export default function About() {
                             <p className="text-sm text-muted-foreground">Free Forever</p>
                         </div>
                         <div className="text-center">
-                            <p className="text-4xl font-bold text-primary">∞</p>
-                            <p className="text-sm text-muted-foreground">Unlimited Links</p>
+                            <p className="text-4xl font-bold text-primary">&lt;1s</p>
+                            <p className="text-sm text-muted-foreground">Redirect Speed</p>
                         </div>
                         <div className="text-center">
-                            <p className="text-4xl font-bold text-primary">0</p>
-                            <p className="text-sm text-muted-foreground">Hidden Fees</p>
+                            <p className="text-4xl font-bold text-primary">2000px</p>
+                            <p className="text-sm text-muted-foreground">QR Code Resolution</p>
                         </div>
                         <div className="text-center">
                             <p className="text-4xl font-bold text-primary">24/7</p>
@@ -192,11 +192,44 @@ export default function About() {
                     </div>
                 </section>
 
+                {/* Internal Cross-Links */}
+                <section className="space-y-4">
+                    <h2 className="text-2xl font-semibold text-center">Learn More</h2>
+                    <div className="grid md:grid-cols-2 gap-4">
+                        <a href="/how-to-shorten-url" className="block">
+                            <Card className="hover:border-primary/50 transition-colors h-full">
+                                <CardContent className="pt-6">
+                                    <div className="flex items-center gap-3">
+                                        <BookOpen className="h-8 w-8 text-primary shrink-0" />
+                                        <div>
+                                            <h3 className="font-semibold">How to Shorten a URL</h3>
+                                            <p className="text-sm text-muted-foreground">Step-by-step guide to creating short links</p>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </a>
+                        <a href="/qr-code-generator" className="block">
+                            <Card className="hover:border-primary/50 transition-colors h-full">
+                                <CardContent className="pt-6">
+                                    <div className="flex items-center gap-3">
+                                        <QrCode className="h-8 w-8 text-primary shrink-0" />
+                                        <div>
+                                            <h3 className="font-semibold">Free QR Code Generator</h3>
+                                            <p className="text-sm text-muted-foreground">Create QR codes for business cards & posters</p>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </a>
+                    </div>
+                </section>
+
                 {/* CTA */}
                 <section className="text-center space-y-4 py-8">
                     <h2 className="text-2xl font-semibold">Ready to Get Started?</h2>
                     <p className="text-muted-foreground">
-                        Start shortening your URLs and generating QR codes for free, right now.
+                        Create short links and QR codes in seconds — completely free.
                     </p>
                     <a href="/">
                         <Button size="lg" className="gap-2">

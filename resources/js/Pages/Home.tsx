@@ -1,4 +1,4 @@
-import { useForm } from '@inertiajs/react';
+import { useForm, usePage } from '@inertiajs/react';
 import { Head } from '@inertiajs/react';
 import { useRef, useEffect, FormEvent } from 'react';
 import Layout from '@/Layouts/Layout';
@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/accordion';
 
 export default function Home() {
+    const { totalLinks } = usePage<{ totalLinks: number }>().props;
     const inputRef = useRef<HTMLInputElement>(null);
     const { data, setData, post, processing, errors } = useForm({
         url: '',
@@ -215,6 +216,29 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* Social Proof Bar */}
+            {totalLinks > 0 && (
+                <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
+                    <div className="flex flex-wrap justify-center gap-6 sm:gap-10 py-6 text-center">
+                        <div>
+                            <p className="text-2xl sm:text-3xl font-bold text-primary">{totalLinks.toLocaleString()}+</p>
+                            <p className="text-xs sm:text-sm text-muted-foreground">Links Shortened</p>
+                        </div>
+                        <div>
+                            <p className="text-2xl sm:text-3xl font-bold text-primary">&lt;1s</p>
+                            <p className="text-xs sm:text-sm text-muted-foreground">Redirect Speed</p>
+                        </div>
+                        <div>
+                            <p className="text-2xl sm:text-3xl font-bold text-primary">2000px</p>
+                            <p className="text-xs sm:text-sm text-muted-foreground">QR Resolution</p>
+                        </div>
+                        <div>
+                            <p className="text-2xl sm:text-3xl font-bold text-primary">100%</p>
+                            <p className="text-xs sm:text-sm text-muted-foreground">Free Forever</p>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             <div className="w-full max-w-5xl mx-auto space-y-8 sm:space-y-12 md:space-y-16 px-4 sm:px-6 md:px-8">
 

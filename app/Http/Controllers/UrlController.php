@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ShortenUrlRequest;
+use App\Models\Url;
 use App\Services\UrlShortenerService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -26,7 +28,15 @@ class UrlController extends Controller
             return redirect()->route('admin');
         }
 
-        return Inertia::render('Home');
+        return Inertia::render('Home', [
+            'totalLinks' => Cache::remember('total_links_count', 3600, function () {
+                try {
+                    return Url::count();
+                } catch (\Exception $e) {
+                    return 0;
+                }
+            }),
+        ]);
     }
 
     /**

@@ -315,11 +315,95 @@ export default function QrCodeGenerator() {
                     </Card>
                 </section>
 
+                <Separator />
+
+                {/* Visible FAQ Section */}
+                <section className="space-y-6">
+                    <h2 className="text-2xl font-semibold text-center">QR Code FAQs</h2>
+                    <div className="space-y-4">
+                        <Card>
+                            <CardContent className="pt-6">
+                                <h3 className="font-semibold text-lg mb-2">Are QR codes from npgo.to really free?</h3>
+                                <p className="text-muted-foreground">
+                                    Yes, completely free with no limits. Unlike Bit.ly which charges for QR codes, npgo.to generates unlimited QR codes at 2000×2000px resolution. No signup, no credit card, no catch.
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardContent className="pt-6">
+                                <h3 className="font-semibold text-lg mb-2">Do the QR codes expire?</h3>
+                                <p className="text-muted-foreground">
+                                    No. QR codes from npgo.to are static — they never expire and have unlimited scans. Once generated, your QR code will work forever.
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardContent className="pt-6">
+                                <h3 className="font-semibold text-lg mb-2">What resolution are the QR code images?</h3>
+                                <p className="text-muted-foreground">
+                                    QR codes are generated at 2000×2000 pixels in PNG format. This is high enough resolution for billboards, large posters, and professional print materials without any pixelation.
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardContent className="pt-6">
+                                <h3 className="font-semibold text-lg mb-2">Can I use these QR codes for commercial purposes?</h3>
+                                <p className="text-muted-foreground">
+                                    Absolutely. QR codes generated on npgo.to are free for both personal and commercial use. Use them on business cards, packaging, marketing materials, menus, or anywhere else.
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardContent className="pt-6">
+                                <h3 className="font-semibold text-lg mb-2">How is npgo.to different from QRCode Monkey or other generators?</h3>
+                                <p className="text-muted-foreground">
+                                    npgo.to combines URL shortening and QR code generation in one step. You get both a short link and a QR code for every URL. Other generators create QR codes only — npgo.to gives you a shortened link you can share digitally too. Plus, it's made in Nepal by <a href="https://www.noblestack.io" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Noble Stack</a>.
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </section>
+
+                <Separator />
+
+                {/* Internal Cross-Links */}
+                <section className="space-y-4">
+                    <h2 className="text-2xl font-semibold text-center">Explore More</h2>
+                    <div className="grid md:grid-cols-2 gap-4">
+                        <a href="/how-to-shorten-url" className="block">
+                            <Card className="hover:border-primary/50 transition-colors h-full">
+                                <CardContent className="pt-6">
+                                    <div className="flex items-center gap-3">
+                                        <Scissors className="h-8 w-8 text-primary shrink-0" />
+                                        <div>
+                                            <h3 className="font-semibold">How to Shorten a URL</h3>
+                                            <p className="text-sm text-muted-foreground">Step-by-step guide with tips for better short links</p>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </a>
+                        <a href="/features" className="block">
+                            <Card className="hover:border-primary/50 transition-colors h-full">
+                                <CardContent className="pt-6">
+                                    <div className="flex items-center gap-3">
+                                        <ArrowRight className="h-8 w-8 text-primary shrink-0" />
+                                        <div>
+                                            <h3 className="font-semibold">All Features</h3>
+                                            <p className="text-sm text-muted-foreground">Dashboard, Google sign-in, link management & more</p>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </a>
+                    </div>
+                </section>
+
                 {/* CTA */}
                 <section className="text-center space-y-4 py-8">
                     <h2 className="text-2xl font-semibold">Create Your Free QR Code Now</h2>
                     <p className="text-muted-foreground">
-                        It takes less than 30 seconds. Paste a URL, get a QR code. Completely free, forever.
+                        Paste a URL, get a QR code. 2000×2000px, free forever, no signup.
                     </p>
                     <a href="/">
                         <Button size="lg" className="gap-2 w-full sm:w-auto">
