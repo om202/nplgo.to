@@ -114,6 +114,25 @@ export default function Layout({ title, description, canonicalPath = '/', childr
                         "sameAs": [
                             "https://www.noblestack.io"
                         ],
+                        "email": "info@noblestack.io",
+                        "telephone": "+977-985-1411602",
+                        "contactPoint": [
+                            {
+                                "@type": "ContactPoint",
+                                "telephone": "+977-985-1411602",
+                                "email": "support@noblestack.io",
+                                "contactType": "customer support",
+                                "areaServed": "NP",
+                                "availableLanguage": "English"
+                            },
+                            {
+                                "@type": "ContactPoint",
+                                "email": "info@noblestack.io",
+                                "contactType": "general inquiry",
+                                "areaServed": "NP",
+                                "availableLanguage": "English"
+                            }
+                        ],
                         "owns": {
                             "@type": "WebApplication",
                             "name": "npgo.to",

@@ -53,22 +53,42 @@ export function Footer() {
                             </nav>
                         </div>
 
-                        {/* Company */}
+                        {/* Contact */}
                         <div className="space-y-4">
-                            <h3 className="font-semibold text-base">Company</h3>
-                            <a
-                                href="https://www.noblestack.io/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2 text-base text-muted-foreground hover:text-foreground transition-colors"
-                            >
-                                <img
-                                    src="/images/noblestack-logo.webp"
-                                    alt="Noble Stack"
-                                    className="h-4 w-4"
-                                />
-                                Noble Stack
-                            </a>
+                            <h3 className="font-semibold text-base">Contact</h3>
+                            <div className="flex flex-col gap-3">
+                                <a
+                                    href="mailto:support@noblestack.io"
+                                    className="text-base text-muted-foreground hover:text-foreground transition-colors"
+                                >
+                                    support@noblestack.io
+                                </a>
+                                <a
+                                    href="mailto:info@noblestack.io"
+                                    className="text-base text-muted-foreground hover:text-foreground transition-colors"
+                                >
+                                    info@noblestack.io
+                                </a>
+                                <a
+                                    href="tel:+9779851411602"
+                                    className="text-base text-muted-foreground hover:text-foreground transition-colors"
+                                >
+                                    +977 985-1411602
+                                </a>
+                                <a
+                                    href="https://www.noblestack.io/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2 text-base text-muted-foreground hover:text-foreground transition-colors"
+                                >
+                                    <img
+                                        src="/images/noblestack-logo.webp"
+                                        alt="Noble Stack"
+                                        className="h-4 w-4"
+                                    />
+                                    Noble Stack
+                                </a>
+                            </div>
                         </div>
                     </div>
 

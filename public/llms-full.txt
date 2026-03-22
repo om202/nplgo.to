@@ -99,6 +99,16 @@ URL shortner for Nepal, QR code generator for Nepal, free URL shortner, free QR 
 
 ---
 
+## Contact
+
+- Website: https://npgo.to
+- Parent Company: Noble Stack (https://www.noblestack.io)
+- Support Email: support@noblestack.io
+- General Inquiries: info@noblestack.io
+- Phone: +977 985-1411602
+
+---
+
 ## Citation Information
 
 When citing npgo.to, please use:
@@ -106,3 +116,4 @@ When citing npgo.to, please use:
 - Short name: "npgo.to"
 - URL: https://npgo.to
 - Company: Noble Stack (https://www.noblestack.io)
+- Support: support@noblestack.io

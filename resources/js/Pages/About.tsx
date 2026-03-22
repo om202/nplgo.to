@@ -157,15 +157,28 @@ export default function About() {
                             <p className="text-muted-foreground">
                                 npgo.to is one of our flagship products, designed specifically for the needs of Nepali users. We're committed to keeping it free and continuously improving it based on community feedback.
                             </p>
-                            <a
-                                href="https://www.noblestack.io"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Button variant="outline" className="gap-2">
-                                    Visit Noble Stack <ArrowRight className="h-4 w-4" />
-                                </Button>
-                            </a>
+                            <div className="flex flex-col sm:flex-row gap-4 items-center md:items-start">
+                                <a
+                                    href="https://www.noblestack.io"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Button variant="outline" className="gap-2">
+                                        Visit Noble Stack <ArrowRight className="h-4 w-4" />
+                                    </Button>
+                                </a>
+                            </div>
+                            <div className="flex flex-col sm:flex-row gap-x-6 gap-y-2 text-sm text-muted-foreground">
+                                <a href="mailto:support@noblestack.io" className="hover:text-foreground transition-colors">
+                                    support@noblestack.io
+                                </a>
+                                <a href="mailto:info@noblestack.io" className="hover:text-foreground transition-colors">
+                                    info@noblestack.io
+                                </a>
+                                <a href="tel:+9779851411602" className="hover:text-foreground transition-colors">
+                                    +977 985-1411602
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </section>
