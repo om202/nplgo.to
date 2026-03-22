@@ -7,7 +7,11 @@ import { Footer } from '@/components/Footer';
 
 export default function About() {
     return (
-        <Layout title="About">
+        <Layout
+            title="About"
+            description="Learn about npgo.to, Nepal's free URL shortener and QR code generator by Noble Stack. Our mission is to empower Nepali businesses and creators with free link management tools."
+            canonicalPath="/about"
+        >
             {/* Hero Section - Full Width Background */}
             <section className="relative text-center space-y-4 sm:space-y-6 pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 md:pb-24 -mt-20">
                 {/* Background Image with Overlay */}

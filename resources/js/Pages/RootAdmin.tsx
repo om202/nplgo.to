@@ -58,7 +58,7 @@ export default function RootAdmin() {
     }
 
     return (
-        <Layout title="Root Admin Panel" hideNavigation={true}>
+        <Layout title="Root Admin Panel" hideNavigation={true} noIndex={true}>
             <div className="w-full max-w-6xl mx-auto px-4 space-y-8">
                 {/* Header */}
                 <div>

@@ -35,14 +35,20 @@ interface AuthUser {
 
 interface LayoutProps {
     title?: string;
+    description?: string;
+    canonicalPath?: string;
     children: ReactNode;
     hideNavigation?: boolean;
+    noIndex?: boolean;
 }
 
-export default function Layout({ title, children, hideNavigation = false }: LayoutProps) {
+export default function Layout({ title, description, canonicalPath = '/', children, hideNavigation = false, noIndex = false }: LayoutProps) {
     const { auth } = usePage<{ auth: { user: AuthUser | null } }>().props;
 
     const pageTitle = title ? `${title} | Nepal URL Shortner` : 'Free URL Shortner for Nepal | Free QR Code Generator | npgo.to';
+    const pageDescription = description || "Best free URL shortner for Nepal by Noble Stack. Create short links & QR codes instantly. npgo.to - Nepal's #1 free URL shortening service with QR code generator. No signup required. Made for Nepali businesses, marketers & creators. A Noble Stack product.";
+    const canonicalUrl = `https://npgo.to${canonicalPath === '/' ? '' : canonicalPath}`;
+    const fullCanonicalUrl = `https://npgo.to${canonicalPath}`;
 
     const handleLogout = () => {
         router.post('/logout');
@@ -53,39 +59,39 @@ export default function Layout({ title, children, hideNavigation = false }: Layo
             <Head>
                 {/* Basic Meta Tags */}
                 <title>{pageTitle}</title>
-                <meta name="title" content="Free URL Shortner for Nepal | Free QR Code Generator | npgo.to by Noble Stack" />
-                <meta name="description" content="Best free URL shortner for Nepal by Noble Stack. Create short links & QR codes instantly. npgo.to - Nepal's #1 free URL shortening service with QR code generator. No signup required. Made for Nepali businesses, marketers & creators. A Noble Stack product." />
+                <meta name="title" content={pageTitle} />
+                <meta name="description" content={pageDescription} />
                 <meta name="keywords" content="Noble Stack, NobleStack, Noble Stack Nepal, URL shortner for Nepal, QR code generator for Nepal, free URL shortner, free QR code generator, Nepal URL shortener, Nepali URL shortener, shorten URL Nepal, link shortener Nepal, best URL shortener Nepal, free link shortener, QR code maker Nepal, create short links free, npgo.to, Noble Stack products, URL shortener, short URL, link shortener, shorten link, tiny URL, bit.ly alternative, bitly alternative, free URL shortener, custom short links, QR code generator, link management, short link generator, URL redirect, tinyurl alternative, short.io alternative, rebrandly alternative, link in bio, Kathmandu URL shortener, Nepal digital marketing tools, free marketing tools Nepal, URL shortening service Nepal, Noble Stack URL shortener" />
                 <meta name="author" content="Noble Stack" />
-                <meta name="robots" content="index, follow" />
+                <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
                 <meta httpEquiv="Content-Language" content="en" />
                 <meta name="geo.region" content="NP" />
                 <meta name="geo.placename" content="Nepal" />
 
                 {/* Open Graph / Facebook */}
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://npgo.to/" />
-                <meta property="og:title" content="Free URL Shortner for Nepal | Free QR Code Generator | npgo.to by Noble Stack" />
-                <meta property="og:description" content="Nepal's best free URL shortner and QR code generator by Noble Stack. Create short links and QR codes instantly. No signup required." />
+                <meta property="og:url" content={fullCanonicalUrl} />
+                <meta property="og:title" content={pageTitle} />
+                <meta property="og:description" content={pageDescription} />
                 <meta property="og:image" content="https://npgo.to/main.webp" />
                 <meta property="og:locale" content="en_NP" />
                 <meta property="og:site_name" content="npgo.to - A Noble Stack Product" />
 
                 {/* Twitter */}
                 <meta property="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content="https://npgo.to/" />
-                <meta property="twitter:title" content="Free URL Shortner for Nepal | Free QR Code Generator | npgo.to by Noble Stack" />
-                <meta property="twitter:description" content="Nepal's best free URL shortner and QR code generator by Noble Stack. Create short links and QR codes instantly." />
+                <meta property="twitter:url" content={fullCanonicalUrl} />
+                <meta property="twitter:title" content={pageTitle} />
+                <meta property="twitter:description" content={pageDescription} />
                 <meta property="twitter:image" content="https://npgo.to/main.webp" />
 
                 {/* Additional Meta Tags */}
                 <meta name="theme-color" content="#DC143C" />
-                <link rel="canonical" href="https://npgo.to/" />
+                <link rel="canonical" href={canonicalUrl} />
 
                 {/* Hreflang - Geographic Targeting */}
-                <link rel="alternate" hrefLang="en" href="https://npgo.to/" />
-                <link rel="alternate" hrefLang="en-NP" href="https://npgo.to/" />
-                <link rel="alternate" hrefLang="x-default" href="https://npgo.to/" />
+                <link rel="alternate" hrefLang="en" href={fullCanonicalUrl} />
+                <link rel="alternate" hrefLang="en-NP" href={fullCanonicalUrl} />
+                <link rel="alternate" hrefLang="x-default" href={fullCanonicalUrl} />
 
                 {/* Organization Schema for Noble Stack */}
                 <script type="application/ld+json">

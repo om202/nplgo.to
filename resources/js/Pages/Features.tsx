@@ -23,7 +23,11 @@ import {
 
 export default function Features() {
     return (
-        <Layout title="Features">
+        <Layout
+            title="Features"
+            description="Explore all npgo.to features: free URL shortening, QR code generation, link management dashboard, and secure Google Sign-In. Compare with Bit.ly and TinyURL. 100% free for Nepal."
+            canonicalPath="/features"
+        >
             {/* Hero Section - Full Width Background */}
             <section className="relative text-center space-y-4 sm:space-y-6 pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 md:pb-24 -mt-20">
                 {/* Background Image with Overlay */}

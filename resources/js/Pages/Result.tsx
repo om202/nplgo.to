@@ -32,7 +32,7 @@ export default function Result({ shortUrl, displayUrl, originalUrl }: ResultProp
     }
 
     return (
-        <Layout title="URL Shortened">
+        <Layout title="URL Shortened" noIndex={true}>
             <div className="w-full max-w-5xl mx-auto flex justify-center">
                 <Card className="w-full max-w-md text-center">
                     <CardHeader className="space-y-1">

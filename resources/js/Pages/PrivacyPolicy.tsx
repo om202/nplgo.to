@@ -4,7 +4,11 @@ import { Separator } from '@/components/ui/separator';
 
 export default function PrivacyPolicy() {
     return (
-        <Layout title="Privacy Policy">
+        <Layout
+            title="Privacy Policy"
+            description="npgo.to Privacy Policy by Noble Stack. Learn how we collect, use, and protect your data when using our free URL shortener and QR code generator for Nepal."
+            canonicalPath="/privacy"
+        >
             <div className="w-full max-w-4xl mx-auto space-y-8">
                 <div className="text-center space-y-4">
                     <h1 className="text-4xl font-bold tracking-tight">Privacy Policy</h1>

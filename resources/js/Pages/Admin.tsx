@@ -203,7 +203,7 @@ export default function Admin() {
     }
 
     return (
-        <Layout title="Dashboard" hideNavigation={true}>
+        <Layout title="Dashboard" hideNavigation={true} noIndex={true}>
             <div className="w-full max-w-5xl mx-auto px-4 space-y-8">
                 {/* Header */}
                 <div className="flex items-center justify-between">

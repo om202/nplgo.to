@@ -4,7 +4,11 @@ import { Separator } from '@/components/ui/separator';
 
 export default function TermsOfService() {
     return (
-        <Layout title="Terms of Service">
+        <Layout
+            title="Terms of Service"
+            description="npgo.to Terms of Service by Noble Stack. Read the terms and conditions for using our free URL shortener and QR code generator service for Nepal."
+            canonicalPath="/terms"
+        >
             <div className="w-full max-w-4xl mx-auto space-y-8">
                 <div className="text-center space-y-4">
                     <h1 className="text-4xl font-bold tracking-tight">Terms of Service</h1>
