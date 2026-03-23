@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/alert-dialog';
 import {
     Copy, Check, Plus, Trash2, GripVertical,
-    Link2, Eye, Save, Download
+    Link2, Eye, Save, Download, ImagePlus
 } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
@@ -37,6 +37,7 @@ interface BioPageData {
     bio: string | null;
     avatar_url: string | null;
     theme: string;
+    show_nepali_badge: boolean;
     public_url: string;
     links: BioLinkItem[];
 }
@@ -57,6 +58,29 @@ export default function BioEditor() {
     const [copied, setCopied] = useState(false);
     const [editingLinkId, setEditingLinkId] = useState<number | null>(null);
     const [showAddLink, setShowAddLink] = useState(false);
+    const [avatarUploading, setAvatarUploading] = useState(false);
+
+    function handleAvatarUpload(e: React.ChangeEvent<HTMLInputElement>) {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        setAvatarUploading(true);
+        const formData = new FormData();
+        formData.append('avatar', file);
+        router.post('/bio/avatar', formData, {
+            preserveScroll: true,
+            onFinish: () => setAvatarUploading(false),
+        });
+        // Reset input so re-selecting the same file triggers onChange
+        e.target.value = '';
+    }
+
+    function handleAvatarRemove() {
+        setAvatarUploading(true);
+        router.delete('/bio/avatar', {
+            preserveScroll: true,
+            onFinish: () => setAvatarUploading(false),
+        });
+    }
 
     // Profile form
     const profileForm = useForm({
@@ -64,6 +88,7 @@ export default function BioEditor() {
         display_name: page.display_name,
         bio: page.bio || '',
         theme: page.theme,
+        show_nepali_badge: page.show_nepali_badge,
     });
 
     // New link form
@@ -256,9 +281,21 @@ export default function BioEditor() {
                                 <p className="text-sm text-muted-foreground mb-1">Your public link</p>
                                 <div className="flex items-center gap-2 bg-muted px-4 py-2.5 rounded-lg">
                                     <Link2 className="h-4 w-4 text-primary shrink-0" />
-                                    <code className="text-sm font-mono font-semibold break-all">
+                                    <code className="text-sm font-mono font-semibold break-all flex-1">
                                         {page.public_url}
                                     </code>
+                                    <button
+                                        type="button"
+                                        onClick={copyUrl}
+                                        className="shrink-0 p-1 rounded hover:bg-background transition-colors"
+                                        title="Copy link"
+                                    >
+                                        {copied ? (
+                                            <Check className="h-4 w-4 text-green-600" />
+                                        ) : (
+                                            <Copy className="h-4 w-4 text-muted-foreground" />
+                                        )}
+                                    </button>
                                 </div>
                             </div>
                             <div className="flex flex-col items-center gap-2">
@@ -288,19 +325,60 @@ export default function BioEditor() {
                             </CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
-                            {/* Avatar Preview */}
-                            {page.avatar_url && (
-                                <div className="flex items-center gap-3">
-                                    <img
-                                        src={page.avatar_url}
-                                        alt={page.display_name}
-                                        className="w-16 h-16 rounded-full object-cover border-2 border-border"
-                                    />
-                                    <p className="text-sm text-muted-foreground">
-                                        Profile photo from your Google account
+                            {/* Avatar Upload */}
+                            <div className="flex items-center gap-4">
+                                <div className="relative group">
+                                    {page.avatar_url ? (
+                                        <img
+                                            src={page.avatar_url}
+                                            alt={page.display_name}
+                                            className={`w-20 h-20 rounded-full object-cover border-2 border-border transition-opacity ${
+                                                avatarUploading ? 'opacity-50' : ''
+                                            }`}
+                                        />
+                                    ) : (
+                                        <div className={`w-20 h-20 rounded-full bg-muted flex items-center justify-center text-2xl font-bold text-muted-foreground border-2 border-border transition-opacity ${
+                                            avatarUploading ? 'opacity-50' : ''
+                                        }`}>
+                                            {page.display_name.charAt(0).toUpperCase()}
+                                        </div>
+                                    )}
+                                    {avatarUploading && (
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <label
+                                        className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground cursor-pointer transition-colors"
+                                    >
+                                        <ImagePlus className="h-4 w-4" />
+                                        Upload Photo
+                                        <input
+                                            type="file"
+                                            accept="image/jpeg,image/png,image/gif,image/webp"
+                                            onChange={handleAvatarUpload}
+                                            className="sr-only"
+                                            disabled={avatarUploading}
+                                        />
+                                    </label>
+                                    {page.avatar_url && (
+                                        <button
+                                            type="button"
+                                            onClick={handleAvatarRemove}
+                                            disabled={avatarUploading}
+                                            className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md text-destructive hover:bg-destructive/10 transition-colors disabled:opacity-50"
+                                        >
+                                            <Trash2 className="h-3.5 w-3.5" />
+                                            Remove
+                                        </button>
+                                    )}
+                                    <p className="text-xs text-muted-foreground">
+                                        JPG, PNG, GIF or WebP. Max 2MB.
                                     </p>
                                 </div>
-                            )}
+                            </div>
 
                             <div className="grid sm:grid-cols-2 gap-4">
                                 <div className="space-y-2">
@@ -349,6 +427,27 @@ export default function BioEditor() {
                                     {profileForm.data.bio.length}/160
                                 </p>
                             </div>
+
+                            {/* Nepali Badge Toggle */}
+                            <div className="flex items-center justify-between rounded-lg border border-input p-3">
+                                <div className="space-y-0.5">
+                                    <label className="text-sm font-medium inline-flex items-center gap-1.5">I am Nepali <img src="/images/nepal-flag.svg" alt="Nepal flag" className="inline-block h-4 w-auto" /></label>
+                                    <p className="text-xs text-muted-foreground">
+                                        Show a Nepali badge on your public profile
+                                    </p>
+                                </div>
+                                <button
+                                    type="button"
+                                    onClick={() => profileForm.setData('show_nepali_badge', !profileForm.data.show_nepali_badge)}
+                                    className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors ${
+                                        profileForm.data.show_nepali_badge ? 'bg-primary' : 'bg-input'
+                                    }`}
+                                >
+                                    <span className={`pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform ${
+                                        profileForm.data.show_nepali_badge ? 'translate-x-5' : 'translate-x-0'
+                                    }`} />
+                                </button>
+                            </div>
                         </CardContent>
                     </Card>
 
@@ -372,7 +471,7 @@ export default function BioEditor() {
                                             onClick={() => profileForm.setData('theme', theme.value)}
                                             className={`flex flex-col items-center gap-1 p-1.5 rounded-lg transition-all ${
                                                 profileForm.data.theme === theme.value
-                                                    ? 'ring-2 ring-primary ring-offset-1'
+                                                    ? 'ring-1 ring-border ring-offset-1'
                                                     : 'hover:bg-accent'
                                             }`}
                                         >
@@ -394,7 +493,7 @@ export default function BioEditor() {
                                             onClick={() => profileForm.setData('theme', theme.value)}
                                             className={`flex flex-col items-center gap-1 p-1.5 rounded-lg transition-all ${
                                                 profileForm.data.theme === theme.value
-                                                    ? 'ring-2 ring-primary ring-offset-1'
+                                                    ? 'ring-1 ring-border ring-offset-1'
                                                     : 'hover:bg-accent'
                                             }`}
                                         >

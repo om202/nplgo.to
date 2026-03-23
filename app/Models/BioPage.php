@@ -18,6 +18,7 @@ class BioPage extends Model
         'bio',
         'avatar_url',
         'theme',
+        'show_nepali_badge',
     ];
 
     /**

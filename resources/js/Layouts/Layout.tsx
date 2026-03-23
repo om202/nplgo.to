@@ -204,7 +204,7 @@ export default function Layout({ title, description, canonicalPath = '/', childr
 
             {/* Header */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg shadow-[0_1px_3px_0_rgba(0,0,0,0.05)]">
-                <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 h-14 flex items-center justify-between">
+                <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
                     {/* Logo and Navigation - Left Side */}
                     <div className="flex items-center gap-6">
                         {/* Mobile Menu - Hamburger */}

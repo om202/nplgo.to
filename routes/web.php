@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
     // Bio Page Management
     Route::get('/bio', [BioPageController::class, 'edit'])->name('bio.edit');
     Route::put('/bio', [BioPageController::class, 'update'])->name('bio.update');
+    Route::post('/bio/avatar', [BioPageController::class, 'uploadAvatar'])->name('bio.avatar.upload');
+    Route::delete('/bio/avatar', [BioPageController::class, 'removeAvatar'])->name('bio.avatar.destroy');
     Route::post('/bio/links', [BioPageController::class, 'storeLink'])->name('bio.links.store');
     Route::put('/bio/links/{bioLink}', [BioPageController::class, 'updateLink'])->name('bio.links.update');
     Route::delete('/bio/links/{bioLink}', [BioPageController::class, 'destroyLink'])->name('bio.links.destroy');

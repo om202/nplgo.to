@@ -14,6 +14,7 @@ interface BioPageData {
     bio: string | null;
     avatar_url: string | null;
     theme: string;
+    show_nepali_badge: boolean;
     links: BioLinkItem[];
 }
 
@@ -402,22 +403,29 @@ export default function BioPagePublic() {
                 {/* Profile Section */}
                 <div className="w-full max-w-md flex flex-col items-center text-center space-y-4 relative z-10">
                     {/* Avatar */}
-                    {bioPage.avatar_url ? (
-                        <img
-                            src={bioPage.avatar_url}
-                            alt={bioPage.display_name}
-                            className={`w-24 h-24 rounded-full object-cover shadow-lg ${theme.avatarRing}`}
-                            style={{ animationDelay: '0ms' }}
-                        />
-                    ) : (
-                        <div className={`w-24 h-24 rounded-full flex items-center justify-center text-3xl font-bold shadow-lg ${theme.avatarRing} ${
-                            ['dark', 'crimson', 'gradient', 'sunset', 'neon'].includes(bioPage.theme)
-                                ? 'bg-white/15 text-white'
-                                : 'bg-gray-200 text-gray-600'
-                        }`}>
-                            {bioPage.display_name.charAt(0).toUpperCase()}
-                        </div>
-                    )}
+                    <div className="relative inline-block" title={bioPage.show_nepali_badge ? 'I am Nepali' : undefined}>
+                        {bioPage.avatar_url ? (
+                            <img
+                                src={bioPage.avatar_url}
+                                alt={bioPage.display_name}
+                                className={`w-24 h-24 rounded-full object-cover shadow-lg ${theme.avatarRing}`}
+                                style={{ animationDelay: '0ms' }}
+                            />
+                        ) : (
+                            <div className={`w-24 h-24 rounded-full flex items-center justify-center text-3xl font-bold shadow-lg ${theme.avatarRing} ${
+                                ['dark', 'crimson', 'gradient', 'sunset', 'neon'].includes(bioPage.theme)
+                                    ? 'bg-white/15 text-white'
+                                    : 'bg-gray-200 text-gray-600'
+                            }`}>
+                                {bioPage.display_name.charAt(0).toUpperCase()}
+                            </div>
+                        )}
+                        {bioPage.show_nepali_badge && (
+                            <span className="absolute bottom-0 right-0 w-7 h-7 rounded-full bg-white shadow-lg flex items-center justify-center border-2 border-gray-200">
+                                <img src="/images/nepal-flag.svg" alt="Nepali" className="w-3.5 h-auto" />
+                            </span>
+                        )}
+                    </div>
 
                     {/* Name & Bio */}
                     <div className="space-y-1">

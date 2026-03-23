@@ -7,6 +7,7 @@ use App\Models\BioPage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -51,6 +52,7 @@ class BioPageController extends Controller
                 'bio' => $bioPage->bio,
                 'avatar_url' => $bioPage->avatar_url,
                 'theme' => $bioPage->theme,
+                'show_nepali_badge' => (bool) $bioPage->show_nepali_badge,
                 'public_url' => url('/@' . $bioPage->username),
                 'links' => $bioPage->links->map(fn (BioLink $link) => [
                     'id' => $link->id,
@@ -84,11 +86,65 @@ class BioPageController extends Controller
             'display_name' => 'required|string|max:50',
             'bio' => 'nullable|string|max:160',
             'theme' => 'required|string|in:default,dark,crimson,minimal,gradient,glass,sunset,neon,elegant,facebook,x,instagram,youtube,tiktok,linkedin',
+            'show_nepali_badge' => 'boolean',
         ]);
 
         $bioPage->update($validated);
 
         return redirect()->route('bio.edit')->with('success', 'Bio page updated successfully.');
+    }
+
+    /**
+     * Upload a custom avatar image.
+     */
+    public function uploadAvatar(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,gif,webp|max:2048',
+        ]);
+
+        $user = Auth::user();
+        $bioPage = $user->bioPage;
+
+        // Delete old custom avatar if it exists on disk
+        if ($bioPage->avatar_url && str_contains($bioPage->avatar_url, '/storage/bio-avatars/')) {
+            $oldPath = str_replace('/storage/', '', parse_url($bioPage->avatar_url, PHP_URL_PATH));
+            Storage::disk('public')->delete($oldPath);
+        }
+
+        // Store new avatar
+        $path = $request->file('avatar')->store(
+            'bio-avatars/' . $bioPage->id,
+            'public'
+        );
+
+        $bioPage->update([
+            'avatar_url' => '/storage/' . $path,
+        ]);
+
+        return redirect()->route('bio.edit')->with('success', 'Profile photo updated.');
+    }
+
+    /**
+     * Remove custom avatar (revert to Google avatar or none).
+     */
+    public function removeAvatar(): RedirectResponse
+    {
+        $user = Auth::user();
+        $bioPage = $user->bioPage;
+
+        // Delete the custom avatar file if it exists
+        if ($bioPage->avatar_url && str_contains($bioPage->avatar_url, '/storage/bio-avatars/')) {
+            $oldPath = str_replace('/storage/', '', parse_url($bioPage->avatar_url, PHP_URL_PATH));
+            Storage::disk('public')->delete($oldPath);
+        }
+
+        // Revert to Google avatar or null
+        $bioPage->update([
+            'avatar_url' => $user->avatar,
+        ]);
+
+        return redirect()->route('bio.edit')->with('success', 'Profile photo removed.');
     }
 
     /**

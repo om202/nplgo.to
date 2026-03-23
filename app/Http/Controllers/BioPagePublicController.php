@@ -31,6 +31,7 @@ class BioPagePublicController extends Controller
                 'bio' => $bioPage->bio,
                 'avatar_url' => $bioPage->avatar_url,
                 'theme' => $bioPage->theme,
+                'show_nepali_badge' => (bool) $bioPage->show_nepali_badge,
                 'links' => $bioPage->links->map(fn ($link) => [
                     'id' => $link->id,
                     'title' => $link->title,
