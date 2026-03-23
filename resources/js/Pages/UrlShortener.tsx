@@ -132,7 +132,7 @@ export default function UrlShortener() {
 
                 <div className="relative z-10 px-4 sm:px-6 md:px-8">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight max-w-3xl mx-auto">
-                        <span className="text-primary">URL Shortener</span>: The Complete Guide for Nepal
+                        Free <span className="text-primary">URL Shortener</span> for Nepal
                     </h1>
                     <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed mt-3">
                         Understand what URL shorteners are, why they matter, and how Nepali businesses use short links to share smarter, market better, and grow faster.
@@ -152,7 +152,7 @@ export default function UrlShortener() {
 
                 {/* What is a URL Shortener? */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">What is a URL Shortener?</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">What is a URL Shortener?</h2>
                     <div className="space-y-4 text-muted-foreground max-w-3xl mx-auto">
                         <p>
                             A <strong className="text-foreground">URL shortener</strong> is a tool that takes a long web address and converts it into a short, compact link that redirects to the same destination. For example, a 120-character URL like <code className="text-xs bg-muted px-1.5 py-0.5 rounded">https://example.com/products/category/item?ref=campaign123</code> becomes a clean, memorable <code className="text-xs bg-muted px-1.5 py-0.5 rounded">npgo.to/abc123</code>.
@@ -170,7 +170,7 @@ export default function UrlShortener() {
 
                 {/* How URL Shorteners Work */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">How URL Shorteners Work</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">How URL Shorteners Work</h2>
 
                     <div className="grid md:grid-cols-3 gap-6">
                         <Card>
@@ -213,7 +213,7 @@ export default function UrlShortener() {
 
                 {/* Benefits of URL Shortening */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">Benefits of URL Shortening</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">Benefits of URL Shortening</h2>
                     <p className="text-muted-foreground text-center max-w-2xl mx-auto">
                         URL shorteners solve multiple problems across digital and offline channels. Here are the key benefits that make them indispensable for modern marketing:
                     </p>
@@ -291,7 +291,7 @@ export default function UrlShortener() {
 
                 {/* All Use Cases */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">Where to Use Short Links</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">Where to Use Short Links</h2>
                     <p className="text-muted-foreground text-center max-w-2xl mx-auto">
                         Short links are used across every industry and channel. Here are the most impactful use cases:
                     </p>
@@ -391,7 +391,7 @@ export default function UrlShortener() {
 
                 {/* URL Shortening for Nepal */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">URL Shortening for Nepal: Why It Matters</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">URL Shortening for Nepal: Why It Matters</h2>
                     <div className="space-y-4 text-muted-foreground max-w-3xl mx-auto">
                         <p>
                             Nepal's digital landscape is uniquely mobile-first. With over <strong className="text-foreground">22 million internet users</strong> and the vast majority accessing the web through smartphones, how you share a link directly impacts whether someone clicks on it.
@@ -462,7 +462,7 @@ export default function UrlShortener() {
 
                 {/* Why Choose npgo.to */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">Why Choose npgo.to?</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">Why Choose npgo.to?</h2>
                     <div className="grid md:grid-cols-2 gap-6">
                         <Card>
                             <CardContent className="pt-6 space-y-3">
@@ -515,7 +515,7 @@ export default function UrlShortener() {
 
                 {/* Comparison */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">npgo.to vs Other URL Shorteners</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">npgo.to vs Other URL Shorteners</h2>
                     <Card>
                         <CardContent className="pt-5 pb-5">
                             <div className="overflow-x-auto">
@@ -570,7 +570,7 @@ export default function UrlShortener() {
 
                 {/* Visible FAQ Section */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">URL Shortener FAQs</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">URL Shortener FAQs</h2>
                     <div className="space-y-4">
                         <Card>
                             <CardContent className="pt-5 pb-5">
@@ -635,7 +635,7 @@ export default function UrlShortener() {
 
                 {/* Internal Cross-Links */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">Explore More</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">Explore More</h2>
                     <div className="grid md:grid-cols-2 gap-4">
                         <a href="/qr-code-generator" className="block">
                             <Card className="hover:border-primary/50 border-border/60 transition-colors h-full">

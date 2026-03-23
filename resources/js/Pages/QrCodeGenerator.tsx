@@ -160,7 +160,7 @@ export default function QrCodeGenerator() {
 
                 <div className="relative z-10 px-4 sm:px-6 md:px-8">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight max-w-3xl mx-auto">
-                        <span className="text-primary">QR Codes</span>: The Complete Guide for Nepal
+                        Free <span className="text-primary">QR Code Generator</span> for Nepal
                     </h1>
                     <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed mt-3">
                         Understand what QR codes are, explore every use case, and discover how Nepali businesses are using them to bridge the physical and digital world.
@@ -180,7 +180,7 @@ export default function QrCodeGenerator() {
 
                 {/* What is a QR Code? */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">What is a QR Code?</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">What is a QR Code?</h2>
                     <div className="space-y-4 text-muted-foreground max-w-3xl mx-auto">
                         <p>
                             A <strong className="text-foreground">QR code</strong> (Quick Response code) is a two-dimensional barcode that stores information in a grid of black and white squares called <strong className="text-foreground">modules</strong>. Originally invented in 1994 by Denso Wave for tracking automotive parts in Japan, QR codes have evolved into one of the most versatile tools in modern business and marketing.
@@ -198,7 +198,7 @@ export default function QrCodeGenerator() {
 
                 {/* How QR Codes Work */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">How QR Codes Work</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">How QR Codes Work</h2>
 
                     <div className="grid md:grid-cols-3 gap-6">
                         <Card>
@@ -241,7 +241,7 @@ export default function QrCodeGenerator() {
 
                 {/* All Use Cases of QR Codes */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">All Use Cases of QR Codes</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">All Use Cases of QR Codes</h2>
                     <p className="text-muted-foreground text-center max-w-2xl mx-auto">
                         QR codes are one of the most versatile tools in modern business. Here are the major categories where QR codes create real value:
                     </p>
@@ -341,7 +341,7 @@ export default function QrCodeGenerator() {
 
                 {/* QR Codes for Nepal */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">QR Codes for Nepal: Driving Digital Transformation</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">QR Codes for Nepal: Driving Digital Transformation</h2>
                     <div className="space-y-4 text-muted-foreground max-w-3xl mx-auto">
                         <p>
                             Nepal is in the middle of a digital revolution. With over <strong className="text-foreground">22 million internet users</strong> and rapid smartphone adoption, the gap between offline businesses and online customers is closing fast. QR codes are at the center of this transformation.
@@ -412,7 +412,7 @@ export default function QrCodeGenerator() {
 
                 {/* Why Choose npgo.to */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">Why Choose npgo.to for QR Codes?</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">Why Choose npgo.to for QR Codes?</h2>
                     <div className="grid md:grid-cols-2 gap-6">
                         <Card>
                             <CardContent className="pt-6 space-y-3">
@@ -465,7 +465,7 @@ export default function QrCodeGenerator() {
 
                 {/* Comparison */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">npgo.to vs Other QR Code Generators</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">npgo.to vs Other QR Code Generators</h2>
                     <Card>
                         <CardContent className="pt-5 pb-5">
                             <div className="overflow-x-auto">
@@ -520,7 +520,7 @@ export default function QrCodeGenerator() {
 
                 {/* Visible FAQ Section */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">QR Code FAQs</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">QR Code FAQs</h2>
                     <div className="space-y-4">
                         <Card>
                             <CardContent className="pt-5 pb-5">
@@ -585,7 +585,7 @@ export default function QrCodeGenerator() {
 
                 {/* Internal Cross-Links */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">Explore More</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">Explore More</h2>
                     <div className="grid md:grid-cols-3 gap-4">
                         <a href="/how-to-shorten-url" className="block">
                             <Card className="hover:border-primary/50 border-border/60 transition-colors h-full">

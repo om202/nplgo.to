@@ -203,8 +203,8 @@ export default function Layout({ title, description, canonicalPath = '/', childr
             </Head>
 
             {/* Header */}
-            <header className="fixed top-0 left-0 right-0 z-50 border-b bg-background/80 backdrop-blur">
-                <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+            <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg shadow-[0_1px_3px_0_rgba(0,0,0,0.05)]">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 h-14 flex items-center justify-between">
                     {/* Logo and Navigation - Left Side */}
                     <div className="flex items-center gap-6">
                         {/* Mobile Menu - Hamburger */}
@@ -317,7 +317,7 @@ export default function Layout({ title, description, canonicalPath = '/', childr
                                                 </a>
 
                                                 <a
-                                                    href="/bio"
+                                                    href="/link-in-bio"
                                                     className="group flex items-start gap-3 rounded-lg p-3 hover:bg-accent transition-colors"
                                                 >
                                                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
@@ -374,7 +374,7 @@ export default function Layout({ title, description, canonicalPath = '/', childr
                             </Sheet>
                         )}
 
-                        <a href="/" className="flex items-center gap-2 text-2xl font-bold text-primary">
+                        <a href="/" className="flex items-center gap-1.5 text-2xl font-bold text-primary tracking-tight">
                             <Link2 className="h-6 w-6" />
                             <span>npgo.to</span>
                         </a>
@@ -409,7 +409,7 @@ export default function Layout({ title, description, canonicalPath = '/', childr
                                         </NavigationMenuLink>
                                     </NavigationMenuItem>
                                     <NavigationMenuItem>
-                                        <NavigationMenuLink href="/bio" className={navigationMenuTriggerStyle()}>
+                                        <NavigationMenuLink href="/link-in-bio" className={navigationMenuTriggerStyle()}>
                                             Link in Bio
                                         </NavigationMenuLink>
                                     </NavigationMenuItem>

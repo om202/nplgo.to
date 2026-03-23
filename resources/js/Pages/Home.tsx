@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { ArrowRight, QrCode, LayoutDashboard, UserCheck, Share2, Mail, Printer, MessageSquare, Scissors, UserCircle } from 'lucide-react';
+import { ArrowRight, QrCode, LayoutDashboard, UserCheck, Share2, Mail, Printer, MessageSquare, Scissors } from 'lucide-react';
 import { GoogleSignInButton } from '@/components/GoogleSignInButton';
 import { Footer } from '@/components/Footer';
 import {
@@ -182,11 +182,11 @@ export default function Home() {
                     </p>
 
                     {/* URL Shortener Form */}
-                    <Card className="max-w-2xl mx-auto bg-white/70 mt-10 shadow-sm">
-                        <CardHeader className="pb-1 pt-5">
+                    <Card className="max-w-2xl mx-auto bg-white/70 mt-8 shadow-sm">
+                        <CardHeader className="pb-0 pt-4">
                             <CardTitle className="text-sm sm:text-base font-medium text-muted-foreground">Paste URL here to get started</CardTitle>
                         </CardHeader>
-                        <CardContent className="pb-5">
+                        <CardContent className="pb-4 pt-3">
                             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
                                 <div className="flex-1">
                                     <Input
@@ -217,11 +217,9 @@ export default function Home() {
                     {/* Link in Bio CTA */}
                     <a
                         href="/bio"
-                        className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full bg-white/60 hover:bg-white/80 backdrop-blur border border-border/50 text-xs sm:text-sm font-medium text-foreground hover:text-primary transition-all hover:shadow-sm group"
+                        className="inline-flex items-center gap-1.5 mt-5 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors group"
                     >
-                        <UserCircle className="h-4 w-4 text-primary" />
-                        Need a Bio for Social Media?
-                        <span className="text-primary font-semibold group-hover:underline">Create here &rarr;</span>
+                        Need a bio page? <span className="text-primary font-medium group-hover:underline">Create one free &rarr;</span>
                     </a>
                 </div>
             </section>
@@ -229,7 +227,7 @@ export default function Home() {
             {/* Social Proof Bar */}
             {totalLinks > 0 && (
                 <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 py-8 text-center">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 py-1 text-center">
                         <div className="space-y-1">
                             <p className="text-2xl sm:text-3xl font-bold tracking-tight text-primary">{totalLinks.toLocaleString()}+</p>
                             <p className="text-xs text-muted-foreground">Links Shortened</p>

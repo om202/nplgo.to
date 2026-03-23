@@ -143,7 +143,7 @@ export default function HowToShorten() {
 
                 {/* Step-by-Step Guide */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">4 Simple Steps</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">4 Simple Steps</h2>
 
                     {/* Step 1 */}
                     <Card>
@@ -247,7 +247,7 @@ export default function HowToShorten() {
 
                 {/* Tips Section - Unique to this page */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">Tips for Better Short Links</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">Tips for Better Short Links</h2>
                     <div className="grid md:grid-cols-2 gap-6">
                         <Card>
                             <CardContent className="pt-6 space-y-3">
@@ -300,7 +300,7 @@ export default function HowToShorten() {
 
                 {/* What URLs Can You Shorten - Unique to this page */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">What URLs Can You Shorten?</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">What URLs Can You Shorten?</h2>
                     <p className="text-muted-foreground text-center max-w-2xl mx-auto">
                         npgo.to works with any valid web address. Here are some popular examples:
                     </p>
@@ -358,7 +358,7 @@ export default function HowToShorten() {
 
                 {/* Visible FAQ Section - targets featured snippets */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">Frequently Asked Questions</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">Frequently Asked Questions</h2>
                     <div className="space-y-4">
                         <Card>
                             <CardContent className="pt-5 pb-5">
@@ -407,7 +407,7 @@ export default function HowToShorten() {
 
                 {/* Internal Cross-Links */}
                 <section className="py-16 sm:py-20">
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">Explore More</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">Explore More</h2>
                     <div className="grid md:grid-cols-3 gap-4">
                         <a href="/qr-code-generator" className="block">
                             <Card className="hover:border-primary/50 border-border/60 transition-colors h-full">

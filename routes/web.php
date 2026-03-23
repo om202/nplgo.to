@@ -32,6 +32,7 @@ Route::get('/features', fn() => inertia('Features'))->name('features');
 Route::get('/how-to-shorten-url', fn() => inertia('HowToShorten'))->name('how-to-shorten');
 Route::get('/qr-code-generator', fn() => inertia('QrCodeGenerator'))->name('qr-code-generator');
 Route::get('/url-shortener', fn() => inertia('UrlShortener'))->name('url-shortener');
+Route::get('/link-in-bio', fn() => inertia('LinkInBio'))->name('link-in-bio');
 
 // Bio Page (public) - Must be before the catch-all redirect
 Route::get('/@{username}', [BioPagePublicController::class, 'show'])->name('bio.public');
