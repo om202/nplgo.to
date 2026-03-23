@@ -107,19 +107,20 @@ class BioPageController extends Controller
         $bioPage = $user->bioPage;
 
         // Delete old custom avatar if it exists on disk
-        if ($bioPage->avatar_url && str_contains($bioPage->avatar_url, '/storage/bio-avatars/')) {
-            $oldPath = str_replace('/storage/', '', parse_url($bioPage->avatar_url, PHP_URL_PATH));
-            Storage::disk('public')->delete($oldPath);
+        if ($bioPage->avatar_url && str_contains($bioPage->avatar_url, 'bio-avatars/')) {
+            $oldPath = $this->extractStoragePath($bioPage->avatar_url);
+            if ($oldPath) {
+                Storage::delete($oldPath);
+            }
         }
 
-        // Store new avatar
+        // Store new avatar on the default disk (s3 in production, local in dev)
         $path = $request->file('avatar')->store(
-            'bio-avatars/' . $bioPage->id,
-            'public'
+            'bio-avatars/' . $bioPage->id
         );
 
         $bioPage->update([
-            'avatar_url' => '/storage/' . $path,
+            'avatar_url' => Storage::url($path),
         ]);
 
         return redirect()->route('bio.edit')->with('success', 'Profile photo updated.');
@@ -134,9 +135,11 @@ class BioPageController extends Controller
         $bioPage = $user->bioPage;
 
         // Delete the custom avatar file if it exists
-        if ($bioPage->avatar_url && str_contains($bioPage->avatar_url, '/storage/bio-avatars/')) {
-            $oldPath = str_replace('/storage/', '', parse_url($bioPage->avatar_url, PHP_URL_PATH));
-            Storage::disk('public')->delete($oldPath);
+        if ($bioPage->avatar_url && str_contains($bioPage->avatar_url, 'bio-avatars/')) {
+            $oldPath = $this->extractStoragePath($bioPage->avatar_url);
+            if ($oldPath) {
+                Storage::delete($oldPath);
+            }
         }
 
         // Revert to Google avatar or null
@@ -145,6 +148,16 @@ class BioPageController extends Controller
         ]);
 
         return redirect()->route('bio.edit')->with('success', 'Profile photo removed.');
+    }
+
+    /**
+     * Extract the storage path from a full avatar URL.
+     * Handles both local (/storage/bio-avatars/...) and S3 (https://...bio-avatars/...) URLs.
+     */
+    private function extractStoragePath(string $url): ?string
+    {
+        $pos = strpos($url, 'bio-avatars/');
+        return $pos !== false ? substr($url, $pos) : null;
     }
 
     /**
