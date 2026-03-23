@@ -119,41 +119,41 @@ export default function HowToShorten() {
             </Head>
 
             {/* Hero Section */}
-            <section className="relative text-center space-y-4 sm:space-y-6 pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 md:pb-24 -mt-20">
+            <section className="relative text-center pt-20 sm:pt-24 md:pt-28 pb-28 sm:pb-36 md:pb-44 -mt-20">
                 <div className="absolute inset-0 -z-10">
                     <img
                         src="/hero.webp"
                         alt="Nepal landscape - how to shorten a URL for free"
                         className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-linear-to-b from-background/95 via-background/90 to-background"></div>
+                    <div className="absolute inset-0 bg-linear-to-b from-background/80 via-background/75 to-background"></div>
                 </div>
 
-                <div className="relative z-10 px-4">
+                <div className="relative z-10 px-4 sm:px-6 md:px-8">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight max-w-3xl mx-auto">
                         How to Shorten a URL <span className="text-primary">for Free</span>
                     </h1>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto tracking-normal px-4 mt-4">
+                    <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed mt-3">
                         A step-by-step guide to creating short links and QR codes using npgo.to, Nepal's free URL shortener by Noble Stack.
                     </p>
                 </div>
             </section>
 
-            <div className="w-full max-w-4xl mx-auto px-4 space-y-12 pb-12">
+            <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8 relative z-10 -mt-12 sm:-mt-16 md:-mt-20">
 
                 {/* Step-by-Step Guide */}
-                <section className="space-y-8">
-                    <h2 className="text-2xl font-semibold text-center">4 Simple Steps</h2>
+                <section className="py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">4 Simple Steps</h2>
 
                     {/* Step 1 */}
                     <Card>
-                        <CardContent className="pt-6">
+                        <CardContent className="pt-5 pb-5">
                             <div className="flex flex-col md:flex-row gap-6 items-start">
-                                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary text-2xl font-bold">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-lg font-bold">
                                     1
                                 </div>
                                 <div className="space-y-3">
-                                    <h3 className="text-xl font-semibold flex items-center gap-2">
+                                    <h3 className="text-base font-semibold flex items-center gap-2">
                                         <ClipboardPaste className="h-5 w-5 text-primary" />
                                         Go to npgo.to
                                     </h3>
@@ -171,13 +171,13 @@ export default function HowToShorten() {
 
                     {/* Step 2 */}
                     <Card>
-                        <CardContent className="pt-6">
+                        <CardContent className="pt-5 pb-5">
                             <div className="flex flex-col md:flex-row gap-6 items-start">
-                                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary text-2xl font-bold">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-lg font-bold">
                                     2
                                 </div>
                                 <div className="space-y-3">
-                                    <h3 className="text-xl font-semibold flex items-center gap-2">
+                                    <h3 className="text-base font-semibold flex items-center gap-2">
                                         <ClipboardPaste className="h-5 w-5 text-primary" />
                                         Paste Your Long URL
                                     </h3>
@@ -195,13 +195,13 @@ export default function HowToShorten() {
 
                     {/* Step 3 */}
                     <Card>
-                        <CardContent className="pt-6">
+                        <CardContent className="pt-5 pb-5">
                             <div className="flex flex-col md:flex-row gap-6 items-start">
-                                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary text-2xl font-bold">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-lg font-bold">
                                     3
                                 </div>
                                 <div className="space-y-3">
-                                    <h3 className="text-xl font-semibold flex items-center gap-2">
+                                    <h3 className="text-base font-semibold flex items-center gap-2">
                                         <Scissors className="h-5 w-5 text-primary" />
                                         Click "Shorten"
                                     </h3>
@@ -222,13 +222,13 @@ export default function HowToShorten() {
 
                     {/* Step 4 */}
                     <Card>
-                        <CardContent className="pt-6">
+                        <CardContent className="pt-5 pb-5">
                             <div className="flex flex-col md:flex-row gap-6 items-start">
-                                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary text-2xl font-bold">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-lg font-bold">
                                     4
                                 </div>
                                 <div className="space-y-3">
-                                    <h3 className="text-xl font-semibold flex items-center gap-2">
+                                    <h3 className="text-base font-semibold flex items-center gap-2">
                                         <Share2 className="h-5 w-5 text-primary" />
                                         Copy & Share (+ Free QR Code!)
                                     </h3>
@@ -246,12 +246,12 @@ export default function HowToShorten() {
                 </section>
 
                 {/* Tips Section - Unique to this page */}
-                <section className="space-y-6">
-                    <h2 className="text-2xl font-semibold text-center">Tips for Better Short Links</h2>
+                <section className="py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">Tips for Better Short Links</h2>
                     <div className="grid md:grid-cols-2 gap-6">
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <h3 className="font-semibold text-lg flex items-center gap-2">
+                                <h3 className="font-semibold text-sm flex items-center gap-2">
                                     <CheckCircle className="h-5 w-5 text-green-500" />
                                     Include the Full URL
                                 </h3>
@@ -262,7 +262,7 @@ export default function HowToShorten() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <h3 className="font-semibold text-lg flex items-center gap-2">
+                                <h3 className="font-semibold text-sm flex items-center gap-2">
                                     <CheckCircle className="h-5 w-5 text-green-500" />
                                     Same URL = Same Short Link
                                 </h3>
@@ -273,7 +273,7 @@ export default function HowToShorten() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <h3 className="font-semibold text-lg flex items-center gap-2">
+                                <h3 className="font-semibold text-sm flex items-center gap-2">
                                     <CheckCircle className="h-5 w-5 text-green-500" />
                                     Test Before Sharing
                                 </h3>
@@ -284,7 +284,7 @@ export default function HowToShorten() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <h3 className="font-semibold text-lg flex items-center gap-2">
+                                <h3 className="font-semibold text-sm flex items-center gap-2">
                                     <CheckCircle className="h-5 w-5 text-green-500" />
                                     Sign In to Track Links
                                 </h3>
@@ -299,13 +299,13 @@ export default function HowToShorten() {
                 <Separator />
 
                 {/* What URLs Can You Shorten - Unique to this page */}
-                <section className="space-y-6">
-                    <h2 className="text-2xl font-semibold text-center">What URLs Can You Shorten?</h2>
+                <section className="py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">What URLs Can You Shorten?</h2>
                     <p className="text-muted-foreground text-center max-w-2xl mx-auto">
                         npgo.to works with any valid web address. Here are some popular examples:
                     </p>
                     <Card>
-                        <CardContent className="pt-6">
+                        <CardContent className="pt-5 pb-5">
                             <div className="grid gap-4 text-sm">
                                 <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
                                     <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
@@ -357,44 +357,44 @@ export default function HowToShorten() {
                 <Separator />
 
                 {/* Visible FAQ Section - targets featured snippets */}
-                <section className="space-y-6">
-                    <h2 className="text-2xl font-semibold text-center">Frequently Asked Questions</h2>
+                <section className="py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">Frequently Asked Questions</h2>
                     <div className="space-y-4">
                         <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">Is it really free to shorten a URL on npgo.to?</h3>
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">Is it really free to shorten a URL on npgo.to?</h3>
                                 <p className="text-muted-foreground">
                                     Yes, 100% free. There are no premium tiers, no hidden fees, and no limits on how many URLs you can shorten. npgo.to is built by <a href="https://www.noblestack.io" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Noble Stack</a> as a free service for Nepal.
                                 </p>
                             </CardContent>
                         </Card>
                         <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">Do short links from npgo.to expire?</h3>
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">Do short links from npgo.to expire?</h3>
                                 <p className="text-muted-foreground">
                                     No, your short links are permanent and will work forever. Once you create a short link, it will continue redirecting to your destination URL indefinitely.
                                 </p>
                             </CardContent>
                         </Card>
                         <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">Do I need an account to shorten a URL?</h3>
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">Do I need an account to shorten a URL?</h3>
                                 <p className="text-muted-foreground">
                                     No account is required. You can start shortening URLs instantly as a guest. However, <a href="/" className="text-primary hover:underline">signing in with Google</a> lets you view and manage all your links from a personal dashboard.
                                 </p>
                             </CardContent>
                         </Card>
                         <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">Can I get a QR code with my short link?</h3>
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">Can I get a QR code with my short link?</h3>
                                 <p className="text-muted-foreground">
                                     Yes! Every short link automatically generates a free high-resolution QR code (2000×2000px). Download it and use it on business cards, flyers, or posters. Learn more on our <a href="/qr-code-generator" className="text-primary hover:underline">QR Code Generator</a> page.
                                 </p>
                             </CardContent>
                         </Card>
                         <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">What happens if I shorten the same URL twice?</h3>
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">What happens if I shorten the same URL twice?</h3>
                                 <p className="text-muted-foreground">
                                     npgo.to detects duplicate URLs and returns the existing short link instead of creating a new one. This keeps your links clean and avoids duplicates.
                                 </p>
@@ -406,43 +406,43 @@ export default function HowToShorten() {
                 <Separator />
 
                 {/* Internal Cross-Links */}
-                <section className="space-y-4">
-                    <h2 className="text-2xl font-semibold text-center">Explore More</h2>
+                <section className="py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">Explore More</h2>
                     <div className="grid md:grid-cols-3 gap-4">
                         <a href="/qr-code-generator" className="block">
-                            <Card className="hover:border-primary/50 transition-colors h-full">
-                                <CardContent className="pt-6">
+                            <Card className="hover:border-primary/50 border-border/60 transition-colors h-full">
+                                <CardContent className="pt-5 pb-5">
                                     <div className="flex items-center gap-3">
-                                        <QrCode className="h-8 w-8 text-primary shrink-0" />
+                                        <QrCode className="h-6 w-6 text-primary shrink-0" />
                                         <div>
-                                            <h3 className="font-semibold">Free QR Code Generator</h3>
-                                            <p className="text-sm text-muted-foreground">Create QR codes for business cards, flyers & posters</p>
+                                            <h3 className="font-semibold text-sm">Free QR Code Generator</h3>
+                                            <p className="text-xs text-muted-foreground mt-0.5">Create QR codes for business cards, flyers & posters</p>
                                         </div>
                                     </div>
                                 </CardContent>
                             </Card>
                         </a>
                         <a href="/url-shortener" className="block">
-                            <Card className="hover:border-primary/50 transition-colors h-full">
-                                <CardContent className="pt-6">
+                            <Card className="hover:border-primary/50 border-border/60 transition-colors h-full">
+                                <CardContent className="pt-5 pb-5">
                                     <div className="flex items-center gap-3">
-                                        <Link className="h-8 w-8 text-primary shrink-0" />
+                                        <Link className="h-6 w-6 text-primary shrink-0" />
                                         <div>
-                                            <h3 className="font-semibold">URL Shortener Guide</h3>
-                                            <p className="text-sm text-muted-foreground">What URL shorteners are, benefits & use cases</p>
+                                            <h3 className="font-semibold text-sm">URL Shortener Guide</h3>
+                                            <p className="text-xs text-muted-foreground mt-0.5">What URL shorteners are, benefits & use cases</p>
                                         </div>
                                     </div>
                                 </CardContent>
                             </Card>
                         </a>
                         <a href="/features" className="block">
-                            <Card className="hover:border-primary/50 transition-colors h-full">
-                                <CardContent className="pt-6">
+                            <Card className="hover:border-primary/50 border-border/60 transition-colors h-full">
+                                <CardContent className="pt-5 pb-5">
                                     <div className="flex items-center gap-3">
-                                        <ArrowRight className="h-8 w-8 text-primary shrink-0" />
+                                        <ArrowRight className="h-6 w-6 text-primary shrink-0" />
                                         <div>
-                                            <h3 className="font-semibold">All Features</h3>
-                                            <p className="text-sm text-muted-foreground">Dashboard, Google sign-in, link management & more</p>
+                                            <h3 className="font-semibold text-sm">All Features</h3>
+                                            <p className="text-xs text-muted-foreground mt-0.5">Dashboard, Google sign-in, link management & more</p>
                                         </div>
                                     </div>
                                 </CardContent>
@@ -452,20 +452,20 @@ export default function HowToShorten() {
                 </section>
 
                 {/* CTA */}
-                <section className="text-center space-y-4 py-8">
-                    <h2 className="text-2xl font-semibold">Ready to Create Your First Short Link?</h2>
-                    <p className="text-muted-foreground">
+                <section className="text-center py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Ready to Create Your First Short Link?</h2>
+                    <p className="text-muted-foreground text-sm sm:text-base mt-2">
                         It takes less than 30 seconds. Paste a URL, get a short link and QR code instantly.
                     </p>
-                    <a href="/">
+                    <a href="/" className="inline-block mt-6">
                         <Button size="lg" className="gap-2 w-full sm:w-auto">
                             Shorten a URL Now <ArrowRight className="h-4 w-4" />
                         </Button>
                     </a>
                 </section>
-            </div>
 
-            <Footer />
+                <Footer />
+            </div>
         </Layout>
     );
 }

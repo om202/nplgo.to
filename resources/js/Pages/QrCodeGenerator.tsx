@@ -148,21 +148,21 @@ export default function QrCodeGenerator() {
             </Head>
 
             {/* Hero Section */}
-            <section className="relative text-center space-y-4 sm:space-y-6 pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 md:pb-24 -mt-20">
+            <section className="relative text-center pt-20 sm:pt-24 md:pt-28 pb-28 sm:pb-36 md:pb-44 -mt-20">
                 <div className="absolute inset-0 -z-10">
                     <img
                         src="/hero.webp"
                         alt="Nepal landscape - free QR code generator for Nepal"
                         className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-linear-to-b from-background/95 via-background/90 to-background"></div>
+                    <div className="absolute inset-0 bg-linear-to-b from-background/80 via-background/75 to-background"></div>
                 </div>
 
-                <div className="relative z-10 px-4">
+                <div className="relative z-10 px-4 sm:px-6 md:px-8">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight max-w-3xl mx-auto">
                         <span className="text-primary">QR Codes</span>: The Complete Guide for Nepal
                     </h1>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto tracking-normal px-4 mt-4">
+                    <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed mt-3">
                         Understand what QR codes are, explore every use case, and discover how Nepali businesses are using them to bridge the physical and digital world.
                     </p>
                     <div className="mt-6">
@@ -176,11 +176,11 @@ export default function QrCodeGenerator() {
                 </div>
             </section>
 
-            <div className="w-full max-w-4xl mx-auto px-4 space-y-12 pb-12">
+            <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8 relative z-10 -mt-12 sm:-mt-16 md:-mt-20">
 
                 {/* What is a QR Code? */}
-                <section className="space-y-6">
-                    <h2 className="text-2xl font-semibold text-center">What is a QR Code?</h2>
+                <section className="py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">What is a QR Code?</h2>
                     <div className="space-y-4 text-muted-foreground max-w-3xl mx-auto">
                         <p>
                             A <strong className="text-foreground">QR code</strong> (Quick Response code) is a two-dimensional barcode that stores information in a grid of black and white squares called <strong className="text-foreground">modules</strong>. Originally invented in 1994 by Denso Wave for tracking automotive parts in Japan, QR codes have evolved into one of the most versatile tools in modern business and marketing.
@@ -197,8 +197,8 @@ export default function QrCodeGenerator() {
                 <Separator />
 
                 {/* How QR Codes Work */}
-                <section className="space-y-8">
-                    <h2 className="text-2xl font-semibold text-center">How QR Codes Work</h2>
+                <section className="py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">How QR Codes Work</h2>
 
                     <div className="grid md:grid-cols-3 gap-6">
                         <Card>
@@ -206,8 +206,8 @@ export default function QrCodeGenerator() {
                                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-xl bg-primary/10 text-primary">
                                     <Link className="h-8 w-8" />
                                 </div>
-                                <h3 className="font-semibold text-lg">1. Encode</h3>
-                                <p className="text-sm text-muted-foreground">
+                                <h3 className="font-semibold text-sm">1. Encode</h3>
+                                <p className="text-xs text-muted-foreground mt-0.5">
                                     A URL, text, or data is converted into a pattern of black and white modules using error-correction algorithms that ensure reliability.
                                 </p>
                             </CardContent>
@@ -217,8 +217,8 @@ export default function QrCodeGenerator() {
                                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-xl bg-primary/10 text-primary">
                                     <Scan className="h-8 w-8" />
                                 </div>
-                                <h3 className="font-semibold text-lg">2. Scan</h3>
-                                <p className="text-sm text-muted-foreground">
+                                <h3 className="font-semibold text-sm">2. Scan</h3>
+                                <p className="text-xs text-muted-foreground mt-0.5">
                                     Any smartphone camera detects the three corner squares, reads the module pattern, and decodes the stored information instantly.
                                 </p>
                             </CardContent>
@@ -228,8 +228,8 @@ export default function QrCodeGenerator() {
                                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-xl bg-primary/10 text-primary">
                                     <Globe className="h-8 w-8" />
                                 </div>
-                                <h3 className="font-semibold text-lg">3. Connect</h3>
-                                <p className="text-sm text-muted-foreground">
+                                <h3 className="font-semibold text-sm">3. Connect</h3>
+                                <p className="text-xs text-muted-foreground mt-0.5">
                                     The user is instantly taken to the destination: a website, menu, payment page, map location, or any digital content. No typing needed.
                                 </p>
                             </CardContent>
@@ -240,18 +240,18 @@ export default function QrCodeGenerator() {
                 <Separator />
 
                 {/* All Use Cases of QR Codes */}
-                <section className="space-y-6">
-                    <h2 className="text-2xl font-semibold text-center">All Use Cases of QR Codes</h2>
+                <section className="py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">All Use Cases of QR Codes</h2>
                     <p className="text-muted-foreground text-center max-w-2xl mx-auto">
                         QR codes are one of the most versatile tools in modern business. Here are the major categories where QR codes create real value:
                     </p>
                     <div className="grid md:grid-cols-2 gap-6">
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <Megaphone className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">Marketing & Advertising</h3>
+                                <h3 className="font-semibold text-sm">Marketing & Advertising</h3>
                                 <p className="text-muted-foreground">
                                     Place QR codes on flyers, posters, billboards, and hoarding boards. Turn passive viewers into active website visitors. Track campaign engagement by linking to specific landing pages.
                                 </p>
@@ -259,10 +259,10 @@ export default function QrCodeGenerator() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <CreditCard className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">Business Cards & Networking</h3>
+                                <h3 className="font-semibold text-sm">Business Cards & Networking</h3>
                                 <p className="text-muted-foreground">
                                     Add a QR code to your visiting card that links to your website, LinkedIn, portfolio, or digital vCard. One scan replaces manual contact entry and leaves a lasting professional impression.
                                 </p>
@@ -270,10 +270,10 @@ export default function QrCodeGenerator() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <UtensilsCrossed className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">Restaurants & Menus</h3>
+                                <h3 className="font-semibold text-sm">Restaurants & Menus</h3>
                                 <p className="text-muted-foreground">
                                     Replace printed menus with QR code table cards. Customers scan to view your full menu on their phone. Update prices and items digitally without reprinting. Saves cost and improves hygiene.
                                 </p>
@@ -281,10 +281,10 @@ export default function QrCodeGenerator() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <Package className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">Product Packaging & Labels</h3>
+                                <h3 className="font-semibold text-sm">Product Packaging & Labels</h3>
                                 <p className="text-muted-foreground">
                                     Embed QR codes on product packaging to link to usage instructions, ingredient lists, warranty registration, or customer reviews. Adds digital depth to physical products.
                                 </p>
@@ -292,10 +292,10 @@ export default function QrCodeGenerator() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <Wallet className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">Payments & Transactions</h3>
+                                <h3 className="font-semibold text-sm">Payments & Transactions</h3>
                                 <p className="text-muted-foreground">
                                     Enable instant payments by displaying QR codes at checkout counters. Customers scan to pay via mobile wallets. In Nepal, platforms like eSewa, Khalti, and ConnectIPS already rely heavily on QR-based payments.
                                 </p>
@@ -303,10 +303,10 @@ export default function QrCodeGenerator() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <Ticket className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">Events & Ticketing</h3>
+                                <h3 className="font-semibold text-sm">Events & Ticketing</h3>
                                 <p className="text-muted-foreground">
                                     Use QR codes as digital tickets for concerts, conferences, and festivals. Attendees show their QR code at the entrance for instant check-in. Eliminates paper tickets and reduces fraud.
                                 </p>
@@ -314,10 +314,10 @@ export default function QrCodeGenerator() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <GraduationCap className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">Education & Learning</h3>
+                                <h3 className="font-semibold text-sm">Education & Learning</h3>
                                 <p className="text-muted-foreground">
                                     Teachers and institutions can add QR codes to textbooks, worksheets, and notice boards. Link students to video tutorials, online resources, assignment portals, and attendance forms.
                                 </p>
@@ -325,10 +325,10 @@ export default function QrCodeGenerator() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <MapPin className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">Real Estate & Tourism</h3>
+                                <h3 className="font-semibold text-sm">Real Estate & Tourism</h3>
                                 <p className="text-muted-foreground">
                                     Place QR codes on property listings, hotel brochures, or tourist information boards. Link to virtual tours, booking pages, Google Maps directions, or detailed property information.
                                 </p>
@@ -340,8 +340,8 @@ export default function QrCodeGenerator() {
                 <Separator />
 
                 {/* QR Codes for Nepal */}
-                <section className="space-y-6">
-                    <h2 className="text-2xl font-semibold text-center">QR Codes for Nepal: Driving Digital Transformation</h2>
+                <section className="py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">QR Codes for Nepal: Driving Digital Transformation</h2>
                     <div className="space-y-4 text-muted-foreground max-w-3xl mx-auto">
                         <p>
                             Nepal is in the middle of a digital revolution. With over <strong className="text-foreground">22 million internet users</strong> and rapid smartphone adoption, the gap between offline businesses and online customers is closing fast. QR codes are at the center of this transformation.
@@ -351,10 +351,10 @@ export default function QrCodeGenerator() {
                     <div className="grid md:grid-cols-2 gap-6">
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <Wallet className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">Digital Payments Are QR-First</h3>
+                                <h3 className="font-semibold text-sm">Digital Payments Are QR-First</h3>
                                 <p className="text-muted-foreground">
                                     Nepal's digital payment ecosystem runs on QR codes. eSewa, Khalti, IME Pay, and ConnectIPS all use QR-based payments at shops, restaurants, and service counters across the country. From Kathmandu to Pokhara, scanning a QR code to pay has become second nature for Nepali consumers.
                                 </p>
@@ -362,10 +362,10 @@ export default function QrCodeGenerator() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <UtensilsCrossed className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">Restaurants Going Digital</h3>
+                                <h3 className="font-semibold text-sm">Restaurants Going Digital</h3>
                                 <p className="text-muted-foreground">
                                     Restaurants in Thamel, Jhamsikhel, and Lakeside are replacing printed menus with QR codes on every table. Customers scan for the full digital menu, reducing printing costs and allowing instant updates when prices or dishes change.
                                 </p>
@@ -373,10 +373,10 @@ export default function QrCodeGenerator() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <Mountain className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">Tourism & Hospitality</h3>
+                                <h3 className="font-semibold text-sm">Tourism & Hospitality</h3>
                                 <p className="text-muted-foreground">
                                     Hotels, trekking agencies, and tour operators use QR codes on brochures and information boards. Tourists scan to access itineraries, booking forms, maps, and emergency contact information, bridging the language barrier with digital content.
                                 </p>
@@ -384,10 +384,10 @@ export default function QrCodeGenerator() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <ShoppingBag className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">Retail & E-Commerce Growth</h3>
+                                <h3 className="font-semibold text-sm">Retail & E-Commerce Growth</h3>
                                 <p className="text-muted-foreground">
                                     Nepali retailers are placing QR codes on product shelves and packaging to link to their online stores on Daraz, Hamrobazar, and social media shops. This offline-to-online strategy helps local businesses compete in the growing e-commerce market.
                                 </p>
@@ -397,10 +397,10 @@ export default function QrCodeGenerator() {
 
                     <Card className="border-primary/20 bg-primary/5">
                         <CardContent className="pt-6 space-y-3">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                 <TrendingUp className="h-6 w-6" />
                             </div>
-                            <h3 className="font-semibold text-lg">Why This Matters for Your Business</h3>
+                            <h3 className="font-semibold text-sm">Why This Matters for Your Business</h3>
                             <p className="text-muted-foreground">
                                 Whether you run a small momo shop in Patan or a trekking agency in Pokhara, QR codes give you an affordable way to connect with customers digitally. No app development cost, no expensive marketing spend. Just generate a QR code, print it, and your customers are one scan away from your website, menu, location, or social media page.
                             </p>
@@ -411,15 +411,15 @@ export default function QrCodeGenerator() {
                 <Separator />
 
                 {/* Why Choose npgo.to */}
-                <section className="space-y-6">
-                    <h2 className="text-2xl font-semibold text-center">Why Choose npgo.to for QR Codes?</h2>
+                <section className="py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">Why Choose npgo.to for QR Codes?</h2>
                     <div className="grid md:grid-cols-2 gap-6">
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-500/10 text-green-500">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500/10 text-green-500">
                                     <CheckCircle className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">100% Free</h3>
+                                <h3 className="font-semibold text-sm">100% Free</h3>
                                 <p className="text-muted-foreground">
                                     Unlike Bit.ly which charges for QR codes, npgo.to gives you unlimited QR codes completely free. No premium tiers, no paywalls.
                                 </p>
@@ -427,10 +427,10 @@ export default function QrCodeGenerator() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <Download className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">High Resolution</h3>
+                                <h3 className="font-semibold text-sm">High Resolution</h3>
                                 <p className="text-muted-foreground">
                                     Download QR codes at 2000×2000 pixels, perfect for printing on posters, banners, and large format materials without losing quality.
                                 </p>
@@ -438,10 +438,10 @@ export default function QrCodeGenerator() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <QrCode className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">Branded QR Codes</h3>
+                                <h3 className="font-semibold text-sm">Branded QR Codes</h3>
                                 <p className="text-muted-foreground">
                                     Every QR code includes the npgo.to branding in the center, giving your audience confidence that the code is safe to scan.
                                 </p>
@@ -449,10 +449,10 @@ export default function QrCodeGenerator() {
                         </Card>
                         <Card>
                             <CardContent className="pt-6 space-y-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <Scissors className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-lg">Short Link Included</h3>
+                                <h3 className="font-semibold text-sm">Short Link Included</h3>
                                 <p className="text-muted-foreground">
                                     Every QR code comes with a short npgo.to link. Use the QR code for print and the short link for digital. Both point to the same destination.
                                 </p>
@@ -464,10 +464,10 @@ export default function QrCodeGenerator() {
                 <Separator />
 
                 {/* Comparison */}
-                <section className="space-y-6">
-                    <h2 className="text-2xl font-semibold text-center">npgo.to vs Other QR Code Generators</h2>
+                <section className="py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">npgo.to vs Other QR Code Generators</h2>
                     <Card>
-                        <CardContent className="pt-6">
+                        <CardContent className="pt-5 pb-5">
                             <div className="overflow-x-auto">
                                 <table className="w-full text-sm">
                                     <thead>
@@ -519,60 +519,60 @@ export default function QrCodeGenerator() {
                 <Separator />
 
                 {/* Visible FAQ Section */}
-                <section className="space-y-6">
-                    <h2 className="text-2xl font-semibold text-center">QR Code FAQs</h2>
+                <section className="py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">QR Code FAQs</h2>
                     <div className="space-y-4">
                         <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">What is a QR code and how is it different from a barcode?</h3>
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">What is a QR code and how is it different from a barcode?</h3>
                                 <p className="text-muted-foreground">
                                     A QR code (Quick Response code) is a 2D matrix barcode that stores data in both horizontal and vertical directions, unlike traditional barcodes which only use horizontal lines. This allows QR codes to store significantly more data, including full URLs, and can be scanned by any smartphone camera without a special scanner.
                                 </p>
                             </CardContent>
                         </Card>
                         <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">Are QR codes from npgo.to really free?</h3>
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">Are QR codes from npgo.to really free?</h3>
                                 <p className="text-muted-foreground">
                                     Yes, completely free with no limits. Unlike Bit.ly which charges for QR codes, npgo.to generates unlimited QR codes at 2000×2000px resolution. No signup, no credit card, no catch.
                                 </p>
                             </CardContent>
                         </Card>
                         <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">Do QR codes expire?</h3>
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">Do QR codes expire?</h3>
                                 <p className="text-muted-foreground">
                                     No. QR codes from npgo.to are static. They never expire and have unlimited scans. Once generated, your QR code will work forever.
                                 </p>
                             </CardContent>
                         </Card>
                         <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">How are QR codes used in Nepal?</h3>
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">How are QR codes used in Nepal?</h3>
                                 <p className="text-muted-foreground">
                                     QR codes are widely used in Nepal for digital payments (eSewa, Khalti, ConnectIPS), restaurant digital menus, tourism and hotel information, marketing campaigns on hoarding boards, and product packaging. Nepal's growing digital payment ecosystem has made QR codes a part of daily life for millions of Nepali consumers.
                                 </p>
                             </CardContent>
                         </Card>
                         <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">What resolution are the QR code images?</h3>
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">What resolution are the QR code images?</h3>
                                 <p className="text-muted-foreground">
                                     QR codes are generated at 2000×2000 pixels in PNG format. This is high enough resolution for billboards, large posters, and professional print materials without any pixelation.
                                 </p>
                             </CardContent>
                         </Card>
                         <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">Can I use these QR codes for commercial purposes?</h3>
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">Can I use these QR codes for commercial purposes?</h3>
                                 <p className="text-muted-foreground">
                                     Absolutely. QR codes generated on npgo.to are free for both personal and commercial use. Use them on business cards, packaging, marketing materials, menus, or anywhere else.
                                 </p>
                             </CardContent>
                         </Card>
                         <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">How is npgo.to different from QRCode Monkey or other generators?</h3>
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">How is npgo.to different from QRCode Monkey or other generators?</h3>
                                 <p className="text-muted-foreground">
                                     npgo.to combines URL shortening and QR code generation in one step. You get both a short link and a QR code for every URL. Other generators create QR codes only, but npgo.to gives you a shortened link you can share digitally too. Plus, it's made in Nepal by <a href="https://www.noblestack.io" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Noble Stack</a>.
                                 </p>
@@ -584,43 +584,43 @@ export default function QrCodeGenerator() {
                 <Separator />
 
                 {/* Internal Cross-Links */}
-                <section className="space-y-4">
-                    <h2 className="text-2xl font-semibold text-center">Explore More</h2>
+                <section className="py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">Explore More</h2>
                     <div className="grid md:grid-cols-3 gap-4">
                         <a href="/how-to-shorten-url" className="block">
-                            <Card className="hover:border-primary/50 transition-colors h-full">
-                                <CardContent className="pt-6">
+                            <Card className="hover:border-primary/50 border-border/60 transition-colors h-full">
+                                <CardContent className="pt-5 pb-5">
                                     <div className="flex items-center gap-3">
-                                        <Scissors className="h-8 w-8 text-primary shrink-0" />
+                                        <Scissors className="h-6 w-6 text-primary shrink-0" />
                                         <div>
-                                            <h3 className="font-semibold">How to Shorten a URL</h3>
-                                            <p className="text-sm text-muted-foreground">Step-by-step guide with tips for better short links</p>
+                                            <h3 className="font-semibold text-sm">How to Shorten a URL</h3>
+                                            <p className="text-xs text-muted-foreground mt-0.5">Step-by-step guide with tips for better short links</p>
                                         </div>
                                     </div>
                                 </CardContent>
                             </Card>
                         </a>
                         <a href="/url-shortener" className="block">
-                            <Card className="hover:border-primary/50 transition-colors h-full">
-                                <CardContent className="pt-6">
+                            <Card className="hover:border-primary/50 border-border/60 transition-colors h-full">
+                                <CardContent className="pt-5 pb-5">
                                     <div className="flex items-center gap-3">
-                                        <Scissors className="h-8 w-8 text-primary shrink-0" />
+                                        <Scissors className="h-6 w-6 text-primary shrink-0" />
                                         <div>
-                                            <h3 className="font-semibold">URL Shortener Guide</h3>
-                                            <p className="text-sm text-muted-foreground">What URL shorteners are, benefits, and use cases</p>
+                                            <h3 className="font-semibold text-sm">URL Shortener Guide</h3>
+                                            <p className="text-xs text-muted-foreground mt-0.5">What URL shorteners are, benefits, and use cases</p>
                                         </div>
                                     </div>
                                 </CardContent>
                             </Card>
                         </a>
                         <a href="/features" className="block">
-                            <Card className="hover:border-primary/50 transition-colors h-full">
-                                <CardContent className="pt-6">
+                            <Card className="hover:border-primary/50 border-border/60 transition-colors h-full">
+                                <CardContent className="pt-5 pb-5">
                                     <div className="flex items-center gap-3">
-                                        <ArrowRight className="h-8 w-8 text-primary shrink-0" />
+                                        <ArrowRight className="h-6 w-6 text-primary shrink-0" />
                                         <div>
-                                            <h3 className="font-semibold">All Features</h3>
-                                            <p className="text-sm text-muted-foreground">Dashboard, Google sign-in, link management & more</p>
+                                            <h3 className="font-semibold text-sm">All Features</h3>
+                                            <p className="text-xs text-muted-foreground mt-0.5">Dashboard, Google sign-in, link management & more</p>
                                         </div>
                                     </div>
                                 </CardContent>
@@ -630,20 +630,20 @@ export default function QrCodeGenerator() {
                 </section>
 
                 {/* CTA */}
-                <section className="text-center space-y-4 py-8">
-                    <h2 className="text-2xl font-semibold">Create Your Free QR Code Now</h2>
-                    <p className="text-muted-foreground">
+                <section className="text-center py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Create Your Free QR Code Now</h2>
+                    <p className="text-muted-foreground text-sm sm:text-base mt-2">
                         Paste a URL, get a QR code. 2000×2000px, free forever, no signup.
                     </p>
-                    <a href="/">
+                    <a href="/" className="inline-block mt-6">
                         <Button size="lg" className="gap-2 w-full sm:w-auto">
                             Generate QR Code <ArrowRight className="h-4 w-4" />
                         </Button>
                     </a>
                 </section>
-            </div>
 
-            <Footer />
+                <Footer />
+            </div>
         </Layout>
     );
 }

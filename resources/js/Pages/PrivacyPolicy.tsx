@@ -9,41 +9,41 @@ export default function PrivacyPolicy() {
             description="npgo.to Privacy Policy by Noble Stack. Learn how we collect, use, and protect your data when using our free URL shortener and QR code generator for Nepal."
             canonicalPath="/privacy"
         >
-            <div className="w-full max-w-4xl mx-auto space-y-8">
-                <div className="text-center space-y-4">
-                    <h1 className="text-4xl font-bold tracking-tight">Privacy Policy</h1>
-                    <p className="text-muted-foreground">Last updated: January 18, 2026</p>
+            <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-16 sm:py-20">
+                <div className="text-center">
+                    <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Privacy Policy</h1>
+                    <p className="text-sm text-muted-foreground mt-2">Last updated: January 18, 2026</p>
                 </div>
 
                 <Separator />
 
-                <Card>
+                <Card className="border-border/60">
                     <CardContent className="prose prose-sm max-w-none pt-6 space-y-6">
                         <section>
-                            <h2 className="text-xl font-semibold mb-3">Introduction</h2>
-                            <p className="text-muted-foreground">
+                            <h2 className="text-lg font-semibold mb-2">Introduction</h2>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
                                 Welcome to npgo.to ("we," "our," or "us"). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our URL shortening service.
                             </p>
                         </section>
 
                         <section>
-                            <h2 className="text-xl font-semibold mb-3">Information We Collect</h2>
-                            <h3 className="text-lg font-medium mt-4 mb-2">Account Information</h3>
-                            <p className="text-muted-foreground">
+                            <h2 className="text-lg font-semibold mb-2">Information We Collect</h2>
+                            <h3 className="text-base font-medium mt-3 mb-1.5">Account Information</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
                                 When you sign in with Google, we collect:
                             </p>
-                            <ul className="list-disc pl-6 text-muted-foreground space-y-1">
+                            <ul className="list-disc pl-6 text-sm text-muted-foreground space-y-1">
                                 <li>Your name</li>
                                 <li>Email address</li>
                                 <li>Profile picture (avatar)</li>
                                 <li>Google account ID</li>
                             </ul>
 
-                            <h3 className="text-lg font-medium mt-4 mb-2">URL Data</h3>
-                            <p className="text-muted-foreground">
+                            <h3 className="text-base font-medium mt-3 mb-1.5">URL Data</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
                                 When you create shortened URLs, we store:
                             </p>
-                            <ul className="list-disc pl-6 text-muted-foreground space-y-1">
+                            <ul className="list-disc pl-6 text-sm text-muted-foreground space-y-1">
                                 <li>Original URLs you submit</li>
                                 <li>Generated short codes</li>
                                 <li>Creation timestamps</li>
@@ -52,9 +52,9 @@ export default function PrivacyPolicy() {
                         </section>
 
                         <section>
-                            <h2 className="text-xl font-semibold mb-3">How We Use Your Information</h2>
-                            <p className="text-muted-foreground">We use the collected information to:</p>
-                            <ul className="list-disc pl-6 text-muted-foreground space-y-1">
+                            <h2 className="text-lg font-semibold mb-2">How We Use Your Information</h2>
+                            <p className="text-sm text-muted-foreground leading-relaxed">We use the collected information to:</p>
+                            <ul className="list-disc pl-6 text-sm text-muted-foreground space-y-1">
                                 <li>Provide and maintain our URL shortening service</li>
                                 <li>Authenticate your account via Google Sign-In</li>
                                 <li>Enable you to manage your shortened URLs</li>
@@ -66,11 +66,11 @@ export default function PrivacyPolicy() {
                         </section>
 
                         <section>
-                            <h2 className="text-xl font-semibold mb-3">Data Sharing and Disclosure</h2>
-                            <p className="text-muted-foreground">
+                            <h2 className="text-lg font-semibold mb-2">Data Sharing and Disclosure</h2>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
                                 We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:
                             </p>
-                            <ul className="list-disc pl-6 text-muted-foreground space-y-1">
+                            <ul className="list-disc pl-6 text-sm text-muted-foreground space-y-1">
                                 <li><strong>Service Providers:</strong> With trusted third-party services (like Google for authentication) that help us operate our service</li>
                                 <li><strong>Legal Requirements:</strong> When required by law or to protect our rights and safety</li>
                                 <li><strong>Business Transfers:</strong> In connection with any merger, sale, or acquisition of all or a portion of our service</li>
@@ -78,16 +78,16 @@ export default function PrivacyPolicy() {
                         </section>
 
                         <section>
-                            <h2 className="text-xl font-semibold mb-3">Data Security</h2>
-                            <p className="text-muted-foreground">
+                            <h2 className="text-lg font-semibold mb-2">Data Security</h2>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
                                 We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet or electronic storage is 100% secure.
                             </p>
                         </section>
 
                         <section>
-                            <h2 className="text-xl font-semibold mb-3">Your Rights</h2>
-                            <p className="text-muted-foreground">You have the right to:</p>
-                            <ul className="list-disc pl-6 text-muted-foreground space-y-1">
+                            <h2 className="text-lg font-semibold mb-2">Your Rights</h2>
+                            <p className="text-sm text-muted-foreground leading-relaxed">You have the right to:</p>
+                            <ul className="list-disc pl-6 text-sm text-muted-foreground space-y-1">
                                 <li>Access your personal information</li>
                                 <li>Delete your account and associated data</li>
                                 <li>Manage and delete your shortened URLs</li>
@@ -99,25 +99,25 @@ export default function PrivacyPolicy() {
 
 
                         <section>
-                            <h2 className="text-xl font-semibold mb-3">Children's Privacy</h2>
-                            <p className="text-muted-foreground">
+                            <h2 className="text-lg font-semibold mb-2">Children's Privacy</h2>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
                                 Our service is not intended for users under the age of 13. We do not knowingly collect personal information from children under 13.
                             </p>
                         </section>
 
                         <section>
-                            <h2 className="text-xl font-semibold mb-3">Changes to This Policy</h2>
-                            <p className="text-muted-foreground">
+                            <h2 className="text-lg font-semibold mb-2">Changes to This Policy</h2>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
                                 We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
                             </p>
                         </section>
 
                         <section>
-                            <h2 className="text-xl font-semibold mb-3">Contact Us</h2>
-                            <p className="text-muted-foreground">
+                            <h2 className="text-lg font-semibold mb-2">Contact Us</h2>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
                                 If you have any questions about this Privacy Policy, please contact us at:
                             </p>
-                            <p className="text-muted-foreground">
+                            <p className="text-sm text-muted-foreground leading-relaxed">
                                 <strong>NobleStack</strong><br />
                                 Email: <a href="mailto:support@noblestack.io" className="text-primary hover:underline">support@noblestack.io</a><br />
                                 Website: <a href="https://www.noblestack.io/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">www.noblestack.io</a>

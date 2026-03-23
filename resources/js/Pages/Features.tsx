@@ -112,7 +112,7 @@ export default function Features() {
                 </script>
             </Head>
             {/* Hero Section - Full Width Background */}
-            <section className="relative text-center space-y-4 sm:space-y-6 pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 md:pb-24 -mt-20">
+            <section className="relative text-center pt-20 sm:pt-24 md:pt-28 pb-28 sm:pb-36 md:pb-44 -mt-20">
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 -z-10">
                     <img
@@ -120,36 +120,38 @@ export default function Features() {
                         alt="Nepal landscape - npgo.to features overview"
                         className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/75 to-background"></div>
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 px-4">
+                <div className="relative z-10 px-4 sm:px-6 md:px-8">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight max-w-2xl mx-auto">
                         Features of <span className="text-primary">npgo.to</span>
                     </h1>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto tracking-normal px-4 mt-4">
+                    <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed mt-3">
                         Everything you need for URL shortening and QR code generation, completely free. No premium tiers, no hidden fees.
                     </p>
                 </div>
             </section>
 
-            <div className="w-full max-w-5xl mx-auto px-4 space-y-12 pb-12">
+            <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8 relative z-10 -mt-12 sm:-mt-16 md:-mt-20">
 
                 {/* Main Features */}
-                <section className="space-y-8">
-                    <h2 className="text-2xl font-semibold text-center">Core Features</h2>
+                <section className="py-16 sm:py-20">
+                    <div className="text-center mb-10">
+                        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Core Features</h2>
+                    </div>
 
                     {/* Feature 1: URL Shortening */}
-                    <Card>
+                    <Card className="border-border/60">
                         <CardContent className="pt-6">
                             <div className="flex flex-col md:flex-row gap-6 items-start">
-                                <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                                    <Link2 className="h-8 w-8" />
+                                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                                    <Link2 className="h-6 w-6" />
                                 </div>
                                 <div className="space-y-4">
-                                    <h3 className="text-xl font-semibold">Free URL Shortener for Nepal</h3>
-                                    <p className="text-muted-foreground">
+                                    <h3 className="text-base font-semibold">Free URL Shortener for Nepal</h3>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
                                         Transform any long URL into a short, memorable npgo.to link. Perfect for social media, SMS, email marketing, and print materials. Our URL shortener is designed specifically for the Nepali market.
                                     </p>
                                     <ul className="grid gap-2">
@@ -176,15 +178,15 @@ export default function Features() {
                     </Card>
 
                     {/* Feature 2: QR Code Generator */}
-                    <Card>
+                    <Card className="border-border/60">
                         <CardContent className="pt-6">
                             <div className="flex flex-col md:flex-row gap-6 items-start">
-                                <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                                    <QrCode className="h-8 w-8" />
+                                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                                    <QrCode className="h-6 w-6" />
                                 </div>
                                 <div className="space-y-4">
-                                    <h3 className="text-xl font-semibold">Free QR Code Generator for Nepal</h3>
-                                    <p className="text-muted-foreground">
+                                    <h3 className="text-base font-semibold">Free QR Code Generator for Nepal</h3>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
                                         Every shortened link automatically gets a QR code. Download and use for business cards, flyers, posters, product packaging, and any print materials. The best free QR code generator for Nepali businesses.
                                     </p>
                                     <ul className="grid gap-2">
@@ -211,15 +213,15 @@ export default function Features() {
                     </Card>
 
                     {/* Feature 3: Dashboard */}
-                    <Card>
+                    <Card className="border-border/60">
                         <CardContent className="pt-6">
                             <div className="flex flex-col md:flex-row gap-6 items-start">
-                                <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                                    <LayoutDashboard className="h-8 w-8" />
+                                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                                    <LayoutDashboard className="h-6 w-6" />
                                 </div>
                                 <div className="space-y-4">
-                                    <h3 className="text-xl font-semibold">Free Link Management Dashboard</h3>
-                                    <p className="text-muted-foreground">
+                                    <h3 className="text-base font-semibold">Free Link Management Dashboard</h3>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
                                         Keep all your shortened URLs organized in one powerful dashboard. View, manage, and control all your links with ease. The best free link management solution for Nepal.
                                     </p>
                                     <ul className="grid md:grid-cols-2 gap-2">
@@ -254,15 +256,15 @@ export default function Features() {
                     </Card>
 
                     {/* Feature 4: Google Sign-In */}
-                    <Card>
+                    <Card className="border-border/60">
                         <CardContent className="pt-6">
                             <div className="flex flex-col md:flex-row gap-6 items-start">
-                                <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                                    <UserCheck className="h-8 w-8" />
+                                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                                    <UserCheck className="h-6 w-6" />
                                 </div>
                                 <div className="space-y-4">
-                                    <h3 className="text-xl font-semibold">Secure Google Sign-In</h3>
-                                    <p className="text-muted-foreground">
+                                    <h3 className="text-base font-semibold">Secure Google Sign-In</h3>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
                                         Sign in securely with your Google account. No need to create another username and password. Your links are safely associated with your account and accessible from any device.
                                     </p>
                                     <ul className="grid gap-2">
@@ -292,71 +294,73 @@ export default function Features() {
                 <Separator />
 
                 {/* Additional Features */}
-                <section className="space-y-8">
-                    <h2 className="text-2xl font-semibold text-center">Why Choose npgo.to?</h2>
+                <section className="py-16 sm:py-20">
+                    <div className="text-center mb-10">
+                        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Why Choose npgo.to?</h2>
+                    </div>
                     <div className="grid md:grid-cols-3 gap-6">
-                        <Card>
-                            <CardContent className="pt-6 text-center space-y-3">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <Card className="border-border/60">
+                            <CardContent className="pt-6 pb-6 text-center space-y-2.5">
+                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                                     <Zap className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold">Lightning Fast</h3>
-                                <p className="text-sm text-muted-foreground">
+                                <h3 className="font-semibold text-sm">Lightning Fast</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
                                     Optimized for speed. Your short links redirect instantly, providing the best experience for your audience.
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
-                            <CardContent className="pt-6 text-center space-y-3">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <Card className="border-border/60">
+                            <CardContent className="pt-6 pb-6 text-center space-y-2.5">
+                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                                     <Shield className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold">Secure & Reliable</h3>
-                                <p className="text-sm text-muted-foreground">
+                                <h3 className="font-semibold text-sm">Secure & Reliable</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
                                     Built with security in mind. Your data is protected and your links are always available.
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
-                            <CardContent className="pt-6 text-center space-y-3">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <Card className="border-border/60">
+                            <CardContent className="pt-6 pb-6 text-center space-y-2.5">
+                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                                     <Smartphone className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold">Mobile Friendly</h3>
-                                <p className="text-sm text-muted-foreground">
+                                <h3 className="font-semibold text-sm">Mobile Friendly</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
                                     Fully responsive design. Create and manage short links from your phone, tablet, or desktop.
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
-                            <CardContent className="pt-6 text-center space-y-3">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <Card className="border-border/60">
+                            <CardContent className="pt-6 pb-6 text-center space-y-2.5">
+                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                                     <Globe className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold">Made for Nepal</h3>
-                                <p className="text-sm text-muted-foreground">
+                                <h3 className="font-semibold text-sm">Made for Nepal</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
                                     Designed specifically for Nepali businesses and users. Built by Noble Stack in Nepal.
                                 </p>
                             </CardContent>
                         </Card>
                         <Card>
                             <CardContent className="pt-6 text-center space-y-3">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-green-500/10 text-green-500">
-                                    <CheckCircle className="h-6 w-6" />
+                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-green-500/10 text-green-500">
+                                    <CheckCircle className="h-5 w-5" />
                                 </div>
-                                <h3 className="font-semibold">100% Free</h3>
-                                <p className="text-sm text-muted-foreground">
+                                <h3 className="font-semibold text-sm">100% Free</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
                                     No premium tiers, no hidden fees, no paywalls. All features are completely free forever.
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
-                            <CardContent className="pt-6 text-center space-y-3">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <Card className="border-border/60">
+                            <CardContent className="pt-6 pb-6 text-center space-y-2.5">
+                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                                     <Link2 className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold">Permanent Links</h3>
-                                <p className="text-sm text-muted-foreground">
+                                <h3 className="font-semibold text-sm">Permanent Links</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
                                     Your shortened URLs never expire. Create once, use forever. No renewal or maintenance needed.
                                 </p>
                             </CardContent>
@@ -367,10 +371,12 @@ export default function Features() {
                 <Separator />
 
                 {/* Comparison */}
-                <section className="space-y-6">
-                    <h2 className="text-2xl font-semibold text-center">npgo.to vs Other URL Shorteners</h2>
-                    <Card>
-                        <CardContent className="pt-6">
+                <section className="py-16 sm:py-20">
+                    <div className="text-center mb-10">
+                        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">npgo.to vs Other URL Shorteners</h2>
+                    </div>
+                    <Card className="border-border/60">
+                        <CardContent className="pt-5 pb-5">
                             <div className="overflow-x-auto">
                                 <table className="w-full text-sm">
                                     <thead>
@@ -422,37 +428,39 @@ export default function Features() {
                 <Separator />
 
                 {/* FAQ Section */}
-                <section className="space-y-6">
-                    <h2 className="text-2xl font-semibold text-center">Frequently Asked Questions</h2>
+                <section className="py-16 sm:py-20">
+                    <div className="text-center mb-10">
+                        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Frequently Asked Questions</h2>
+                    </div>
                     <div className="space-y-4">
-                        <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">Is npgo.to really 100% free?</h3>
-                                <p className="text-muted-foreground">
+                        <Card className="border-border/60">
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">Is npgo.to really 100% free?</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
                                     Yes! npgo.to is completely free with no premium tiers, no hidden fees, and no paywalls. All features including URL shortening, QR code generation, and link management are free forever. Built by <a href="https://www.noblestack.io" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Noble Stack</a> for Nepal.
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">What features does npgo.to offer?</h3>
-                                <p className="text-muted-foreground">
+                        <Card className="border-border/60">
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">What features does npgo.to offer?</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
                                     npgo.to offers free URL shortening with unlimited links, automatic QR code generation for every link, a full link management dashboard with search and statistics, and secure Google Sign-In authentication. See the <a href="/how-to-shorten-url" className="text-primary hover:underline">step-by-step guide</a> to get started.
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">How does npgo.to compare to Bit.ly?</h3>
-                                <p className="text-muted-foreground">
+                        <Card className="border-border/60">
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">How does npgo.to compare to Bit.ly?</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
                                     npgo.to offers unlimited free URL shortening and QR codes while Bit.ly limits free usage and charges for QR codes. npgo.to is specifically designed for the Nepal market with a free link management dashboard. See the full comparison table above.
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
-                            <CardContent className="pt-6">
-                                <h3 className="font-semibold text-lg mb-2">Do I need to sign in to use npgo.to?</h3>
-                                <p className="text-muted-foreground">
+                        <Card className="border-border/60">
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">Do I need to sign in to use npgo.to?</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
                                     No! You can shorten URLs instantly without signing in. Optionally sign in with Google to access your personal dashboard where you can track and manage all your links. Learn more on our <a href="/qr-code-generator" className="text-primary hover:underline">QR code generator</a> page.
                                 </p>
                             </CardContent>
@@ -460,21 +468,23 @@ export default function Features() {
                     </div>
                 </section>
 
+                <Separator />
+
                 {/* CTA */}
-                <section className="text-center space-y-4 py-8">
-                    <h2 className="text-2xl font-semibold">Start Using npgo.to Today</h2>
-                    <p className="text-muted-foreground">
+                <section className="text-center py-16 sm:py-20">
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Start Using npgo.to Today</h2>
+                    <p className="text-muted-foreground text-sm sm:text-base mt-2">
                         Join Nepali businesses and creators using the best free URL shortener for Nepal.
                     </p>
-                    <a href="/">
+                    <a href="/" className="inline-block mt-6">
                         <Button size="lg" className="gap-2">
                             Get Started Free <ArrowRight className="h-4 w-4" />
                         </Button>
                     </a>
                 </section>
-            </div>
 
-            <Footer />
+                <Footer />
+            </div>
         </Layout>
     );
 }
