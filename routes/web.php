@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BioPageController;
+use App\Http\Controllers\BioPagePublicController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\RootAdminController;
@@ -31,6 +33,9 @@ Route::get('/how-to-shorten-url', fn() => inertia('HowToShorten'))->name('how-to
 Route::get('/qr-code-generator', fn() => inertia('QrCodeGenerator'))->name('qr-code-generator');
 Route::get('/url-shortener', fn() => inertia('UrlShortener'))->name('url-shortener');
 
+// Bio Page (public) - Must be before the catch-all redirect
+Route::get('/@{username}', [BioPagePublicController::class, 'show'])->name('bio.public');
+
 // Admin (auth required)
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
@@ -38,6 +43,14 @@ Route::middleware('auth')->group(function () {
 
     // Root Admin Panel (admin only)
     Route::get('/root-admin', [RootAdminController::class, 'index'])->name('root-admin');
+
+    // Bio Page Management
+    Route::get('/bio', [BioPageController::class, 'edit'])->name('bio.edit');
+    Route::put('/bio', [BioPageController::class, 'update'])->name('bio.update');
+    Route::post('/bio/links', [BioPageController::class, 'storeLink'])->name('bio.links.store');
+    Route::put('/bio/links/{bioLink}', [BioPageController::class, 'updateLink'])->name('bio.links.update');
+    Route::delete('/bio/links/{bioLink}', [BioPageController::class, 'destroyLink'])->name('bio.links.destroy');
+    Route::put('/bio/links-order', [BioPageController::class, 'reorderLinks'])->name('bio.links.reorder');
 });
 
 Route::get('/{code}', RedirectController::class)->name('redirect');

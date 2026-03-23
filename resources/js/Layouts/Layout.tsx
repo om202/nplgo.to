@@ -23,7 +23,7 @@ import {
     SheetTrigger,
 } from '@/components/ui/sheet';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { LogOut, User, Link2, Crown, LayoutDashboard, Menu, BookOpen, QrCode, Scissors } from 'lucide-react';
+import { LogOut, User, Link2, Crown, LayoutDashboard, Menu, BookOpen, QrCode, Scissors, UserCircle } from 'lucide-react';
 
 interface AuthUser {
     id: number;
@@ -417,6 +417,12 @@ export default function Layout({ title, description, canonicalPath = '/', childr
                                     <a href="/admin">
                                         <LayoutDashboard className="mr-2 h-4 w-4" />
                                         <span>Dashboard</span>
+                                    </a>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <a href="/bio">
+                                        <UserCircle className="mr-2 h-4 w-4" />
+                                        <span>My Bio Page</span>
                                     </a>
                                 </DropdownMenuItem>
                                 {auth.user.is_admin && (

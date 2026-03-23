@@ -4,7 +4,8 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "start": "concurrently --kill-others \"php artisan serve --port=8888\" \"vite\" --names=laravel,vite --prefix-colors=red,blue"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
