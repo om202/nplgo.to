@@ -140,7 +140,7 @@ export default function Home() {
             </Head>
 
             {/* Hero Section - Full Width Background */}
-            <section className="relative text-center space-y-4 sm:space-y-6 -mt-20 pt-24 sm:pt-32 pb-16 sm:pb-20 md:pb-24">
+            <section className="relative text-center -mt-20 pt-24 sm:pt-32 pb-16 sm:pb-20 md:pb-24">
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 -z-10 left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
                     <img
@@ -158,18 +158,18 @@ export default function Home() {
                         href="https://www.noblestack.io/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                        className="inline-flex items-center gap-2 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
                         <img
                             src="/images/noblestack-logo.webp"
                             alt="NobleStack"
-                            className="h-8 w-8"
+                            className="h-6 w-6 sm:h-7 sm:w-7"
                         />
                         <span>A NobleStack Product</span>
                     </a>
 
                     <h1
-                        className="text-4xl sm:text-4xl md:text-5xl font-bold tracking-normal leading-tight mt-4 max-w-2xl mx-auto"
+                        className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight mt-5 max-w-2xl mx-auto"
                         style={{
                             textShadow: '0 1px 0 rgba(255,255,255,0.4), 0 -1px 0 rgba(0,0,0,0.6)'
                         }}
@@ -177,16 +177,16 @@ export default function Home() {
                         Free URL Shortner for <span className="text-primary">Nepal</span>
                     </h1>
 
-                    <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto tracking-normal px-4 mt-4">
+                    <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-xl mx-auto leading-relaxed mt-3">
                         Nepal's #1 free URL shortner & QR code generator by Noble Stack. Create short links instantly. No signup required. Made for Nepali businesses & creators.
                     </p>
 
                     {/* URL Shortener Form */}
-                    <Card className="max-w-3xl mx-auto bg-white/70 mt-16">
-                        <CardHeader className="pb-0">
-                            <CardTitle className="text-base sm:text-lg md:text-xl font-medium">Paste URL here to get started</CardTitle>
+                    <Card className="max-w-2xl mx-auto bg-white/70 mt-10 shadow-sm">
+                        <CardHeader className="pb-1 pt-5">
+                            <CardTitle className="text-sm sm:text-base font-medium text-muted-foreground">Paste URL here to get started</CardTitle>
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="pb-5">
                             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
                                 <div className="flex-1">
                                     <Input
@@ -195,7 +195,7 @@ export default function Home() {
                                         value={data.url}
                                         onChange={e => setData('url', e.target.value)}
                                         placeholder="example.com/your-long-url/"
-                                        className={`h-12 md:h-14 bg-background text-base md:text-lg ${errors.url ? 'border-destructive' : ''}`}
+                                        className={`h-11 md:h-12 bg-background text-base ${errors.url ? 'border-destructive' : ''}`}
                                     />
                                     {errors.url && (
                                         <p className="text-sm text-destructive text-left mt-1">{errors.url}</p>
@@ -205,9 +205,9 @@ export default function Home() {
                                     type="submit"
                                     disabled={processing}
                                     size="lg"
-                                    className="h-12 md:h-14 px-6 w-full sm:w-auto text-base md:text-lg"
+                                    className="h-11 md:h-12 px-6 w-full sm:w-auto text-base"
                                 >
-                                    <Scissors className="h-5 w-5" />
+                                    <Scissors className="h-4 w-4" />
                                     {processing ? 'Wait...' : 'Shorten'}
                                 </Button>
                             </form>
@@ -217,9 +217,9 @@ export default function Home() {
                     {/* Link in Bio CTA */}
                     <a
                         href="/bio"
-                        className="inline-flex items-center gap-2 mt-6 px-5 py-3 rounded-full bg-white/60 hover:bg-white/80 backdrop-blur border border-border/50 text-sm font-medium text-foreground hover:text-primary transition-all hover:shadow-md group"
+                        className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full bg-white/60 hover:bg-white/80 backdrop-blur border border-border/50 text-xs sm:text-sm font-medium text-foreground hover:text-primary transition-all hover:shadow-sm group"
                     >
-                        <UserCircle className="h-5 w-5 text-primary" />
+                        <UserCircle className="h-4 w-4 text-primary" />
                         Need a Bio for Social Media?
                         <span className="text-primary font-semibold group-hover:underline">Create here &rarr;</span>
                     </a>
@@ -229,77 +229,77 @@ export default function Home() {
             {/* Social Proof Bar */}
             {totalLinks > 0 && (
                 <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
-                    <div className="flex flex-wrap justify-center gap-6 sm:gap-10 py-6 text-center">
-                        <div>
-                            <p className="text-2xl sm:text-3xl font-bold text-primary">{totalLinks.toLocaleString()}+</p>
-                            <p className="text-xs sm:text-sm text-muted-foreground">Links Shortened</p>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 py-8 text-center">
+                        <div className="space-y-1">
+                            <p className="text-2xl sm:text-3xl font-bold tracking-tight text-primary">{totalLinks.toLocaleString()}+</p>
+                            <p className="text-xs text-muted-foreground">Links Shortened</p>
                         </div>
-                        <div>
-                            <p className="text-2xl sm:text-3xl font-bold text-primary">&lt;1s</p>
-                            <p className="text-xs sm:text-sm text-muted-foreground">Redirect Speed</p>
+                        <div className="space-y-1">
+                            <p className="text-2xl sm:text-3xl font-bold tracking-tight text-primary">&lt;1s</p>
+                            <p className="text-xs text-muted-foreground">Redirect Speed</p>
                         </div>
-                        <div>
-                            <p className="text-2xl sm:text-3xl font-bold text-primary">2000px</p>
-                            <p className="text-xs sm:text-sm text-muted-foreground">QR Resolution</p>
+                        <div className="space-y-1">
+                            <p className="text-2xl sm:text-3xl font-bold tracking-tight text-primary">2000px</p>
+                            <p className="text-xs text-muted-foreground">QR Resolution</p>
                         </div>
-                        <div>
-                            <p className="text-2xl sm:text-3xl font-bold text-primary">100%</p>
-                            <p className="text-xs sm:text-sm text-muted-foreground">Free Forever</p>
+                        <div className="space-y-1">
+                            <p className="text-2xl sm:text-3xl font-bold tracking-tight text-primary">100%</p>
+                            <p className="text-xs text-muted-foreground">Free Forever</p>
                         </div>
                     </div>
                 </div>
             )}
 
-            <div className="w-full max-w-5xl mx-auto space-y-8 sm:space-y-12 md:space-y-16 px-4 sm:px-6 md:px-8">
+            <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
 
                 {/* Features Section */}
-                <section className="space-y-8">
-                    <div className="text-center">
-                        <h2 className="text-3xl font-semibold mb-4">Why npgo.to? Best Free URL Shortner for Nepal</h2>
-                        <p className="text-muted-foreground">Fast, secure, and feature-rich URL shortening & QR code generation for Nepali users.</p>
+                <section className="py-16 sm:py-20">
+                    <div className="text-center mb-10">
+                        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Why npgo.to? Best Free URL Shortner for Nepal</h2>
+                        <p className="text-muted-foreground mt-2 text-sm sm:text-base">Fast, secure, and feature-rich URL shortening & QR code generation for Nepali users.</p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        <Card>
-                            <CardContent className="pt-6 space-y-3">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                    <ArrowRight className="h-6 w-6 -rotate-45" />
+                    <div className="grid md:grid-cols-2 gap-4 sm:gap-5 max-w-4xl mx-auto">
+                        <Card className="border-border/60">
+                            <CardContent className="pt-6 pb-6 space-y-2.5">
+                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                    <ArrowRight className="h-5 w-5 -rotate-45" />
                                 </div>
-                                <h3 className="font-semibold text-center">Free URL Shortner</h3>
-                                <p className="text-sm text-muted-foreground text-center">
+                                <h3 className="font-semibold text-center text-sm">Free URL Shortner</h3>
+                                <p className="text-sm text-muted-foreground text-center leading-relaxed">
                                     Best free URL shortner for Nepal. Transform long URLs into short, memorable npgo.to links that are easy to share across all platforms.
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
-                            <CardContent className="pt-6 space-y-3">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                    <QrCode className="h-6 w-6" />
+                        <Card className="border-border/60">
+                            <CardContent className="pt-6 pb-6 space-y-2.5">
+                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                    <QrCode className="h-5 w-5" />
                                 </div>
-                                <h3 className="font-semibold text-center">Free QR Code Generator</h3>
-                                <p className="text-sm text-muted-foreground text-center">
+                                <h3 className="font-semibold text-center text-sm">Free QR Code Generator</h3>
+                                <p className="text-sm text-muted-foreground text-center leading-relaxed">
                                     Free QR code generator for Nepal. Every shortened link automatically gets a QR code. Perfect for business cards, posters & marketing materials.
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
-                            <CardContent className="pt-6 space-y-3">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                    <UserCheck className="h-6 w-6" />
+                        <Card className="border-border/60">
+                            <CardContent className="pt-6 pb-6 space-y-2.5">
+                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                    <UserCheck className="h-5 w-5" />
                                 </div>
-                                <h3 className="font-semibold text-center">Google Sign-In</h3>
-                                <p className="text-sm text-muted-foreground text-center">
+                                <h3 className="font-semibold text-center text-sm">Google Sign-In</h3>
+                                <p className="text-sm text-muted-foreground text-center leading-relaxed">
                                     Secure authentication with your Google account to keep all your shortened links organized in one dashboard.
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
-                            <CardContent className="pt-6 space-y-3">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                    <LayoutDashboard className="h-6 w-6" />
+                        <Card className="border-border/60">
+                            <CardContent className="pt-6 pb-6 space-y-2.5">
+                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                    <LayoutDashboard className="h-5 w-5" />
                                 </div>
-                                <h3 className="font-semibold text-center">Free Link Management</h3>
-                                <p className="text-sm text-muted-foreground text-center">
+                                <h3 className="font-semibold text-center text-sm">Free Link Management</h3>
+                                <p className="text-sm text-muted-foreground text-center leading-relaxed">
                                     Free link management dashboard for Nepal. Track, manage and organize unlimited URLs with real-time stats and one-click actions.
                                 </p>
                             </CardContent>
@@ -310,38 +310,38 @@ export default function Home() {
                 <Separator />
 
                 {/* How It Works Section */}
-                <section className="space-y-8">
-                    <div className="text-center">
-                        <h2 className="text-3xl font-semibold mb-4">How It Works</h2>
-                        <p className="text-muted-foreground max-w-2xl mx-auto">
+                <section className="py-16 sm:py-20">
+                    <div className="text-center mb-10">
+                        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">How It Works</h2>
+                        <p className="text-muted-foreground mt-2 text-sm sm:text-base max-w-xl mx-auto">
                             Create short links in seconds with our simple three-step process
                         </p>
                     </div>
-                    <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                        <div className="text-center space-y-3">
-                            <div className="mx-auto w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xl font-bold">
+                    <div className="grid md:grid-cols-3 gap-8 sm:gap-10 max-w-3xl mx-auto">
+                        <div className="text-center space-y-2.5">
+                            <div className="mx-auto w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center text-base font-bold">
                                 1
                             </div>
-                            <h3 className="font-semibold">Paste Your URL</h3>
-                            <p className="text-sm text-muted-foreground">
+                            <h3 className="font-semibold text-sm">Paste Your URL</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
                                 Copy and paste your long URL into our shortener tool. Works with any valid web link.
                             </p>
                         </div>
-                        <div className="text-center space-y-3">
-                            <div className="mx-auto w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xl font-bold">
+                        <div className="text-center space-y-2.5">
+                            <div className="mx-auto w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center text-base font-bold">
                                 2
                             </div>
-                            <h3 className="font-semibold">Get Short Link</h3>
-                            <p className="text-sm text-muted-foreground">
+                            <h3 className="font-semibold text-sm">Get Short Link</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
                                 Instantly receive a shortened npgo.to link that's easy to share and remember.
                             </p>
                         </div>
-                        <div className="text-center space-y-3">
-                            <div className="mx-auto w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xl font-bold">
+                        <div className="text-center space-y-2.5">
+                            <div className="mx-auto w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center text-base font-bold">
                                 3
                             </div>
-                            <h3 className="font-semibold">Share Anywhere</h3>
-                            <p className="text-sm text-muted-foreground">
+                            <h3 className="font-semibold text-sm">Share Anywhere</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
                                 Use your short link on social media, emails, SMS, or generate a QR code for offline sharing.
                             </p>
                         </div>
@@ -351,51 +351,51 @@ export default function Home() {
                 <Separator />
 
                 {/* Use Cases Section */}
-                <section className="space-y-6">
-                    <div className="text-center">
-                        <h2 className="text-3xl font-semibold mb-4">Perfect For</h2>
+                <section className="py-16 sm:py-20">
+                    <div className="text-center mb-10">
+                        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Perfect For</h2>
                     </div>
-                    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        <Card>
-                            <CardContent className="pt-6 space-y-3">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                    <Share2 className="h-6 w-6" />
+                    <div className="grid md:grid-cols-2 gap-4 sm:gap-5 max-w-4xl mx-auto">
+                        <Card className="border-border/60">
+                            <CardContent className="pt-6 pb-6 space-y-2.5">
+                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                    <Share2 className="h-5 w-5" />
                                 </div>
-                                <h3 className="font-semibold text-center">Social Media Marketing</h3>
-                                <p className="text-sm text-muted-foreground text-center">
+                                <h3 className="font-semibold text-center text-sm">Social Media Marketing</h3>
+                                <p className="text-sm text-muted-foreground text-center leading-relaxed">
                                     Share clean, professional links on Facebook, Twitter, Instagram, and LinkedIn. Track engagement and optimize your campaigns with shortened URLs.
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
-                            <CardContent className="pt-6 space-y-3">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                    <Mail className="h-6 w-6" />
+                        <Card className="border-border/60">
+                            <CardContent className="pt-6 pb-6 space-y-2.5">
+                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                    <Mail className="h-5 w-5" />
                                 </div>
-                                <h3 className="font-semibold text-center">Email Campaigns</h3>
-                                <p className="text-sm text-muted-foreground text-center">
+                                <h3 className="font-semibold text-center text-sm">Email Campaigns</h3>
+                                <p className="text-sm text-muted-foreground text-center leading-relaxed">
                                     Make your email newsletters more clickable with short, trustworthy links. Improve deliverability and track click-through rates.
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
-                            <CardContent className="pt-6 space-y-3">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                    <Printer className="h-6 w-6" />
+                        <Card className="border-border/60">
+                            <CardContent className="pt-6 pb-6 space-y-2.5">
+                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                    <Printer className="h-5 w-5" />
                                 </div>
-                                <h3 className="font-semibold text-center">Print Materials</h3>
-                                <p className="text-sm text-muted-foreground text-center">
+                                <h3 className="font-semibold text-center text-sm">Print Materials</h3>
+                                <p className="text-sm text-muted-foreground text-center leading-relaxed">
                                     Generate QR codes for business cards, flyers, posters, and packaging. Bridge offline and online marketing seamlessly.
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
-                            <CardContent className="pt-6 space-y-3">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                    <MessageSquare className="h-6 w-6" />
+                        <Card className="border-border/60">
+                            <CardContent className="pt-6 pb-6 space-y-2.5">
+                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                    <MessageSquare className="h-5 w-5" />
                                 </div>
-                                <h3 className="font-semibold text-center">SMS & Messaging</h3>
-                                <p className="text-sm text-muted-foreground text-center">
+                                <h3 className="font-semibold text-center text-sm">SMS & Messaging</h3>
+                                <p className="text-sm text-muted-foreground text-center leading-relaxed">
                                     Save character space in text messages and WhatsApp. Short links are easier to type and remember for your audience.
                                 </p>
                             </CardContent>
@@ -406,11 +406,12 @@ export default function Home() {
                 <Separator />
 
                 {/* FAQ Section */}
-                <section className="space-y-6">
-                    <div className="text-center">
-                        <h2 className="text-2xl font-semibold mb-4">Frequently Asked Questions - Free URL Shortner Nepal</h2>
+                <section className="py-16 sm:py-20">
+                    <div className="text-center mb-10">
+                        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Frequently Asked Questions</h2>
+                        <p className="text-muted-foreground mt-2 text-sm sm:text-base">Everything you need to know about Nepal's free URL shortner</p>
                     </div>
-                    <div className="max-w-3xl mx-auto">
+                    <div className="max-w-2xl mx-auto">
                         <Accordion type="single" collapsible className="w-full">
                             <AccordionItem value="item-1">
                                 <AccordionTrigger>What is the best free URL shortner for Nepal?</AccordionTrigger>
@@ -474,18 +475,18 @@ export default function Home() {
             </div>
 
             {/* Fixed Bottom Login Banner */}
-            <div className="fixed bottom-0 left-0 right-0 z-40 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 shadow-lg">
-                <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-4">
-                    <div className="flex flex-col gap-2">
-                        <div className="flex items-center justify-between gap-4">
-                            <h3 className="text-base sm:text-lg font-semibold">
+            <div className="fixed bottom-0 left-0 right-0 z-40 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 shadow-[0_-1px_3px_rgba(0,0,0,0.05)]">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-3">
+                    <div className="flex items-center justify-between gap-4">
+                        <div className="min-w-0">
+                            <h3 className="text-sm sm:text-base font-semibold">
                                 Sign in to continue
                             </h3>
-                            <GoogleSignInButton />
+                            <p className="text-xs text-muted-foreground hidden sm:block mt-0.5">
+                                Track, manage, and organize all your shortened URLs
+                            </p>
                         </div>
-                        <p className="text-sm text-muted-foreground hidden sm:block">
-                            Track, manage, and organize all your shortened URLs in one place
-                        </p>
+                        <GoogleSignInButton />
                     </div>
                 </div>
             </div>
