@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { ArrowRight, QrCode, LayoutDashboard, UserCheck, Share2, Mail, Printer, MessageSquare, Scissors } from 'lucide-react';
+import { ArrowRight, QrCode, LayoutDashboard, UserCheck, Share2, Mail, Printer, MessageSquare, Scissors, UserCircle } from 'lucide-react';
 import { GoogleSignInButton } from '@/components/GoogleSignInButton';
 import { Footer } from '@/components/Footer';
 import {
@@ -213,6 +213,16 @@ export default function Home() {
                             </form>
                         </CardContent>
                     </Card>
+
+                    {/* Link in Bio CTA */}
+                    <a
+                        href="/bio"
+                        className="inline-flex items-center gap-2 mt-6 px-5 py-3 rounded-full bg-white/60 hover:bg-white/80 backdrop-blur border border-border/50 text-sm font-medium text-foreground hover:text-primary transition-all hover:shadow-md group"
+                    >
+                        <UserCircle className="h-5 w-5 text-primary" />
+                        Need a Bio for Social Media?
+                        <span className="text-primary font-semibold group-hover:underline">Create here &rarr;</span>
+                    </a>
                 </div>
             </section>
 

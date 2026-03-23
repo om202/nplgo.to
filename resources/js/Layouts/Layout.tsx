@@ -315,6 +315,23 @@ export default function Layout({ title, description, canonicalPath = '/', childr
                                                         </span>
                                                     </div>
                                                 </a>
+
+                                                <a
+                                                    href="/bio"
+                                                    className="group flex items-start gap-3 rounded-lg p-3 hover:bg-accent transition-colors"
+                                                >
+                                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                                                        <UserCircle className="h-5 w-5" />
+                                                    </div>
+                                                    <div className="flex flex-col gap-1">
+                                                        <span className="font-semibold group-hover:text-primary transition-colors">
+                                                            Link in Bio
+                                                        </span>
+                                                        <span className="text-xs text-muted-foreground">
+                                                            Create your bio page for social media
+                                                        </span>
+                                                    </div>
+                                                </a>
                                             </nav>
                                         )}
 
@@ -389,6 +406,11 @@ export default function Layout({ title, description, canonicalPath = '/', childr
                                     <NavigationMenuItem>
                                         <NavigationMenuLink href="/url-shortener" className={navigationMenuTriggerStyle()}>
                                             URL Shortener
+                                        </NavigationMenuLink>
+                                    </NavigationMenuItem>
+                                    <NavigationMenuItem>
+                                        <NavigationMenuLink href="/bio" className={navigationMenuTriggerStyle()}>
+                                            Link in Bio
                                         </NavigationMenuLink>
                                     </NavigationMenuItem>
                                 </NavigationMenuList>

@@ -35,7 +35,7 @@ import {
     DialogTrigger,
 } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { Link2, Copy, Trash2, Check, ExternalLink, Plus, QrCode, Download, Scissors } from 'lucide-react';
+import { Link2, Copy, Trash2, Check, ExternalLink, Plus, QrCode, Download, Scissors, UserCircle, ArrowRight } from 'lucide-react';
 
 interface UrlItem {
     id: number;
@@ -337,6 +337,26 @@ export default function Admin() {
                         </form>
                     </CardContent>
                 </Card>
+
+                {/* Link in Bio Promo Card */}
+                <a href="/bio" className="block group">
+                    <Card className="border-dashed border-primary/30 hover:border-primary/60 transition-all hover:shadow-sm">
+                        <CardContent className="flex items-center gap-4 py-5">
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <UserCircle className="h-6 w-6" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                                <h3 className="font-semibold group-hover:text-primary transition-colors">
+                                    Create Your Link in Bio Page
+                                </h3>
+                                <p className="text-sm text-muted-foreground">
+                                    Get your own npgo.to/@username page for Instagram, TikTok, and social media profiles
+                                </p>
+                            </div>
+                            <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" />
+                        </CardContent>
+                    </Card>
+                </a>
 
                 {/* URLs Table */}
                 <Card>
