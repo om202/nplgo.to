@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BioPage;
 use App\Models\Url;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -59,12 +60,37 @@ class RootAdminController extends Controller
                 ];
             });
 
+        // Get all bio pages with user info and link counts
+        $bioPages = BioPage::with('user')
+            ->withCount('links')
+            ->latest()
+            ->get()
+            ->map(function (BioPage $bioPage) {
+                return [
+                    'id' => $bioPage->id,
+                    'username' => $bioPage->username,
+                    'display_name' => $bioPage->display_name,
+                    'bio' => $bioPage->bio,
+                    'avatar_url' => $bioPage->avatar_url,
+                    'theme' => $bioPage->theme,
+                    'links_count' => $bioPage->links_count,
+                    'user_name' => $bioPage->user?->name ?? 'Unknown',
+                    'user_email' => $bioPage->user?->email ?? 'Unknown',
+                    'user_avatar' => $bioPage->user?->avatar,
+                    'public_url' => config('app.url') . '/@' . $bioPage->username,
+                    'created_at' => $bioPage->created_at->format('M j, Y g:i A'),
+                    'updated_at' => $bioPage->updated_at->format('M j, Y g:i A'),
+                ];
+            });
+
         return Inertia::render('RootAdmin', [
             'users' => $users,
             'urls' => $urls,
+            'bioPages' => $bioPages,
             'stats' => [
                 'total_users' => $users->count(),
                 'total_urls' => $urls->count(),
+                'total_bio_pages' => $bioPages->count(),
             ],
         ]);
     }

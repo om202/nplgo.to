@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Users, Link2, Copy, ExternalLink, Check, Shield, Crown } from 'lucide-react';
+import { Users, Link2, Copy, ExternalLink, Check, Shield, Crown, Fingerprint } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface UserItem {
@@ -37,18 +37,36 @@ interface UrlItem {
     created_at: string;
 }
 
+interface BioPageItem {
+    id: number;
+    username: string;
+    display_name: string;
+    bio: string | null;
+    avatar_url: string | null;
+    theme: string;
+    links_count: number;
+    user_name: string;
+    user_email: string;
+    user_avatar: string | null;
+    public_url: string;
+    created_at: string;
+    updated_at: string;
+}
+
 interface PageProps {
     users: UserItem[];
     urls: UrlItem[];
+    bioPages: BioPageItem[];
     stats: {
         total_users: number;
         total_urls: number;
+        total_bio_pages: number;
     };
     [key: string]: unknown;
 }
 
 export default function RootAdmin() {
-    const { users, urls, stats } = usePage<PageProps>().props;
+    const { users, urls, bioPages, stats } = usePage<PageProps>().props;
     const [copiedId, setCopiedId] = useState<number | null>(null);
 
     function copyToClipboard(url: string, id: number) {
@@ -73,10 +91,14 @@ export default function RootAdmin() {
 
                 {/* Tabs for Users and URLs */}
                 <Tabs defaultValue="urls" className="w-full">
-                    <TabsList className="grid w-full grid-cols-2">
+                    <TabsList className="grid w-full grid-cols-3">
                         <TabsTrigger value="urls" className="gap-2">
                             <Link2 className="h-4 w-4" />
                             All URLs ({stats.total_urls})
+                        </TabsTrigger>
+                        <TabsTrigger value="bio" className="gap-2">
+                            <Fingerprint className="h-4 w-4" />
+                            Bio Links ({stats.total_bio_pages})
                         </TabsTrigger>
                         <TabsTrigger value="users" className="gap-2">
                             <Users className="h-4 w-4" />
@@ -176,6 +198,106 @@ export default function RootAdmin() {
                                                                     </a>
                                                                 </Button>
                                                             </div>
+                                                        </TableCell>
+                                                    </TableRow>
+                                                ))}
+                                            </TableBody>
+                                        </Table>
+                                    </div>
+                                )}
+                            </CardContent>
+                        </Card>
+                    </TabsContent>
+
+                    {/* Bio Links Tab */}
+                    <TabsContent value="bio">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Bio Pages Activity</CardTitle>
+                                <CardDescription>
+                                    All bio pages that have been saved by users
+                                </CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                {bioPages.length === 0 ? (
+                                    <div className="text-center py-12">
+                                        <Fingerprint className="h-12 w-12 mx-auto text-muted-foreground/50" />
+                                        <h3 className="mt-4 text-lg font-semibold">No bio pages yet</h3>
+                                        <p className="text-muted-foreground">
+                                            No users have created a bio page on this platform.
+                                        </p>
+                                    </div>
+                                ) : (
+                                    <div className="overflow-x-auto">
+                                        <Table>
+                                            <TableHeader>
+                                                <TableRow>
+                                                    <TableHead>Owner</TableHead>
+                                                    <TableHead>Bio Page</TableHead>
+                                                    <TableHead className="text-center">Links</TableHead>
+                                                    <TableHead className="hidden md:table-cell">Theme</TableHead>
+                                                    <TableHead className="hidden md:table-cell">Last Updated</TableHead>
+                                                    <TableHead className="text-right">Actions</TableHead>
+                                                </TableRow>
+                                            </TableHeader>
+                                            <TableBody>
+                                                {bioPages.map((bio) => (
+                                                    <TableRow key={bio.id}>
+                                                        <TableCell>
+                                                            <div className="flex items-center gap-2">
+                                                                {bio.user_avatar ? (
+                                                                    <img
+                                                                        src={bio.user_avatar}
+                                                                        alt={bio.user_name}
+                                                                        className="h-8 w-8 rounded-full"
+                                                                    />
+                                                                ) : (
+                                                                    <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center">
+                                                                        <Users className="h-4 w-4" />
+                                                                    </div>
+                                                                )}
+                                                                <div className="min-w-0">
+                                                                    <p className="font-medium truncate">{bio.user_name}</p>
+                                                                    <p className="text-xs text-muted-foreground truncate hidden sm:block">
+                                                                        {bio.user_email}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </TableCell>
+                                                        <TableCell>
+                                                            <div className="min-w-0">
+                                                                <p className="font-medium">@{bio.username}</p>
+                                                                {bio.display_name && (
+                                                                    <p className="text-xs text-muted-foreground truncate">
+                                                                        {bio.display_name}
+                                                                    </p>
+                                                                )}
+                                                            </div>
+                                                        </TableCell>
+                                                        <TableCell className="text-center">
+                                                            <Badge variant="outline" className="font-mono">
+                                                                {bio.links_count}
+                                                            </Badge>
+                                                        </TableCell>
+                                                        <TableCell className="hidden md:table-cell">
+                                                            <Badge variant="secondary" className="capitalize">
+                                                                {bio.theme || 'default'}
+                                                            </Badge>
+                                                        </TableCell>
+                                                        <TableCell className="hidden md:table-cell text-sm text-muted-foreground whitespace-nowrap">
+                                                            {bio.updated_at}
+                                                        </TableCell>
+                                                        <TableCell className="text-right">
+                                                            <Button
+                                                                variant="ghost"
+                                                                size="icon"
+                                                                asChild
+                                                                title="View Bio Page"
+                                                            >
+                                                                <a href={bio.public_url} target="_blank" rel="noopener noreferrer">
+                                                                    <ExternalLink className="h-4 w-4" />
+                                                                </a>
+                                                            </Button>
                                                         </TableCell>
                                                     </TableRow>
                                                 ))}
