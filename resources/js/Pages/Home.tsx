@@ -1,12 +1,12 @@
 import { useForm, usePage } from '@inertiajs/react';
 import { Head } from '@inertiajs/react';
-import { useRef, useEffect, FormEvent } from 'react';
+import { useRef, useEffect, useState, FormEvent } from 'react';
 import Layout from '@/Layouts/Layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { ArrowRight, QrCode, LayoutDashboard, UserCheck, Share2, Mail, Printer, MessageSquare, Scissors } from 'lucide-react';
+import { ArrowRight, QrCode, LayoutDashboard, Share2, Mail, Printer, MessageSquare, Scissors, UserCircle } from 'lucide-react';
 import { GoogleSignInButton } from '@/components/GoogleSignInButton';
 import { Footer } from '@/components/Footer';
 import {
@@ -16,12 +16,70 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion';
 
+const PLACEHOLDER_URLS = [
+    'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    'https://www.facebook.com/your-business-page/posts/123',
+    'https://www.instagram.com/p/your-awesome-post/',
+    'https://www.tiktok.com/@username/video/1234567890',
+    'https://docs.google.com/document/d/abc123/edit',
+    'https://www.linkedin.com/in/your-profile-name/',
+    'https://medium.com/@yourname/my-long-article-title',
+    'https://example.com/products/category/item?ref=campaign',
+];
+
+function useAnimatedPlaceholder(urls: string[], isUserTyping: boolean) {
+    const [placeholder, setPlaceholder] = useState('');
+    const indexRef = useRef(0);
+
+    useEffect(() => {
+        if (isUserTyping) {
+            setPlaceholder('');
+            return;
+        }
+
+        let charIndex = 0;
+        let isDeleting = false;
+        let pauseTimeout: ReturnType<typeof setTimeout>;
+        const currentUrl = () => urls[indexRef.current % urls.length];
+
+        const tick = () => {
+            if (isDeleting) {
+                charIndex--;
+                setPlaceholder(currentUrl().slice(0, charIndex));
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    indexRef.current++;
+                    pauseTimeout = setTimeout(tick, 300);
+                    return;
+                }
+                pauseTimeout = setTimeout(tick, 20);
+            } else {
+                charIndex++;
+                setPlaceholder(currentUrl().slice(0, charIndex));
+                if (charIndex === currentUrl().length) {
+                    isDeleting = true;
+                    pauseTimeout = setTimeout(tick, 2000);
+                    return;
+                }
+                pauseTimeout = setTimeout(tick, 45);
+            }
+        };
+
+        pauseTimeout = setTimeout(tick, 500);
+        return () => clearTimeout(pauseTimeout);
+    }, [isUserTyping, urls]);
+
+    return placeholder;
+}
+
 export default function Home() {
     const { totalLinks } = usePage<{ totalLinks: number }>().props;
     const inputRef = useRef<HTMLInputElement>(null);
     const { data, setData, post, processing, errors } = useForm({
         url: '',
     });
+
+    const animatedPlaceholder = useAnimatedPlaceholder(PLACEHOLDER_URLS, data.url.length > 0);
 
     useEffect(() => {
         inputRef.current?.focus();
@@ -85,7 +143,15 @@ export default function Home() {
                                 "name": "Can I use npgo.to for my business in Nepal?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Absolutely! npgo.to by Noble Stack is perfect for Nepali businesses. Use our free URL shortner for social media marketing, email campaigns, SMS marketing, and print materials. Generate QR codes for business cards and brochures."
+                                    "text": "Absolutely! npgo.to by Noble Stack is perfect for Nepali businesses. Use our free URL shortner for social media marketing, email campaigns, SMS marketing, and print materials. Generate QR codes for business cards and brochures. You can also create a free Link in Bio page to share all your business links from one place."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Does npgo.to offer a free Link in Bio page?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Yes! npgo.to includes a completely free Link in Bio page builder. Create a beautiful landing page at npgo.to/@yourname with unlimited links, 15 customizable themes, and a personalized profile. Perfect for content creators, businesses, and anyone who needs more than one link in their social media bio."
                                 }
                             },
                             {
@@ -178,7 +244,7 @@ export default function Home() {
                     </h1>
 
                     <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-xl mx-auto leading-relaxed mt-3">
-                        Nepal's #1 free URL shortner & QR code generator by Noble Stack. Create short links instantly. No signup required. Made for Nepali businesses & creators.
+                        Nepal's #1 free URL shortner, QR code generator & Link in Bio tool by Noble Stack. Create short links and bio pages instantly. Made for Nepali businesses & creators.
                     </p>
 
                     {/* URL Shortener Form */}
@@ -194,7 +260,7 @@ export default function Home() {
                                         type="text"
                                         value={data.url}
                                         onChange={e => setData('url', e.target.value)}
-                                        placeholder="example.com/your-long-url/"
+                                        placeholder={animatedPlaceholder || 'Paste your long URL here...'}
                                         className={`h-11 md:h-12 bg-background text-base ${errors.url ? 'border-destructive' : ''}`}
                                     />
                                     {errors.url && (
@@ -214,13 +280,23 @@ export default function Home() {
                         </CardContent>
                     </Card>
 
-                    {/* Link in Bio CTA */}
-                    <a
-                        href="/bio"
-                        className="inline-flex items-center gap-1.5 mt-5 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors group"
-                    >
-                        Need a bio page? <span className="text-primary font-medium group-hover:underline">Create one free &rarr;</span>
-                    </a>
+                    {/* Bio CTA + Social Icons */}
+                    <div className="flex items-center justify-center gap-3 mt-5 flex-wrap">
+                        <div className="flex items-center gap-2 text-muted-foreground/35">
+                            <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 1 1-2.88 0 1.441 1.441 0 0 1 2.88 0z"/></svg>
+                            <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                            <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            <svg className="h-3 w-3" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                        </div>
+                        <a
+                            href="/bio"
+                            className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors group"
+                        >
+                            Need a bio page? <span className="text-primary font-medium group-hover:underline">Create one free &rarr;</span>
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -254,7 +330,7 @@ export default function Home() {
                 <section className="py-16 sm:py-20">
                     <div className="text-center mb-10">
                         <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Why npgo.to? Best Free URL Shortner for Nepal</h2>
-                        <p className="text-muted-foreground mt-2 text-sm sm:text-base">Fast, secure, and feature-rich URL shortening & QR code generation for Nepali users.</p>
+                        <p className="text-muted-foreground mt-2 text-sm sm:text-base">Fast, secure, and feature-rich URL shortening, QR code generation & Link in Bio pages for Nepali users.</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4 sm:gap-5 max-w-4xl mx-auto">
@@ -280,17 +356,7 @@ export default function Home() {
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card className="border-border/60">
-                            <CardContent className="pt-6 pb-6 space-y-2.5">
-                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                    <UserCheck className="h-5 w-5" />
-                                </div>
-                                <h3 className="font-semibold text-center text-sm">Google Sign-In</h3>
-                                <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                                    Secure authentication with your Google account to keep all your shortened links organized in one dashboard.
-                                </p>
-                            </CardContent>
-                        </Card>
+
                         <Card className="border-border/60">
                             <CardContent className="pt-6 pb-6 space-y-2.5">
                                 <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -299,6 +365,17 @@ export default function Home() {
                                 <h3 className="font-semibold text-center text-sm">Free Link Management</h3>
                                 <p className="text-sm text-muted-foreground text-center leading-relaxed">
                                     Free link management dashboard for Nepal. Track, manage and organize unlimited URLs with real-time stats and one-click actions.
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card className="border-border/60">
+                            <CardContent className="pt-6 pb-6 space-y-2.5">
+                                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                    <UserCircle className="h-5 w-5" />
+                                </div>
+                                <h3 className="font-semibold text-center text-sm">Free Link in Bio Page</h3>
+                                <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                                    Create a beautiful <a href="/link-in-bio" className="text-primary hover:underline">Link in Bio</a> page with all your links in one place. 15 themes, unlimited links, and a custom npgo.to/@yourname URL.
                                 </p>
                             </CardContent>
                         </Card>
@@ -463,6 +540,12 @@ export default function Home() {
                                 <AccordionTrigger>Is npgo.to a good TinyURL alternative for Nepal?</AccordionTrigger>
                                 <AccordionContent>
                                     Yes! npgo.to by Noble Stack is the best TinyURL alternative for Nepal. It's completely free, includes QR code generation, and is designed specifically for the Nepali market with fast, reliable performance.
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-10">
+                                <AccordionTrigger>Does npgo.to offer a free Link in Bio page?</AccordionTrigger>
+                                <AccordionContent>
+                                    Yes! npgo.to includes a free <a href="/link-in-bio" className="text-primary hover:underline">Link in Bio</a> page builder. Create a beautiful landing page at npgo.to/@yourname with unlimited links, 15 themes, and a custom profile. Perfect for Instagram, TikTok, YouTube bios and more.
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>

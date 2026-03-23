@@ -3,7 +3,7 @@ import { Head } from '@inertiajs/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import { Link2, QrCode, LayoutDashboard, Globe, Users, Zap, Heart, ArrowRight, BookOpen, Scissors } from 'lucide-react';
+import { Link2, QrCode, LayoutDashboard, Globe, Users, Zap, Heart, ArrowRight, BookOpen, Scissors, UserCircle } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 
 export default function About() {
@@ -69,7 +69,7 @@ export default function About() {
                         About <span className="text-primary">npgo.to</span>
                     </h1>
                     <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed mt-3">
-                        Nepal's #1 free URL shortener and QR code generator, built by Noble Stack for Nepali businesses and creators.
+                        Nepal's #1 free URL shortener, QR code generator, and Link in Bio tool, built by Noble Stack for Nepali businesses and creators.
                     </p>
                 </div>
             </section>
@@ -81,7 +81,7 @@ export default function About() {
                     <div className="text-center">
                         <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Our Mission</h2>
                         <p className="text-muted-foreground max-w-2xl mx-auto mt-3 text-sm sm:text-base leading-relaxed">
-                            To provide Nepal with a completely free, reliable, and easy-to-use URL shortening service. We believe every Nepali business, marketer, and creator deserves access to professional link management tools without paying expensive subscription fees.
+                            To provide Nepal with a completely free, reliable, and easy-to-use suite of link tools. From URL shortening and QR codes to Link in Bio pages, we believe every Nepali business, marketer, and creator deserves access to professional link management tools without paying expensive subscription fees.
                         </p>
                     </div>
                 </section>
@@ -135,6 +135,17 @@ export default function About() {
                                 <h3 className="font-semibold text-sm">Fast & Reliable</h3>
                                 <p className="text-sm text-muted-foreground leading-relaxed">
                                     Lightning-fast redirects with high uptime. Your links will always work, giving your audience a seamless experience.
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card className="border-border/60">
+                            <CardContent className="pt-6 pb-6 space-y-2.5">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                    <UserCircle className="h-5 w-5" />
+                                </div>
+                                <h3 className="font-semibold text-sm">Free Link in Bio</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
+                                    Create a beautiful <a href="/link-in-bio" className="text-primary hover:underline">Link in Bio</a> page at npgo.to/@yourname. Share all your important links from one page. 15 themes, unlimited links.
                                 </p>
                             </CardContent>
                         </Card>
@@ -299,6 +310,19 @@ export default function About() {
                                 </CardContent>
                             </Card>
                         </a>
+                        <a href="/link-in-bio" className="block">
+                            <Card className="hover:border-primary/50 border-border/60 transition-colors h-full">
+                                <CardContent className="pt-5 pb-5">
+                                    <div className="flex items-center gap-3">
+                                        <UserCircle className="h-6 w-6 text-primary shrink-0" />
+                                        <div>
+                                            <h3 className="font-semibold text-sm">Link in Bio Guide</h3>
+                                            <p className="text-xs text-muted-foreground mt-0.5">Create a free bio page for all your links</p>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </a>
                     </div>
                 </section>
 
@@ -308,7 +332,7 @@ export default function About() {
                 <section className="text-center py-16 sm:py-20">
                     <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Ready to Get Started?</h2>
                     <p className="text-muted-foreground text-sm sm:text-base mt-2">
-                        Create short links and QR codes in seconds. Completely free.
+                        Create short links, QR codes, and bio pages in seconds. Completely free.
                     </p>
                     <a href="/" className="inline-block mt-6">
                         <Button size="lg" className="gap-2">

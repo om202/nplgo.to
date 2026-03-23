@@ -19,14 +19,15 @@ import {
     Copy,
     ExternalLink,
     ArrowRight,
-    CheckCircle
+    CheckCircle,
+    UserCircle
 } from 'lucide-react';
 
 export default function Features() {
     return (
         <Layout
             title="Features"
-            description="Explore all npgo.to features: free URL shortening, QR code generation, link management dashboard, and secure Google Sign-In. Compare with Bit.ly and TinyURL. 100% free for Nepal."
+            description="Explore all npgo.to features: free URL shortening, QR code generation, Link in Bio pages, link management dashboard, and secure Google Sign-In. Compare with Bit.ly and TinyURL. 100% free for Nepal."
             canonicalPath="/features"
         >
             {/* Features page structured data */}
@@ -39,7 +40,7 @@ export default function Features() {
                         "name": "npgo.to Features",
                         "description": "Complete list of features offered by npgo.to, Nepal's free URL shortener and QR code generator.",
                         "url": "https://npgo.to/features",
-                        "numberOfItems": 4,
+                        "numberOfItems": 5,
                         "itemListElement": [
                             {
                                 "@type": "ListItem",
@@ -62,6 +63,12 @@ export default function Features() {
                             {
                                 "@type": "ListItem",
                                 "position": 4,
+                                "name": "Free Link in Bio Page for Nepal",
+                                "description": "Create a beautiful bio page with all your links in one place. 15 themes, unlimited links, and a custom npgo.to/@yourname URL. Free for all Nepali creators and businesses."
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 5,
                                 "name": "Secure Google Sign-In",
                                 "description": "Sign in securely with your Google account. No passwords needed. Access your links from any device."
                             }
@@ -106,6 +113,14 @@ export default function Features() {
                                     "@type": "Answer",
                                     "text": "No! You can shorten URLs instantly without signing in. Optionally sign in with Google to access your personal dashboard where you can track and manage all your links."
                                 }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Does npgo.to have a free Link in Bio tool?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Yes! npgo.to includes a completely free Link in Bio page builder. Create a beautiful landing page at npgo.to/@yourname with unlimited links, 15 themes, and a personalized profile, all at no cost."
+                                }
                             }
                         ]
                     })}
@@ -129,7 +144,7 @@ export default function Features() {
                         Features of <span className="text-primary">npgo.to</span>
                     </h1>
                     <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed mt-3">
-                        Everything you need for URL shortening and QR code generation, completely free. No premium tiers, no hidden fees.
+                        Everything you need for URL shortening, QR code generation, and Link in Bio pages, completely free. No premium tiers, no hidden fees.
                     </p>
                 </div>
             </section>
@@ -146,7 +161,7 @@ export default function Features() {
                     <Card className="border-border/60">
                         <CardContent className="pt-6">
                             <div className="flex flex-col md:flex-row gap-6 items-start">
-                                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                                     <Link2 className="h-6 w-6" />
                                 </div>
                                 <div className="space-y-4">
@@ -181,7 +196,7 @@ export default function Features() {
                     <Card className="border-border/60">
                         <CardContent className="pt-6">
                             <div className="flex flex-col md:flex-row gap-6 items-start">
-                                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                                     <QrCode className="h-6 w-6" />
                                 </div>
                                 <div className="space-y-4">
@@ -216,7 +231,7 @@ export default function Features() {
                     <Card className="border-border/60">
                         <CardContent className="pt-6">
                             <div className="flex flex-col md:flex-row gap-6 items-start">
-                                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                                     <LayoutDashboard className="h-6 w-6" />
                                 </div>
                                 <div className="space-y-4">
@@ -259,7 +274,7 @@ export default function Features() {
                     <Card className="border-border/60">
                         <CardContent className="pt-6">
                             <div className="flex flex-col md:flex-row gap-6 items-start">
-                                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                                     <UserCheck className="h-6 w-6" />
                                 </div>
                                 <div className="space-y-4">
@@ -283,6 +298,41 @@ export default function Features() {
                                         <li className="flex items-center gap-2 text-sm text-muted-foreground">
                                             <CheckCircle className="h-4 w-4 text-primary" />
                                             Secure OAuth 2.0 protocol
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    {/* Feature 5: Link in Bio */}
+                    <Card className="border-border/60">
+                        <CardContent className="pt-6">
+                            <div className="flex flex-col md:flex-row gap-6 items-start">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                                    <UserCircle className="h-6 w-6" />
+                                </div>
+                                <div className="space-y-4">
+                                    <h3 className="text-base font-semibold">Free Link in Bio Page for Nepal</h3>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
+                                        Create a beautiful <a href="/link-in-bio" className="text-primary hover:underline">Link in Bio</a> page to share all your important links from one URL. Perfect for Instagram, TikTok, YouTube, and Facebook bios. Your page lives at npgo.to/@yourname, completely free.
+                                    </p>
+                                    <ul className="grid gap-2">
+                                        <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                                            <CheckCircle className="h-4 w-4 text-primary" />
+                                            Unlimited links on your bio page
+                                        </li>
+                                        <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                                            <CheckCircle className="h-4 w-4 text-primary" />
+                                            15 beautiful themes to choose from
+                                        </li>
+                                        <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                                            <CheckCircle className="h-4 w-4 text-primary" />
+                                            Custom username (npgo.to/@yourname)
+                                        </li>
+                                        <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                                            <CheckCircle className="h-4 w-4 text-primary" />
+                                            Mobile-first, responsive design
                                         </li>
                                     </ul>
                                 </div>
@@ -418,6 +468,12 @@ export default function Features() {
                                             <td className="text-center py-3 px-4 text-red-500">✗</td>
                                             <td className="text-center py-3 px-4 text-yellow-500">Partial</td>
                                         </tr>
+                                        <tr>
+                                            <td className="py-3 px-4">Free Link in Bio</td>
+                                            <td className="text-center py-3 px-4 text-green-500">✓ 15 Themes</td>
+                                            <td className="text-center py-3 px-4 text-red-500">✗</td>
+                                            <td className="text-center py-3 px-4 text-red-500">✗</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -465,6 +521,14 @@ export default function Features() {
                                 </p>
                             </CardContent>
                         </Card>
+                        <Card className="border-border/60">
+                            <CardContent className="pt-5 pb-5">
+                                <h3 className="font-semibold text-sm mb-1.5">Does npgo.to have a Link in Bio feature?</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
+                                    Yes! npgo.to includes a free <a href="/link-in-bio" className="text-primary hover:underline">Link in Bio</a> page builder. Create a beautiful page at npgo.to/@yourname with unlimited links and 15 themes. Perfect for creators and businesses who need more than one link in their social media bios.
+                                </p>
+                            </CardContent>
+                        </Card>
                     </div>
                 </section>
 
@@ -474,7 +538,7 @@ export default function Features() {
                 <section className="text-center py-16 sm:py-20">
                     <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Start Using npgo.to Today</h2>
                     <p className="text-muted-foreground text-sm sm:text-base mt-2">
-                        Join Nepali businesses and creators using the best free URL shortener for Nepal.
+                        Join Nepali businesses and creators using the best free URL shortener and Link in Bio tool for Nepal.
                     </p>
                     <a href="/" className="inline-block mt-6">
                         <Button size="lg" className="gap-2">
