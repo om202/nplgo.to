@@ -121,8 +121,14 @@ class BioPageController extends Controller
             $disk
         );
 
+        if (!$path) {
+            return redirect()->route('bio.edit')->with('error', "Upload failed. Disk: {$disk}");
+        }
+
+        $url = Storage::disk($disk)->url($path);
+
         $bioPage->update([
-            'avatar_url' => Storage::disk($disk)->url($path),
+            'avatar_url' => $url,
         ]);
 
         return redirect()->route('bio.edit')->with('success', 'Profile photo updated.');
