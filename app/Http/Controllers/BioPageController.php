@@ -105,22 +105,24 @@ class BioPageController extends Controller
 
         $user = Auth::user();
         $bioPage = $user->bioPage;
+        $disk = $this->avatarDisk();
 
         // Delete old custom avatar if it exists on disk
         if ($bioPage->avatar_url && str_contains($bioPage->avatar_url, 'bio-avatars/')) {
             $oldPath = $this->extractStoragePath($bioPage->avatar_url);
             if ($oldPath) {
-                Storage::delete($oldPath);
+                Storage::disk($disk)->delete($oldPath);
             }
         }
 
-        // Store new avatar on the default disk (s3 in production, local in dev)
+        // Store new avatar
         $path = $request->file('avatar')->store(
-            'bio-avatars/' . $bioPage->id
+            'bio-avatars/' . $bioPage->id,
+            $disk
         );
 
         $bioPage->update([
-            'avatar_url' => Storage::url($path),
+            'avatar_url' => Storage::disk($disk)->url($path),
         ]);
 
         return redirect()->route('bio.edit')->with('success', 'Profile photo updated.');
@@ -133,12 +135,13 @@ class BioPageController extends Controller
     {
         $user = Auth::user();
         $bioPage = $user->bioPage;
+        $disk = $this->avatarDisk();
 
         // Delete the custom avatar file if it exists
         if ($bioPage->avatar_url && str_contains($bioPage->avatar_url, 'bio-avatars/')) {
             $oldPath = $this->extractStoragePath($bioPage->avatar_url);
             if ($oldPath) {
-                Storage::delete($oldPath);
+                Storage::disk($disk)->delete($oldPath);
             }
         }
 
@@ -148,6 +151,16 @@ class BioPageController extends Controller
         ]);
 
         return redirect()->route('bio.edit')->with('success', 'Profile photo removed.');
+    }
+
+    /**
+     * Get the storage disk for avatars.
+     * Uses 'public' disk for local dev, 's3' for production.
+     */
+    private function avatarDisk(): string
+    {
+        $default = config('filesystems.default');
+        return $default === 'local' ? 'public' : $default;
     }
 
     /**
