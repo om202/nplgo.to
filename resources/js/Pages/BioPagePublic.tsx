@@ -64,37 +64,296 @@ function SocialSvg({ platform, className }: { platform: string; className?: stri
     }
 }
 
-// Theme configurations
-const themes: Record<string, { bg: string; text: string; subtext: string; button: string; buttonText: string; buttonHover: string; footer: string; border: string }> = {
+// Theme configurations with modern design language
+interface ThemeConfig {
+    // Background
+    bgClass: string;
+    bgStyle?: React.CSSProperties;
+    // Text
+    text: string;
+    subtext: string;
+    // Link buttons
+    button: string;
+    buttonText: string;
+    // Social icon buttons
+    socialButton: string;
+    // Footer
+    footer: string;
+    // Avatar ring
+    avatarRing: string;
+    // Meta theme color
+    themeColor: string;
+    // CSS animation keyframes (injected as <style>)
+    animationCss?: string;
+}
+
+const themes: Record<string, ThemeConfig> = {
     default: {
-        bg: 'bg-gradient-to-b from-gray-50 to-white',
+        bgClass: 'bg-gradient-to-b from-gray-50 via-white to-gray-50',
         text: 'text-gray-900',
         subtext: 'text-gray-500',
-        button: 'bg-white border border-gray-200 hover:border-gray-300 hover:shadow-md',
+        button: 'bg-white border border-gray-200/80 shadow-sm hover:shadow-md hover:border-gray-300 hover:-translate-y-0.5',
         buttonText: 'text-gray-900',
-        buttonHover: 'hover:scale-[1.02]',
+        socialButton: 'bg-white border border-gray-200 hover:border-gray-300 hover:shadow-sm',
         footer: 'text-gray-400',
-        border: 'border-gray-200',
+        avatarRing: 'ring-4 ring-gray-200/60',
+        themeColor: '#f9fafb',
     },
     dark: {
-        bg: 'bg-gradient-to-b from-gray-950 to-gray-900',
+        bgClass: 'bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950',
         text: 'text-white',
         subtext: 'text-gray-400',
-        button: 'bg-gray-800 border border-gray-700 hover:border-gray-600 hover:bg-gray-750',
+        button: 'bg-white/[0.06] border border-white/[0.08] backdrop-blur-sm hover:bg-white/[0.1] hover:border-white/[0.15] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)]',
         buttonText: 'text-white',
-        buttonHover: 'hover:scale-[1.02]',
+        socialButton: 'bg-white/[0.06] border border-white/[0.08] hover:bg-white/[0.12]',
         footer: 'text-gray-600',
-        border: 'border-gray-800',
+        avatarRing: 'ring-4 ring-white/10',
+        themeColor: '#030712',
     },
     crimson: {
-        bg: 'bg-gradient-to-b from-[#DC143C] to-[#8B0000]',
+        bgClass: '',
+        bgStyle: { background: 'linear-gradient(135deg, #DC143C 0%, #b91c3c 40%, #8B0000 100%)' },
         text: 'text-white',
-        subtext: 'text-red-200',
-        button: 'bg-white/15 border border-white/25 hover:bg-white/25 backdrop-blur-sm',
+        subtext: 'text-red-200/80',
+        button: 'bg-white/[0.12] border border-white/[0.18] backdrop-blur-md hover:bg-white/[0.2] hover:border-white/[0.3] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(139,0,0,0.3)]',
         buttonText: 'text-white',
-        buttonHover: 'hover:scale-[1.02]',
-        footer: 'text-red-300/50',
-        border: 'border-white/20',
+        socialButton: 'bg-white/[0.1] border border-white/[0.15] hover:bg-white/[0.2]',
+        footer: 'text-red-300/40',
+        avatarRing: 'ring-4 ring-white/20',
+        themeColor: '#DC143C',
+    },
+    minimal: {
+        bgClass: 'bg-white',
+        text: 'text-gray-900',
+        subtext: 'text-gray-400',
+        button: 'bg-transparent border border-gray-300 hover:border-gray-900 hover:bg-gray-50 hover:-translate-y-0.5',
+        buttonText: 'text-gray-800',
+        socialButton: 'bg-transparent border border-gray-300 hover:border-gray-900',
+        footer: 'text-gray-300',
+        avatarRing: 'ring-2 ring-gray-200',
+        themeColor: '#ffffff',
+    },
+    gradient: {
+        bgClass: 'bio-gradient-animated',
+        animationCss: `
+            .bio-gradient-animated {
+                background: linear-gradient(-45deg, #7c3aed, #6366f1, #3b82f6, #8b5cf6, #a855f7);
+                background-size: 400% 400%;
+                animation: bioGradientShift 12s ease infinite;
+            }
+            @keyframes bioGradientShift {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+        `,
+        text: 'text-white',
+        subtext: 'text-white/70',
+        button: 'bg-white/[0.15] border border-white/[0.2] backdrop-blur-md hover:bg-white/[0.25] hover:border-white/[0.35] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(99,102,241,0.3)]',
+        buttonText: 'text-white',
+        socialButton: 'bg-white/[0.12] border border-white/[0.18] hover:bg-white/[0.22]',
+        footer: 'text-white/30',
+        avatarRing: 'ring-4 ring-white/25',
+        themeColor: '#6366f1',
+    },
+    glass: {
+        bgClass: 'bio-glass-bg',
+        animationCss: `
+            .bio-glass-bg {
+                background: linear-gradient(135deg, #e0f2fe 0%, #c7d2fe 30%, #ddd6fe 60%, #e0e7ff 100%);
+                position: relative;
+            }
+            .bio-glass-bg::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(ellipse at 30% 20%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
+                            radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%);
+                animation: bioGlassFloat 20s ease-in-out infinite;
+                pointer-events: none;
+            }
+            @keyframes bioGlassFloat {
+                0%, 100% { transform: translate(0, 0); }
+                33% { transform: translate(3%, -3%); }
+                66% { transform: translate(-2%, 2%); }
+            }
+        `,
+        text: 'text-gray-900',
+        subtext: 'text-gray-600',
+        button: 'bg-white/50 border border-white/60 backdrop-blur-lg shadow-sm hover:bg-white/70 hover:shadow-md hover:-translate-y-0.5',
+        buttonText: 'text-gray-800',
+        socialButton: 'bg-white/40 border border-white/50 backdrop-blur-sm hover:bg-white/60',
+        footer: 'text-gray-400',
+        avatarRing: 'ring-4 ring-white/50',
+        themeColor: '#e0f2fe',
+    },
+    sunset: {
+        bgClass: 'bio-sunset-animated',
+        animationCss: `
+            .bio-sunset-animated {
+                background: linear-gradient(-45deg, #f97316, #fb923c, #e11d48, #f43f5e, #f97316);
+                background-size: 400% 400%;
+                animation: bioSunsetShift 15s ease infinite;
+            }
+            @keyframes bioSunsetShift {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+        `,
+        text: 'text-white',
+        subtext: 'text-white/75',
+        button: 'bg-white/[0.18] border border-white/[0.25] backdrop-blur-md hover:bg-white/[0.28] hover:border-white/[0.4] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(249,115,22,0.25)]',
+        buttonText: 'text-white',
+        socialButton: 'bg-white/[0.12] border border-white/[0.2] hover:bg-white/[0.24]',
+        footer: 'text-white/25',
+        avatarRing: 'ring-4 ring-white/25',
+        themeColor: '#f97316',
+    },
+    neon: {
+        bgClass: 'bg-[#0a0118]',
+        animationCss: `
+            .bio-neon-glow {
+                box-shadow: 0 0 15px rgba(168, 85, 247, 0.15), 0 0 40px rgba(168, 85, 247, 0.05);
+            }
+            .bio-neon-glow:hover {
+                box-shadow: 0 0 20px rgba(168, 85, 247, 0.3), 0 0 60px rgba(168, 85, 247, 0.1);
+            }
+            .bio-neon-social:hover {
+                box-shadow: 0 0 12px rgba(168, 85, 247, 0.25);
+            }
+            .bio-neon-ring {
+                box-shadow: 0 0 20px rgba(168, 85, 247, 0.3), 0 0 40px rgba(168, 85, 247, 0.1);
+            }
+        `,
+        text: 'text-white',
+        subtext: 'text-purple-300/70',
+        button: 'bio-neon-glow bg-white/[0.04] border border-purple-500/30 backdrop-blur-sm hover:bg-white/[0.08] hover:border-purple-400/60 hover:-translate-y-0.5',
+        buttonText: 'text-purple-100',
+        socialButton: 'bio-neon-social bg-white/[0.04] border border-purple-500/20 hover:bg-white/[0.08] hover:border-purple-400/50',
+        footer: 'text-purple-400/20',
+        avatarRing: 'bio-neon-ring ring-2 ring-purple-500/40',
+        themeColor: '#0a0118',
+    },
+    elegant: {
+        bgClass: 'bg-gradient-to-b from-amber-50/80 via-orange-50/50 to-stone-50',
+        text: 'text-stone-800',
+        subtext: 'text-stone-500',
+        button: 'bg-white/80 border border-amber-200/60 shadow-sm hover:shadow-md hover:border-amber-300 hover:-translate-y-0.5',
+        buttonText: 'text-stone-700',
+        socialButton: 'bg-white/60 border border-amber-200/50 hover:border-amber-300 hover:bg-white/80',
+        footer: 'text-stone-400/50',
+        avatarRing: 'ring-4 ring-amber-200/40',
+        themeColor: '#fffbeb',
+    },
+    facebook: {
+        bgClass: '',
+        bgStyle: { background: 'linear-gradient(135deg, #1877F2 0%, #0d5bbf 50%, #0a4a9e 100%)' },
+        text: 'text-white',
+        subtext: 'text-blue-200/80',
+        button: 'bg-white/[0.12] border border-white/[0.18] backdrop-blur-md hover:bg-white/[0.22] hover:border-white/[0.3] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(24,119,242,0.3)]',
+        buttonText: 'text-white',
+        socialButton: 'bg-white/[0.1] border border-white/[0.15] hover:bg-white/[0.2]',
+        footer: 'text-blue-300/30',
+        avatarRing: 'ring-4 ring-white/20',
+        themeColor: '#1877F2',
+    },
+    x: {
+        bgClass: 'bg-black',
+        text: 'text-white',
+        subtext: 'text-gray-500',
+        button: 'bg-white/[0.06] border border-white/[0.1] hover:bg-white/[0.12] hover:border-white/[0.2] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,255,255,0.05)]',
+        buttonText: 'text-white',
+        socialButton: 'bg-white/[0.06] border border-white/[0.1] hover:bg-white/[0.14]',
+        footer: 'text-gray-700',
+        avatarRing: 'ring-4 ring-white/10',
+        themeColor: '#000000',
+    },
+    instagram: {
+        bgClass: 'bio-instagram-animated',
+        animationCss: `
+            .bio-instagram-animated {
+                background: linear-gradient(-45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888, #8a3ab9, #4c68d7, #f09433);
+                background-size: 500% 500%;
+                animation: bioInstagramShift 10s ease infinite;
+            }
+            @keyframes bioInstagramShift {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+        `,
+        text: 'text-white',
+        subtext: 'text-white/70',
+        button: 'bg-white/[0.15] border border-white/[0.2] backdrop-blur-md hover:bg-white/[0.25] hover:border-white/[0.35] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(225,48,108,0.25)]',
+        buttonText: 'text-white',
+        socialButton: 'bg-white/[0.12] border border-white/[0.18] hover:bg-white/[0.22]',
+        footer: 'text-white/25',
+        avatarRing: 'ring-4 ring-white/25',
+        themeColor: '#E1306C',
+    },
+    youtube: {
+        bgClass: '',
+        bgStyle: { background: 'linear-gradient(135deg, #FF0000 0%, #cc0000 40%, #1a1a1a 100%)' },
+        text: 'text-white',
+        subtext: 'text-red-200/70',
+        button: 'bg-white/[0.1] border border-white/[0.15] backdrop-blur-sm hover:bg-white/[0.18] hover:border-white/[0.25] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,0,0,0.2)]',
+        buttonText: 'text-white',
+        socialButton: 'bg-white/[0.08] border border-white/[0.12] hover:bg-white/[0.16]',
+        footer: 'text-red-300/25',
+        avatarRing: 'ring-4 ring-white/15',
+        themeColor: '#FF0000',
+    },
+    tiktok: {
+        bgClass: 'bio-tiktok-bg',
+        animationCss: `
+            .bio-tiktok-bg {
+                background: #010101;
+                position: relative;
+            }
+            .bio-tiktok-bg::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(ellipse at 20% 80%, rgba(37, 244, 238, 0.12) 0%, transparent 50%),
+                            radial-gradient(ellipse at 80% 20%, rgba(254, 44, 85, 0.12) 0%, transparent 50%);
+                animation: bioTiktokPulse 8s ease-in-out infinite alternate;
+                pointer-events: none;
+            }
+            @keyframes bioTiktokPulse {
+                0% { opacity: 0.6; }
+                100% { opacity: 1; }
+            }
+            .bio-tiktok-btn {
+                box-shadow: -2px 0 8px rgba(37, 244, 238, 0.08), 2px 0 8px rgba(254, 44, 85, 0.08);
+            }
+            .bio-tiktok-btn:hover {
+                box-shadow: -3px 0 15px rgba(37, 244, 238, 0.15), 3px 0 15px rgba(254, 44, 85, 0.15);
+            }
+        `,
+        text: 'text-white',
+        subtext: 'text-gray-400',
+        button: 'bio-tiktok-btn bg-white/[0.06] border border-white/[0.1] hover:bg-white/[0.1] hover:border-white/[0.18] hover:-translate-y-0.5',
+        buttonText: 'text-white',
+        socialButton: 'bg-white/[0.05] border border-white/[0.08] hover:bg-white/[0.1]',
+        footer: 'text-gray-700',
+        avatarRing: 'ring-4 ring-[#25F4EE]/20',
+        themeColor: '#010101',
+    },
+    linkedin: {
+        bgClass: '',
+        bgStyle: { background: 'linear-gradient(135deg, #0A66C2 0%, #084d94 50%, #063d75 100%)' },
+        text: 'text-white',
+        subtext: 'text-blue-200/75',
+        button: 'bg-white/[0.12] border border-white/[0.18] backdrop-blur-md hover:bg-white/[0.2] hover:border-white/[0.3] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(10,102,194,0.3)]',
+        buttonText: 'text-white',
+        socialButton: 'bg-white/[0.1] border border-white/[0.15] hover:bg-white/[0.2]',
+        footer: 'text-blue-300/25',
+        avatarRing: 'ring-4 ring-white/20',
+        themeColor: '#0A66C2',
     },
 };
 
@@ -120,24 +379,41 @@ export default function BioPagePublic() {
                 <meta property="og:description" content={pageDescription} />
                 <meta property="og:url" content={`https://npgo.to/@${bioPage.username}`} />
                 {bioPage.avatar_url && <meta property="og:image" content={bioPage.avatar_url} />}
-                <meta name="theme-color" content={bioPage.theme === 'crimson' ? '#DC143C' : bioPage.theme === 'dark' ? '#111827' : '#f9fafb'} />
+                <meta name="theme-color" content={theme.themeColor} />
                 <link rel="canonical" href={`https://npgo.to/@${bioPage.username}`} />
-                <style>{`body { margin: 0; padding: 0; }`}</style>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+                <style>{`
+                    body { margin: 0; padding: 0; }
+                    .bio-page-root { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+                    .bio-link-enter { opacity: 0; transform: translateY(12px); animation: bioLinkEnter 0.4s ease forwards; }
+                    @keyframes bioLinkEnter {
+                        to { opacity: 1; transform: translateY(0); }
+                    }
+                    ${theme.animationCss || ''}
+                `}</style>
             </Head>
 
-            <div className={`min-h-screen ${theme.bg} flex flex-col items-center px-4 py-12`}>
+            <div
+                className={`bio-page-root min-h-screen ${theme.bgClass} flex flex-col items-center px-4 py-12 relative overflow-hidden`}
+                style={theme.bgStyle}
+            >
                 {/* Profile Section */}
-                <div className="w-full max-w-md flex flex-col items-center text-center space-y-4">
+                <div className="w-full max-w-md flex flex-col items-center text-center space-y-4 relative z-10">
                     {/* Avatar */}
                     {bioPage.avatar_url ? (
                         <img
                             src={bioPage.avatar_url}
                             alt={bioPage.display_name}
-                            className="w-24 h-24 rounded-full object-cover ring-4 ring-white/30 shadow-lg"
+                            className={`w-24 h-24 rounded-full object-cover shadow-lg ${theme.avatarRing}`}
+                            style={{ animationDelay: '0ms' }}
                         />
                     ) : (
-                        <div className={`w-24 h-24 rounded-full flex items-center justify-center text-3xl font-bold ring-4 ring-white/30 shadow-lg ${
-                            bioPage.theme === 'dark' ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-600'
+                        <div className={`w-24 h-24 rounded-full flex items-center justify-center text-3xl font-bold shadow-lg ${theme.avatarRing} ${
+                            ['dark', 'crimson', 'gradient', 'sunset', 'neon'].includes(bioPage.theme)
+                                ? 'bg-white/15 text-white'
+                                : 'bg-gray-200 text-gray-600'
                         }`}>
                             {bioPage.display_name.charAt(0).toUpperCase()}
                         </div>
@@ -145,23 +421,23 @@ export default function BioPagePublic() {
 
                     {/* Name & Bio */}
                     <div className="space-y-1">
-                        <h1 className={`text-2xl font-bold ${theme.text}`}>
+                        <h1 className={`text-2xl font-bold tracking-tight ${theme.text}`}>
                             {bioPage.display_name}
                         </h1>
-                        <p className={`text-sm ${theme.subtext}`}>
+                        <p className={`text-sm font-medium ${theme.subtext}`}>
                             @{bioPage.username}
                         </p>
                     </div>
 
                     {bioPage.bio && (
-                        <p className={`text-sm max-w-xs ${theme.subtext}`}>
+                        <p className={`text-sm max-w-xs leading-relaxed ${theme.subtext}`}>
                             {bioPage.bio}
                         </p>
                     )}
 
                     {/* Social Icons Row */}
                     {socialLinks.length > 0 && (
-                        <div className="flex items-center gap-3 pt-2">
+                        <div className="flex items-center gap-2.5 pt-2">
                             {socialLinks.map((link: BioLinkItem) => {
                                 const platform = getSocialIcon(link.url);
                                 return platform ? (
@@ -170,10 +446,10 @@ export default function BioPagePublic() {
                                         href={link.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={`p-2 rounded-full transition-all hover:scale-110 ${theme.button} ${theme.buttonText}`}
+                                        className={`p-3 rounded-full transition-all duration-200 hover:scale-110 ${theme.socialButton} ${theme.buttonText}`}
                                         title={link.title}
                                     >
-                                        <SocialSvg platform={platform} className="w-5 h-5" />
+                                        <SocialSvg platform={platform} className="w-6 h-6" />
                                     </a>
                                 ) : null;
                             })}
@@ -182,20 +458,21 @@ export default function BioPagePublic() {
 
                     {/* Link Buttons */}
                     <div className="w-full space-y-3 pt-4">
-                        {regularLinks.map((link: BioLinkItem) => (
+                        {regularLinks.map((link: BioLinkItem, index: number) => (
                             <a
                                 key={link.id}
                                 href={link.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={`
-                                    block w-full px-6 py-4 rounded-xl text-center font-medium
-                                    transition-all duration-200 ${theme.button} ${theme.buttonText} ${theme.buttonHover}
+                                    bio-link-enter block w-full px-6 py-4 rounded-2xl text-center font-medium
+                                    transition-all duration-200 ${theme.button} ${theme.buttonText}
                                 `}
+                                style={{ animationDelay: `${index * 60}ms` }}
                             >
                                 <span className="flex items-center justify-center gap-2">
                                     {link.title}
-                                    <ExternalLink className="w-4 h-4 opacity-40" />
+                                    <ExternalLink className="w-3.5 h-3.5 opacity-30" />
                                 </span>
                             </a>
                         ))}
@@ -210,10 +487,10 @@ export default function BioPagePublic() {
                 </div>
 
                 {/* Footer */}
-                <div className={`mt-auto pt-12 text-center ${theme.footer}`}>
+                <div className={`mt-auto pt-12 text-center relative z-10 ${theme.footer}`}>
                     <a
                         href="https://npgo.to"
-                        className="inline-flex items-center gap-1.5 text-xs font-medium opacity-60 hover:opacity-100 transition-opacity"
+                        className="inline-flex items-center gap-1.5 text-xs font-medium opacity-60 hover:opacity-100 transition-opacity duration-200"
                     >
                         <Link2 className="w-3 h-3" />
                         Made with npgo.to

@@ -83,7 +83,7 @@ class BioPageController extends Controller
             ],
             'display_name' => 'required|string|max:50',
             'bio' => 'nullable|string|max:160',
-            'theme' => 'required|string|in:default,dark,crimson',
+            'theme' => 'required|string|in:default,dark,crimson,minimal,gradient,glass,sunset,neon,elegant,facebook,x,instagram,youtube,tiktok,linkedin',
         ]);
 
         $bioPage->update($validated);

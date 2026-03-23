@@ -49,6 +49,8 @@ interface PageProps {
     [key: string]: unknown;
 }
 
+const socialThemeSlugs = ['facebook', 'x', 'instagram', 'youtube', 'tiktok', 'linkedin'];
+
 export default function BioEditor() {
     const { bioPage: page, flash: flashMsg } = usePage<PageProps>().props;
 
@@ -172,14 +174,29 @@ export default function BioEditor() {
     }
 
     const themeOptions = [
-        { value: 'default', label: 'Light', preview: 'bg-white border-2 border-gray-200' },
-        { value: 'dark', label: 'Dark', preview: 'bg-gray-900 border-2 border-gray-700' },
-        { value: 'crimson', label: 'Crimson', preview: 'bg-[#DC143C] border-2 border-[#DC143C]' },
+        { value: 'default', label: 'Light', preview: 'bg-gradient-to-b from-gray-50 to-white border-2 border-gray-200' },
+        { value: 'dark', label: 'Dark', preview: 'bg-gradient-to-b from-gray-950 to-gray-900 border-2 border-gray-700' },
+        { value: 'crimson', label: 'Crimson', preview: 'bg-gradient-to-b from-[#DC143C] to-[#8B0000] border-2 border-[#DC143C]' },
+        { value: 'minimal', label: 'Minimal', preview: 'bg-white border-2 border-gray-300' },
+        { value: 'gradient', label: 'Gradient', preview: 'bg-gradient-to-br from-purple-600 to-blue-500 border-2 border-purple-400' },
+        { value: 'glass', label: 'Glass', preview: 'bg-gradient-to-br from-sky-300 to-indigo-400 border-2 border-sky-300' },
+        { value: 'sunset', label: 'Sunset', preview: 'bg-gradient-to-br from-orange-400 to-rose-500 border-2 border-orange-400' },
+        { value: 'neon', label: 'Neon', preview: 'bg-gradient-to-b from-violet-950 to-fuchsia-950 border-2 border-fuchsia-500' },
+        { value: 'elegant', label: 'Elegant', preview: 'bg-gradient-to-b from-amber-50 to-orange-50 border-2 border-amber-300' },
+        { value: 'facebook', label: 'Facebook', preview: 'bg-[#1877F2] border-2 border-[#1877F2]' },
+        { value: 'x', label: 'X', preview: 'bg-black border-2 border-gray-600' },
+        { value: 'instagram', label: 'Instagram', preview: 'bg-gradient-to-br from-[#f09433] via-[#dc2743] to-[#8a3ab9] border-2 border-[#dc2743]' },
+        { value: 'youtube', label: 'YouTube', preview: 'bg-gradient-to-br from-[#FF0000] to-[#1a1a1a] border-2 border-[#FF0000]' },
+        { value: 'tiktok', label: 'TikTok', preview: 'bg-black border-2 border-[#25F4EE]' },
+        { value: 'linkedin', label: 'LinkedIn', preview: 'bg-[#0A66C2] border-2 border-[#0A66C2]' },
     ];
+
+    const classicThemes = themeOptions.filter(t => !socialThemeSlugs.includes(t.value));
+    const socialThemes = themeOptions.filter(t => socialThemeSlugs.includes(t.value));
 
     return (
         <Layout title="My Bio Page" hideNavigation={true} noIndex={true}>
-            <div className="w-full max-w-3xl mx-auto px-4 space-y-6">
+            <div className="w-full max-w-5xl mx-auto px-4 space-y-6 pb-12">
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div>
@@ -189,6 +206,16 @@ export default function BioEditor() {
                         </p>
                     </div>
                     <div className="flex items-center gap-2 w-full sm:w-auto">
+                        <Button
+                            type="submit"
+                            form="profile-form"
+                            disabled={profileForm.processing}
+                            className="gap-2 flex-1 sm:flex-none"
+                            size="sm"
+                        >
+                            <Save className="h-4 w-4" />
+                            {profileForm.processing ? 'Saving...' : 'Save Profile'}
+                        </Button>
                         <Button
                             variant="outline"
                             size="sm"
@@ -221,7 +248,7 @@ export default function BioEditor() {
                     </div>
                 )}
 
-                {/* Public URL Banner */}
+                {/* Public URL & QR Code */}
                 <Card>
                     <CardContent className="pt-6">
                         <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -251,18 +278,16 @@ export default function BioEditor() {
                     </CardContent>
                 </Card>
 
-                {/* Profile Settings */}
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                            Profile Settings
-                        </CardTitle>
-                        <CardDescription>
-                            Customize how your bio page looks to visitors
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <form onSubmit={handleProfileSubmit} className="space-y-4">
+                <form id="profile-form" onSubmit={handleProfileSubmit} className="space-y-6">
+                    {/* Profile */}
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Profile</CardTitle>
+                            <CardDescription>
+                                Your name, username, and bio visible to visitors
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
                             {/* Avatar Preview */}
                             {page.avatar_url && (
                                 <div className="flex items-center gap-3">
@@ -277,35 +302,37 @@ export default function BioEditor() {
                                 </div>
                             )}
 
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium">Username</label>
-                                <div className="flex items-center gap-2">
-                                    <span className="text-sm text-muted-foreground shrink-0">npgo.to/@</span>
-                                    <Input
-                                        value={profileForm.data.username}
-                                        onChange={e => profileForm.setData('username', e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, ''))}
-                                        placeholder="yourname"
-                                        maxLength={30}
-                                        className={profileForm.errors.username ? 'border-destructive' : ''}
-                                    />
+                            <div className="grid sm:grid-cols-2 gap-4">
+                                <div className="space-y-2">
+                                    <label className="text-sm font-medium">Username</label>
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-sm text-muted-foreground shrink-0">npgo.to/@</span>
+                                        <Input
+                                            value={profileForm.data.username}
+                                            onChange={e => profileForm.setData('username', e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, ''))}
+                                            placeholder="yourname"
+                                            maxLength={30}
+                                            className={profileForm.errors.username ? 'border-destructive' : ''}
+                                        />
+                                    </div>
+                                    {profileForm.errors.username && (
+                                        <p className="text-sm text-destructive">{profileForm.errors.username}</p>
+                                    )}
                                 </div>
-                                {profileForm.errors.username && (
-                                    <p className="text-sm text-destructive">{profileForm.errors.username}</p>
-                                )}
-                            </div>
 
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium">Display Name</label>
-                                <Input
-                                    value={profileForm.data.display_name}
-                                    onChange={e => profileForm.setData('display_name', e.target.value)}
-                                    placeholder="Your Name"
-                                    maxLength={50}
-                                    className={profileForm.errors.display_name ? 'border-destructive' : ''}
-                                />
-                                {profileForm.errors.display_name && (
-                                    <p className="text-sm text-destructive">{profileForm.errors.display_name}</p>
-                                )}
+                                <div className="space-y-2">
+                                    <label className="text-sm font-medium">Display Name</label>
+                                    <Input
+                                        value={profileForm.data.display_name}
+                                        onChange={e => profileForm.setData('display_name', e.target.value)}
+                                        placeholder="Your Name"
+                                        maxLength={50}
+                                        className={profileForm.errors.display_name ? 'border-destructive' : ''}
+                                    />
+                                    {profileForm.errors.display_name && (
+                                        <p className="text-sm text-destructive">{profileForm.errors.display_name}</p>
+                                    )}
+                                </div>
                             </div>
 
                             <div className="space-y-2">
@@ -322,40 +349,65 @@ export default function BioEditor() {
                                     {profileForm.data.bio.length}/160
                                 </p>
                             </div>
+                        </CardContent>
+                    </Card>
 
-                            {/* Theme Selector */}
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium">Theme</label>
-                                <div className="flex gap-3">
-                                    {themeOptions.map(theme => (
+                    {/* Theme */}
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Theme</CardTitle>
+                            <CardDescription>
+                                Choose how your page looks. Preview it after saving.
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-5">
+                            {/* Classic Themes */}
+                            <div>
+                                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">Classic</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {classicThemes.map(theme => (
                                         <button
                                             key={theme.value}
                                             type="button"
                                             onClick={() => profileForm.setData('theme', theme.value)}
-                                            className={`flex flex-col items-center gap-1.5 p-2 rounded-lg transition-all ${
+                                            className={`flex flex-col items-center gap-1 p-1.5 rounded-lg transition-all ${
                                                 profileForm.data.theme === theme.value
-                                                    ? 'ring-2 ring-primary ring-offset-2'
+                                                    ? 'ring-2 ring-primary ring-offset-1'
                                                     : 'hover:bg-accent'
                                             }`}
                                         >
-                                            <div className={`w-10 h-10 rounded-md ${theme.preview}`} />
-                                            <span className="text-xs font-medium">{theme.label}</span>
+                                            <div className={`w-16 h-16 rounded-md ${theme.preview}`} />
+                                            <span className="text-[10px] font-medium">{theme.label}</span>
                                         </button>
                                     ))}
                                 </div>
                             </div>
 
-                            <Button
-                                type="submit"
-                                disabled={profileForm.processing}
-                                className="gap-2"
-                            >
-                                <Save className="h-4 w-4" />
-                                {profileForm.processing ? 'Saving...' : 'Save Profile'}
-                            </Button>
-                        </form>
-                    </CardContent>
-                </Card>
+                            {/* Social Media Themes */}
+                            <div>
+                                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">Social Media</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {socialThemes.map(theme => (
+                                        <button
+                                            key={theme.value}
+                                            type="button"
+                                            onClick={() => profileForm.setData('theme', theme.value)}
+                                            className={`flex flex-col items-center gap-1 p-1.5 rounded-lg transition-all ${
+                                                profileForm.data.theme === theme.value
+                                                    ? 'ring-2 ring-primary ring-offset-1'
+                                                    : 'hover:bg-accent'
+                                            }`}
+                                        >
+                                            <div className={`w-16 h-16 rounded-md ${theme.preview}`} />
+                                            <span className="text-[10px] font-medium">{theme.label}</span>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                </form>
 
                 {/* Links Manager */}
                 <Card>
@@ -382,26 +434,30 @@ export default function BioEditor() {
                             <Card className="border-primary/50 border-dashed">
                                 <CardContent className="pt-4">
                                     <form onSubmit={handleAddLink} className="space-y-3">
-                                        <Input
-                                            value={newLinkForm.data.title}
-                                            onChange={e => newLinkForm.setData('title', e.target.value)}
-                                            placeholder="Link title (e.g., My Website)"
-                                            maxLength={100}
-                                            className={newLinkForm.errors.title ? 'border-destructive' : ''}
-                                        />
-                                        {newLinkForm.errors.title && (
-                                            <p className="text-sm text-destructive">{newLinkForm.errors.title}</p>
-                                        )}
-                                        <Input
-                                            value={newLinkForm.data.url}
-                                            onChange={e => newLinkForm.setData('url', e.target.value)}
-                                            placeholder="https://example.com"
-                                            maxLength={2048}
-                                            className={newLinkForm.errors.url ? 'border-destructive' : ''}
-                                        />
-                                        {newLinkForm.errors.url && (
-                                            <p className="text-sm text-destructive">{newLinkForm.errors.url}</p>
-                                        )}
+                                        <div className="space-y-1">
+                                            <Input
+                                                value={newLinkForm.data.title}
+                                                onChange={e => newLinkForm.setData('title', e.target.value)}
+                                                placeholder="Link title (e.g., My Website)"
+                                                maxLength={100}
+                                                className={newLinkForm.errors.title ? 'border-destructive' : ''}
+                                            />
+                                            {newLinkForm.errors.title && (
+                                                <p className="text-sm text-destructive">{newLinkForm.errors.title}</p>
+                                            )}
+                                        </div>
+                                        <div className="space-y-1">
+                                            <Input
+                                                value={newLinkForm.data.url}
+                                                onChange={e => newLinkForm.setData('url', e.target.value)}
+                                                placeholder="https://example.com"
+                                                maxLength={2048}
+                                                className={newLinkForm.errors.url ? 'border-destructive' : ''}
+                                            />
+                                            {newLinkForm.errors.url && (
+                                                <p className="text-sm text-destructive">{newLinkForm.errors.url}</p>
+                                            )}
+                                        </div>
                                         <div className="flex gap-2">
                                             <Button type="submit" size="sm" disabled={newLinkForm.processing} className="gap-2">
                                                 <Plus className="h-4 w-4" />
@@ -562,6 +618,18 @@ export default function BioEditor() {
                         )}
                     </CardContent>
                 </Card>
+
+                {/* Bottom Save Button */}
+                <Button
+                    type="submit"
+                    form="profile-form"
+                    disabled={profileForm.processing}
+                    className="gap-2 w-full sm:w-auto"
+                    size="lg"
+                >
+                    <Save className="h-4 w-4" />
+                    {profileForm.processing ? 'Saving...' : 'Save Profile'}
+                </Button>
             </div>
         </Layout>
     );

@@ -88,7 +88,7 @@ export default function LinkInBio() {
                                 "name": "Can I customize the look of my bio page?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Yes! Choose from multiple themes including Starter, Minimal, Modern, Bold, Gradient, Glass, Elegant, Sunset, and Neon. Each theme gives your page a unique, professional look."
+                                    "text": "Yes! Choose from 15 beautiful themes including Light, Dark, Crimson, Minimal, Gradient, Glass, Neon, and social media themes for Facebook, Instagram, TikTok, YouTube, X, and LinkedIn. Each theme gives your page a unique, professional look."
                                 }
                             }
                         ]
@@ -196,7 +196,7 @@ export default function LinkInBio() {
                     <div className="grid sm:grid-cols-2 gap-4">
                         {[
                             { icon: Link2, title: 'Unlimited Links', desc: 'Add as many links as you need. No caps, no limits.' },
-                            { icon: Palette, title: '9+ Themes', desc: 'Choose from Minimal, Modern, Bold, Gradient, Glass, Elegant, Sunset, Neon, and more.' },
+                            { icon: Palette, title: '15 Themes', desc: 'Choose from classic styles plus social media themes for Facebook, Instagram, TikTok, YouTube, X, and LinkedIn.' },
                             { icon: Globe, title: 'Custom Username', desc: 'Get your unique npgo.to/@yourname URL to share everywhere.' },
                             { icon: Smartphone, title: 'Mobile-First Design', desc: 'Looks stunning on phones, tablets, and desktops.' },
                             { icon: Share2, title: 'Social Media Ready', desc: 'Optimized for sharing on Instagram, TikTok, YouTube, and Facebook.' },
@@ -340,15 +340,21 @@ export default function LinkInBio() {
                     </div>
                     <div className="grid grid-cols-3 sm:grid-cols-3 gap-3">
                         {[
-                            { name: 'Starter', colors: 'from-gray-50 to-gray-100' },
+                            { name: 'Light', colors: 'from-gray-50 to-white' },
+                            { name: 'Dark', colors: 'from-gray-950 to-gray-900' },
+                            { name: 'Crimson', colors: 'from-[#DC143C] to-[#8B0000]' },
                             { name: 'Minimal', colors: 'from-white to-gray-50' },
-                            { name: 'Modern', colors: 'from-slate-900 to-slate-800' },
-                            { name: 'Bold', colors: 'from-red-600 to-pink-600' },
                             { name: 'Gradient', colors: 'from-purple-600 to-blue-500' },
                             { name: 'Glass', colors: 'from-sky-200 to-indigo-200' },
                             { name: 'Elegant', colors: 'from-amber-50 to-orange-50' },
                             { name: 'Sunset', colors: 'from-orange-400 to-rose-500' },
                             { name: 'Neon', colors: 'from-violet-950 to-fuchsia-950' },
+                            { name: 'Facebook', colors: 'from-[#1877F2] to-[#0a4a9e]' },
+                            { name: 'X', colors: 'from-black to-gray-900' },
+                            { name: 'Instagram', colors: 'from-[#f09433] via-[#dc2743] to-[#8a3ab9]' },
+                            { name: 'YouTube', colors: 'from-[#FF0000] to-[#1a1a1a]' },
+                            { name: 'TikTok', colors: 'from-black to-gray-900' },
+                            { name: 'LinkedIn', colors: 'from-[#0A66C2] to-[#063d75]' },
                         ].map((theme) => (
                             <div key={theme.name} className="rounded-lg overflow-hidden border border-border/60">
                                 <div className={`h-16 sm:h-20 bg-linear-to-br ${theme.colors}`}></div>
