@@ -34,6 +34,10 @@ Route::get('/qr-code-generator', fn() => inertia('QrCodeGenerator'))->name('qr-c
 Route::get('/url-shortener', fn() => inertia('UrlShortener'))->name('url-shortener');
 Route::get('/link-in-bio', fn() => inertia('LinkInBio'))->name('link-in-bio');
 
+// Blog
+Route::get('/blog', fn() => inertia('Blog'))->name('blog');
+Route::get('/blog/{slug}', fn($slug) => inertia('BlogPost', ['slug' => $slug]))->name('blog.post');
+
 // Bio Page (public) - Must be before the catch-all redirect
 Route::get('/@{username}', [BioPagePublicController::class, 'show'])->name('bio.public');
 

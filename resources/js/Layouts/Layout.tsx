@@ -23,7 +23,7 @@ import {
     SheetTrigger,
 } from '@/components/ui/sheet';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { LogOut, User, Link2, Crown, LayoutDashboard, Menu, BookOpen, QrCode, Scissors, UserCircle } from 'lucide-react';
+import { LogOut, User, Link2, Crown, LayoutDashboard, Menu, BookOpen, QrCode, Scissors, UserCircle, PenLine } from 'lucide-react';
 
 interface AuthUser {
     id: number;
@@ -45,8 +45,8 @@ interface LayoutProps {
 export default function Layout({ title, description, canonicalPath = '/', children, hideNavigation = false, noIndex = false }: LayoutProps) {
     const { auth } = usePage<{ auth: { user: AuthUser | null } }>().props;
 
-    const pageTitle = title ? `${title} | Nepal URL Shortner` : 'Free URL Shortner for Nepal | Free QR Code Generator | npgo.to';
-    const pageDescription = description || "Best free URL shortner for Nepal by Noble Stack. Create short links & QR codes instantly. npgo.to - Nepal's #1 free URL shortening service with QR code generator. No signup required. Made for Nepali businesses, marketers & creators. A Noble Stack product.";
+    const pageTitle = title ? `${title} | Nepal URL Shortener` : 'Free URL Shortener for Nepal | Free QR Code Generator | npgo.to';
+    const pageDescription = description || "Best free URL shortener for Nepal by Noble Stack. Create short links & QR codes instantly. npgo.to - Nepal's #1 free URL shortening service with QR code generator. No signup required. Made for Nepali businesses, marketers & creators. A Noble Stack product.";
     const canonicalUrl = `https://npgo.to${canonicalPath === '/' ? '' : canonicalPath}`;
     const fullCanonicalUrl = canonicalUrl;
 
@@ -61,7 +61,7 @@ export default function Layout({ title, description, canonicalPath = '/', childr
                 <title>{pageTitle}</title>
                 <meta name="title" content={pageTitle} />
                 <meta name="description" content={pageDescription} />
-                <meta name="keywords" content="Noble Stack, NobleStack, Noble Stack Nepal, URL shortner for Nepal, QR code generator for Nepal, free URL shortner, free QR code generator, Nepal URL shortener, Nepali URL shortener, shorten URL Nepal, link shortener Nepal, best URL shortener Nepal, free link shortener, QR code maker Nepal, create short links free, npgo.to, Noble Stack products, URL shortener, short URL, link shortener, shorten link, tiny URL, bit.ly alternative, bitly alternative, free URL shortener, custom short links, QR code generator, link management, short link generator, URL redirect, tinyurl alternative, short.io alternative, rebrandly alternative, link in bio, Kathmandu URL shortener, Nepal digital marketing tools, free marketing tools Nepal, URL shortening service Nepal, Noble Stack URL shortener" />
+                <meta name="keywords" content="Noble Stack, NobleStack, Noble Stack Nepal, URL shortener for Nepal, QR code generator for Nepal, free URL shortener, free QR code generator, Nepal URL shortener, Nepali URL shortener, shorten URL Nepal, link shortener Nepal, best URL shortener Nepal, free link shortener, QR code maker Nepal, create short links free, npgo.to, Noble Stack products, URL shortener, URL shortner, short URL, link shortener, shorten link, tiny URL, bit.ly alternative, bitly alternative, free URL shortener, custom short links, QR code generator, link management, short link generator, URL redirect, tinyurl alternative, short.io alternative, rebrandly alternative, link in bio, Kathmandu URL shortener, Nepal digital marketing tools, free marketing tools Nepal, URL shortening service Nepal, Noble Stack URL shortener" />
                 <meta name="author" content="Noble Stack" />
                 <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
                 <meta httpEquiv="Content-Language" content="en" />
@@ -332,6 +332,23 @@ export default function Layout({ title, description, canonicalPath = '/', childr
                                                         </span>
                                                     </div>
                                                 </a>
+
+                                                <a
+                                                    href="/blog"
+                                                    className="group flex items-start gap-3 rounded-lg p-3 hover:bg-accent transition-colors"
+                                                >
+                                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                                                        <PenLine className="h-5 w-5" />
+                                                    </div>
+                                                    <div className="flex flex-col gap-1">
+                                                        <span className="font-semibold group-hover:text-primary transition-colors">
+                                                            Blog
+                                                        </span>
+                                                        <span className="text-xs text-muted-foreground">
+                                                            Tips & guides for Nepali businesses
+                                                        </span>
+                                                    </div>
+                                                </a>
                                             </nav>
                                         )}
 
@@ -411,6 +428,11 @@ export default function Layout({ title, description, canonicalPath = '/', childr
                                     <NavigationMenuItem>
                                         <NavigationMenuLink href="/link-in-bio" className={navigationMenuTriggerStyle()}>
                                             Link in Bio
+                                        </NavigationMenuLink>
+                                    </NavigationMenuItem>
+                                    <NavigationMenuItem>
+                                        <NavigationMenuLink href="/blog" className={navigationMenuTriggerStyle()}>
+                                            Blog
                                         </NavigationMenuLink>
                                     </NavigationMenuItem>
                                 </NavigationMenuList>
