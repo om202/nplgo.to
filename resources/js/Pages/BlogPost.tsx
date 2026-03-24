@@ -31,10 +31,12 @@ export default function BlogPost({ slug }: BlogPostProps) {
         );
     }
 
-    // Related posts (exclude current)
-    const relatedPosts = allPosts.filter(p => p.slug !== slug).slice(0, 3);
+    // Related posts (exclude current, same language)
+    const relatedPosts = allPosts.filter(p => p.slug !== slug && p.language === post.language).slice(0, 3);
 
-    const formattedDate = new Date(post.publishDate).toLocaleDateString('en-US', {
+    const isNepali = post.language === 'ne';
+
+    const formattedDate = new Date(post.publishDate).toLocaleDateString(isNepali ? 'ne-NP' : 'en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
@@ -85,7 +87,7 @@ export default function BlogPost({ slug }: BlogPostProps) {
                         "wordCount": post.readingTime * 200,
                         "articleSection": post.category,
                         "keywords": post.keywords,
-                        "inLanguage": "en",
+                        "inLanguage": post.language === 'ne' ? 'ne' : 'en',
                         "isPartOf": {
                             "@type": "Blog",
                             "name": "npgo.to Blog",
@@ -179,11 +181,11 @@ export default function BlogPost({ slug }: BlogPostProps) {
                             </span>
                             <span className="flex items-center gap-1">
                                 <Clock className="h-3.5 w-3.5" />
-                                {post.readingTime} min read
+                                {post.readingTime} {isNepali ? 'मिनेट पढ्ने' : 'min read'}
                             </span>
                             <span className="flex items-center gap-1">
                                 <BookOpen className="h-3.5 w-3.5" />
-                                By {post.author}
+                                {isNepali ? '' : 'By '}{post.author}
                             </span>
                         </div>
                     </div>
@@ -198,7 +200,7 @@ export default function BlogPost({ slug }: BlogPostProps) {
                             <CardContent className="pt-5 pb-5">
                                 <h2 className="flex items-center gap-2 font-semibold text-sm mb-3">
                                     <List className="h-4 w-4 text-primary" />
-                                    Table of Contents
+                                    {isNepali ? 'विषय सूची' : 'Table of Contents'}
                                 </h2>
                                 <nav>
                                     <ol className="space-y-1.5 list-decimal list-inside text-sm">
@@ -218,7 +220,7 @@ export default function BlogPost({ slug }: BlogPostProps) {
                                                     href="#faq"
                                                     className="text-muted-foreground hover:text-primary transition-colors"
                                                 >
-                                                    Frequently Asked Questions
+                                                    {isNepali ? 'बारम्बार सोधिने प्रश्नहरू' : 'Frequently Asked Questions'}
                                                 </a>
                                             </li>
                                         )}
@@ -252,7 +254,7 @@ export default function BlogPost({ slug }: BlogPostProps) {
                 {post.faqs.length > 0 && (
                     <section id="faq" className="mb-10 sm:mb-12 scroll-mt-20">
                         <h2 className="text-xl sm:text-2xl font-semibold tracking-tight mb-6">
-                            Frequently Asked Questions
+                            {isNepali ? 'बारम्बार सोधिने प्रश्नहरू' : 'Frequently Asked Questions'}
                         </h2>
                         <div className="space-y-4">
                             {post.faqs.map((faq, index) => (
@@ -278,7 +280,7 @@ export default function BlogPost({ slug }: BlogPostProps) {
                     <>
                         <section className="py-12 sm:py-16">
                             <h2 className="text-xl sm:text-2xl font-semibold tracking-tight mb-6">
-                                More Articles
+                                {isNepali ? 'थप लेखहरू' : 'More Articles'}
                             </h2>
                             <div className="grid md:grid-cols-2 gap-4">
                                 {relatedPosts.map((relatedPost) => (
@@ -303,15 +305,15 @@ export default function BlogPost({ slug }: BlogPostProps) {
                 {/* Back to Blog + CTA */}
                 <section className="text-center py-16 sm:py-20">
                     <a href="/blog" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
-                        <ArrowLeft className="h-4 w-4" /> Back to all articles
+                        <ArrowLeft className="h-4 w-4" /> {isNepali ? 'सबै लेखहरूमा फर्कनुहोस्' : 'Back to all articles'}
                     </a>
-                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Ready to Try It?</h2>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">{isNepali ? 'प्रयोग गर्न तयार हुनुहुन्छ?' : 'Ready to Try It?'}</h2>
                     <p className="text-muted-foreground text-sm sm:text-base mt-2">
-                        Start shortening URLs and generating QR codes for free. Just sign in with Google.
+                        {isNepali ? 'निःशुल्क URL shorten गर्नुहोस् र QR code बनाउनुहोस्। Google मा sign in गर्नुहोस्।' : 'Start shortening URLs and generating QR codes for free. Just sign in with Google.'}
                     </p>
                     <a href="/" className="inline-block mt-6">
                         <Button size="lg" className="gap-2">
-                            Shorten Your First URL <ArrowRight className="h-4 w-4" />
+                            {isNepali ? 'आफ्नो पहिलो URL Shorten गर्नुहोस्' : 'Shorten Your First URL'} <ArrowRight className="h-4 w-4" />
                         </Button>
                     </a>
                 </section>

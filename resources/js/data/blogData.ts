@@ -10,6 +10,7 @@ export interface BlogPostMeta {
     author: string;
     readingTime: number;
     category: string;
+    language: string;
     excerpt: string;
     faqs: FAQ[];
 }
@@ -161,6 +162,7 @@ function parseBlogPost(path: string, raw: string): BlogPostFull {
         author: (data.author as string) || 'Noble Stack',
         readingTime: (data.readingTime as number) || 5,
         category: (data.category as string) || 'General',
+        language: (data.language as string) || 'en',
         excerpt: (data.excerpt as string) || '',
         faqs: (data.faqs as FAQ[]) || [],
         htmlContent,
@@ -175,6 +177,10 @@ const allPosts: BlogPostFull[] = Object.entries(blogFiles)
 
 export function getAllBlogPosts(): BlogPostMeta[] {
     return allPosts.map(({ htmlContent, headings, ...meta }) => meta);
+}
+
+export function getBlogPostsByLanguage(language: string): BlogPostMeta[] {
+    return getAllBlogPosts().filter(post => post.language === language);
 }
 
 export function getBlogPost(slug: string): BlogPostFull | undefined {

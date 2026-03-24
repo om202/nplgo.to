@@ -1,14 +1,16 @@
+import { useState } from 'react';
 import Layout from '@/Layouts/Layout';
 import { Head } from '@inertiajs/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { Footer } from '@/components/Footer';
-import { getAllBlogPosts } from '@/data/blogData';
+import { getBlogPostsByLanguage } from '@/data/blogData';
 import { BookOpen, ArrowRight, Calendar, Clock, Tag } from 'lucide-react';
 
 export default function Blog() {
-    const posts = getAllBlogPosts();
+    const [activeTab, setActiveTab] = useState<'en' | 'ne'>('en');
+    const posts = getBlogPostsByLanguage(activeTab);
 
     return (
         <Layout
@@ -74,8 +76,30 @@ export default function Blog() {
 
             <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8 relative z-10 -mt-12 sm:-mt-16 md:-mt-20">
 
-                {/* Blog Posts Grid */}
+                {/* Language Tabs */}
                 <section className="py-16 sm:py-20">
+                    <div className="flex items-center justify-center gap-2 mb-8">
+                        <button
+                            onClick={() => setActiveTab('en')}
+                            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                                activeTab === 'en'
+                                    ? 'bg-primary text-primary-foreground'
+                                    : 'bg-muted text-muted-foreground hover:text-foreground'
+                            }`}
+                        >
+                            English Articles
+                        </button>
+                        <button
+                            onClick={() => setActiveTab('ne')}
+                            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                                activeTab === 'ne'
+                                    ? 'bg-primary text-primary-foreground'
+                                    : 'bg-muted text-muted-foreground hover:text-foreground'
+                            }`}
+                        >
+                            नेपाली लेखहरू
+                        </button>
+                    </div>
                     <div className="space-y-6">
                         {posts.map((post) => (
                             <a key={post.slug} href={`/blog/${post.slug}`} className="block group">
@@ -123,7 +147,7 @@ export default function Blog() {
                                             {/* Read More */}
                                             <div className="pt-2">
                                                 <span className="inline-flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all">
-                                                    Read full article <ArrowRight className="h-4 w-4" />
+                                                    {activeTab === 'ne' ? 'पूरा लेख पढ्नुहोस्' : 'Read full article'} <ArrowRight className="h-4 w-4" />
                                                 </span>
                                             </div>
                                         </div>
