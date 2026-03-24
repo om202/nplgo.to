@@ -18,7 +18,7 @@ export default function HowToShorten() {
     return (
         <Layout
             title="How to Shorten a URL for Free"
-            description="Learn how to shorten a URL for free in Nepal using npgo.to. Step-by-step guide to creating short links and QR codes. No signup required. By Noble Stack."
+            description="Learn how to shorten a URL for free in Nepal using npgo.to. Step-by-step guide to creating short links and QR codes. Quick Google sign-in. By Noble Stack."
             canonicalPath="/how-to-shorten-url"
         >
             {/* HowTo Schema for this page */}
@@ -39,7 +39,7 @@ export default function HowToShorten() {
                                 "@type": "HowToStep",
                                 "position": 1,
                                 "name": "Go to npgo.to",
-                                "text": "Open your browser and visit npgo.to. No signup or login is required to shorten a URL.",
+                                "text": "Open your browser and visit npgo.to. Sign in with your Google account to start shortening URLs.",
                                 "url": "https://npgo.to/"
                             },
                             {
@@ -94,7 +94,7 @@ export default function HowToShorten() {
                                 "name": "Do I need an account to shorten a URL?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "No account is required. You can start shortening URLs instantly as a guest. However, signing in with Google lets you view and manage all your links from a personal dashboard."
+                                    "text": "Yes, you need to sign in with your Google account — it's just one click. Once signed in, you get a free dashboard to manage all your links."
                                 }
                             },
                             {
@@ -158,7 +158,7 @@ export default function HowToShorten() {
                                         Go to npgo.to
                                     </h3>
                                     <p className="text-muted-foreground">
-                                        Open your browser and visit <a href="https://npgo.to" className="text-primary font-medium hover:underline">npgo.to</a>. No signup, no account creation, no login required. Just open the page and you're ready to go.
+                                        Open your browser and visit <a href="https://npgo.to" className="text-primary font-medium hover:underline">npgo.to</a>. Sign in with your Google account to get started — it's just one click.
                                     </p>
                                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                         <CheckCircle className="h-4 w-4 text-green-500" />
@@ -380,7 +380,7 @@ export default function HowToShorten() {
                             <CardContent className="pt-5 pb-5">
                                 <h3 className="font-semibold text-sm mb-1.5">Do I need an account to shorten a URL?</h3>
                                 <p className="text-muted-foreground">
-                                    No account is required. You can start shortening URLs instantly as a guest. However, <a href="/" className="text-primary hover:underline">signing in with Google</a> lets you view and manage all your links from a personal dashboard.
+                                    Yes, you need to sign in with your Google account — it's just one click, no forms or passwords. Once signed in, you get a free dashboard to manage all your links.
                                 </p>
                             </CardContent>
                         </Card>

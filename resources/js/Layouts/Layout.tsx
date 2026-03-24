@@ -46,7 +46,7 @@ export default function Layout({ title, description, canonicalPath = '/', childr
     const { auth } = usePage<{ auth: { user: AuthUser | null } }>().props;
 
     const pageTitle = title ? `${title} | Nepal URL Shortener` : 'Free URL Shortener for Nepal | Free QR Code Generator | npgo.to';
-    const pageDescription = description || "Best free URL shortener for Nepal by Noble Stack. Create short links & QR codes instantly. npgo.to - Nepal's #1 free URL shortening service with QR code generator. No signup required. Made for Nepali businesses, marketers & creators. A Noble Stack product.";
+    const pageDescription = description || "Best free URL shortener for Nepal by Noble Stack. Create short links & QR codes instantly. npgo.to - Nepal's #1 free URL shortening service with QR code generator. Quick Google sign-in. Made for Nepali businesses, marketers & creators. A Noble Stack product.";
     const canonicalUrl = `https://npgo.to${canonicalPath === '/' ? '' : canonicalPath}`;
     const fullCanonicalUrl = canonicalUrl;
 
@@ -149,7 +149,7 @@ export default function Layout({ title, description, canonicalPath = '/', childr
                         "name": "npgo.to - Free URL Shortner for Nepal by Noble Stack",
                         "alternateName": ["Nepal URL Shortener", "Free QR Code Generator Nepal", "Nepali Link Shortener", "Noble Stack URL Shortener"],
                         "url": "https://npgo.to",
-                        "description": "Nepal's best free URL shortner and QR code generator by Noble Stack. Create short links and QR codes instantly. No signup required. Made for Nepali businesses, marketers, and creators.",
+                        "description": "Nepal's best free URL shortener and QR code generator by Noble Stack. Create short links and QR codes instantly. Quick Google sign-in. Made for Nepali businesses, marketers, and creators.",
                         "applicationCategory": "Utility",
                         "operatingSystem": "Web",
                         "offers": {

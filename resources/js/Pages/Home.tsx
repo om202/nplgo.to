@@ -111,7 +111,7 @@ export default function Home() {
                                 "name": "What is the best free URL shortner for Nepal?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "npgo.to by Noble Stack is Nepal's best free URL shortner. It's completely free, requires no signup, and includes a free QR code generator. Perfect for Nepali businesses, marketers, and content creators."
+                                    "text": "npgo.to by Noble Stack is Nepal's best free URL shortener. It's completely free, just sign in with Google, and includes a free QR code generator. Perfect for Nepali businesses, marketers, and content creators."
                                 }
                             },
                             {
@@ -159,7 +159,7 @@ export default function Home() {
                                 "name": "How do I shorten a URL with npgo.to?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Simply paste your long URL into the input box on npgo.to and click 'Shorten'. You'll instantly get a short npgo.to link and a QR code. No signup required. It's completely free."
+                                    "text": "Simply paste your long URL into the input box on npgo.to and click 'Shorten'. You'll instantly get a short npgo.to link and a QR code. Just sign in with Google to get started. It's completely free."
                                 }
                             }
                         ]
@@ -491,7 +491,7 @@ export default function Home() {
                             <AccordionItem value="item-1">
                                 <AccordionTrigger>What is the best free URL shortner for Nepal?</AccordionTrigger>
                                 <AccordionContent>
-                                    npgo.to by Noble Stack is Nepal's best free URL shortner. It's 100% free, no signup required, and includes a free QR code generator. Perfect for Nepali businesses, marketers, and content creators who need reliable link shortening.
+                                    npgo.to by Noble Stack is Nepal's best free URL shortener. It's 100% free, just sign in with Google, and includes a free QR code generator. Perfect for Nepali businesses, marketers, and content creators who need reliable link shortening.
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-2">
@@ -509,7 +509,7 @@ export default function Home() {
                             <AccordionItem value="item-4">
                                 <AccordionTrigger>Do I need to create an account?</AccordionTrigger>
                                 <AccordionContent>
-                                    No signup required! You can start shortening URLs immediately. Optionally, sign in with Google to access your admin dashboard, track all your links, and manage them from one place.
+                                    Just sign in with your Google account — it's one click! Once signed in, you can access your admin dashboard, track all your links, and manage them from one place.
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-5">

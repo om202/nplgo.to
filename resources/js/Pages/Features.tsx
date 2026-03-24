@@ -111,7 +111,7 @@ export default function Features() {
                                 "name": "Do I need to sign in to use npgo.to?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "No! You can shorten URLs instantly without signing in. Optionally sign in with Google to access your personal dashboard where you can track and manage all your links."
+                                    "text": "You need to sign in with your Google account — it's just one click. Once signed in, you get a free dashboard to manage all your links and view analytics."
                                 }
                             },
                             {
@@ -517,7 +517,7 @@ export default function Features() {
                             <CardContent className="pt-5 pb-5">
                                 <h3 className="font-semibold text-sm mb-1.5">Do I need to sign in to use npgo.to?</h3>
                                 <p className="text-sm text-muted-foreground leading-relaxed">
-                                    No! You can shorten URLs instantly without signing in. Optionally sign in with Google to access your personal dashboard where you can track and manage all your links. Learn more on our <a href="/qr-code-generator" className="text-primary hover:underline">QR code generator</a> page.
+                                    You need to sign in with your Google account — it's just one click, no forms or passwords. Once signed in, you get a free dashboard to manage all your links and view analytics. Learn more on our <a href="/qr-code-generator" className="text-primary hover:underline">QR code generator</a> page.
                                 </p>
                             </CardContent>
                         </Card>

@@ -45,7 +45,7 @@ export default function UrlShortener() {
                         "name": "npgo.to Free URL Shortener",
                         "applicationCategory": "UtilitiesApplication",
                         "operatingSystem": "Web",
-                        "description": "Free URL shortener for Nepal. Shorten any URL instantly, get a memorable npgo.to link, and track clicks. No signup required.",
+                        "description": "Free URL shortener for Nepal. Shorten any URL instantly, get a memorable npgo.to link, and track clicks. Quick Google sign-in.",
                         "url": "https://npgo.to/url-shortener",
                         "offers": {
                             "@type": "Offer",
@@ -103,7 +103,7 @@ export default function UrlShortener() {
                                 "name": "How is npgo.to different from Bit.ly?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "npgo.to is completely free with no premium tiers, includes free high-resolution QR codes with every link, requires no signup, and is built specifically for the Nepal market by Noble Stack. Bit.ly charges for QR codes, limits free-tier features, and requires account creation."
+                                    "text": "npgo.to is completely free with no premium tiers, includes free high-resolution QR codes with every link, just needs a quick Google sign-in, and is built specifically for the Nepal market by Noble Stack. Bit.ly charges for QR codes, limits free-tier features, and requires account creation."
                                 }
                             },
                             {
@@ -480,9 +480,9 @@ export default function UrlShortener() {
                                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <Zap className="h-6 w-6" />
                                 </div>
-                                <h3 className="font-semibold text-sm">Instant, No Signup Required</h3>
+                                <h3 className="font-semibold text-sm">Instant, Quick Google Sign-In</h3>
                                 <p className="text-muted-foreground">
-                                    Paste a URL, click Shorten, and you are done in under 3 seconds. No account creation needed to start shortening. Sign in with Google only if you want to manage your links later.
+                                    Paste a URL, click Shorten, and you are done in under 3 seconds. Just sign in with Google to get started — one click, no forms or passwords.
                                 </p>
                             </CardContent>
                         </Card>
@@ -548,7 +548,7 @@ export default function UrlShortener() {
                                             <td className="text-center py-3 px-4 text-red-500">Paid</td>
                                         </tr>
                                         <tr className="border-b">
-                                            <td className="py-3 px-4">No Signup Required</td>
+                                            <td className="py-3 px-4">Google Sign-In (One Click)</td>
                                             <td className="text-center py-3 px-4 text-green-500">✓</td>
                                             <td className="text-center py-3 px-4 text-red-500">✗</td>
                                             <td className="text-center py-3 px-4 text-green-500">✓</td>
@@ -624,7 +624,7 @@ export default function UrlShortener() {
                             <CardContent className="pt-5 pb-5">
                                 <h3 className="font-semibold text-sm mb-1.5">How is npgo.to different from Bit.ly?</h3>
                                 <p className="text-muted-foreground">
-                                    npgo.to is completely free with no premium tiers, includes free 2000×2000px QR codes with every link, requires no signup to start, and is built specifically for the Nepal market by <a href="https://www.noblestack.io" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Noble Stack</a>. Bit.ly charges for QR codes, limits free-tier link creation, and requires account creation.
+                                    npgo.to is completely free with no premium tiers, includes free 2000×2000px QR codes with every link, just needs a quick Google sign-in, and is built specifically for the Nepal market by <a href="https://www.noblestack.io" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Noble Stack</a>. Bit.ly charges for QR codes, limits free-tier link creation, and requires account creation.
                                 </p>
                             </CardContent>
                         </Card>
@@ -670,7 +670,7 @@ export default function UrlShortener() {
                 <section className="text-center py-16 sm:py-20">
                     <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Shorten Your First URL for Free</h2>
                     <p className="text-muted-foreground text-sm sm:text-base mt-2">
-                        Paste a URL, get a short link and QR code. Free forever, no signup.
+                        Paste a URL, get a short link and QR code. Free forever. Just sign in with Google.
                     </p>
                     <a href="/" className="inline-block mt-6">
                         <Button size="lg" className="gap-2 w-full sm:w-auto">

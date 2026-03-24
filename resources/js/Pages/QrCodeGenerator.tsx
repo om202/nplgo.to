@@ -42,7 +42,7 @@ export default function QrCodeGenerator() {
                         "name": "npgo.to Free QR Code Generator",
                         "applicationCategory": "UtilitiesApplication",
                         "operatingSystem": "Web",
-                        "description": "Free QR code generator for Nepal. Create QR codes for any URL instantly. Download in high resolution for print materials. No signup required.",
+                        "description": "Free QR code generator for Nepal. Create QR codes for any URL instantly. Download in high resolution for print materials. Quick Google sign-in.",
                         "url": "https://npgo.to/qr-code-generator",
                         "offers": {
                             "@type": "Offer",
@@ -107,7 +107,7 @@ export default function QrCodeGenerator() {
                                 "name": "Are QR codes from npgo.to really free?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Yes, completely free with no limits. Unlike Bit.ly which charges for QR codes, npgo.to generates unlimited QR codes at 2000x2000px resolution. No signup, no credit card, no catch."
+                                    "text": "Yes, completely free with no limits. Unlike Bit.ly which charges for QR codes, npgo.to generates unlimited QR codes at 2000x2000px resolution. Just sign in with Google to get started."
                                 }
                             },
                             {
@@ -498,7 +498,7 @@ export default function QrCodeGenerator() {
                                             <td className="text-center py-3 px-4 text-red-500">✗</td>
                                         </tr>
                                         <tr className="border-b">
-                                            <td className="py-3 px-4">No Signup Required</td>
+                                            <td className="py-3 px-4">Google Sign-In (One Click)</td>
                                             <td className="text-center py-3 px-4 text-green-500">✓</td>
                                             <td className="text-center py-3 px-4 text-red-500">✗</td>
                                             <td className="text-center py-3 px-4 text-red-500">✗</td>
@@ -534,7 +534,7 @@ export default function QrCodeGenerator() {
                             <CardContent className="pt-5 pb-5">
                                 <h3 className="font-semibold text-sm mb-1.5">Are QR codes from npgo.to really free?</h3>
                                 <p className="text-muted-foreground">
-                                    Yes, completely free with no limits. Unlike Bit.ly which charges for QR codes, npgo.to generates unlimited QR codes at 2000×2000px resolution. No signup, no credit card, no catch.
+                                    Yes, completely free with no limits. Unlike Bit.ly which charges for QR codes, npgo.to generates unlimited QR codes at 2000×2000px resolution. Just sign in with Google to get started — no credit card, no catch.
                                 </p>
                             </CardContent>
                         </Card>
@@ -633,7 +633,7 @@ export default function QrCodeGenerator() {
                 <section className="text-center py-16 sm:py-20">
                     <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Create Your Free QR Code Now</h2>
                     <p className="text-muted-foreground text-sm sm:text-base mt-2">
-                        Paste a URL, get a QR code. 2000×2000px, free forever, no signup.
+                        Paste a URL, get a QR code. 2000×2000px, free forever. Just sign in with Google.
                     </p>
                     <a href="/" className="inline-block mt-6">
                         <Button size="lg" className="gap-2 w-full sm:w-auto">

@@ -28,7 +28,7 @@ export default function LinkInBio() {
     return (
         <Layout
             title="Free Link in Bio Page for Nepal: All Your Links in One Place"
-            description="Create a free Link in Bio page with npgo.to. One link for all your social media profiles, portfolio, and content. Designed for Nepali creators, businesses, and influencers. No signup fees, unlimited links."
+            description="Create a free Link in Bio page with npgo.to. One link for all your social media profiles, portfolio, and content. Designed for Nepali creators, businesses, and influencers. Quick Google sign-in, unlimited links."
             canonicalPath="/link-in-bio"
         >
             {/* Page-specific structured data */}
@@ -40,7 +40,7 @@ export default function LinkInBio() {
                         "name": "npgo.to Free Link in Bio",
                         "applicationCategory": "UtilitiesApplication",
                         "operatingSystem": "Web",
-                        "description": "Free Link in Bio page for Nepal. Create a beautiful bio page with all your links in one place. Perfect for Instagram, TikTok, Facebook, and YouTube. No signup required.",
+                        "description": "Free Link in Bio page for Nepal. Create a beautiful bio page with all your links in one place. Perfect for Instagram, TikTok, Facebook, and YouTube. Quick Google sign-in.",
                         "url": "https://npgo.to/link-in-bio",
                         "offers": {
                             "@type": "Offer",

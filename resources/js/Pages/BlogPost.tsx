@@ -307,7 +307,7 @@ export default function BlogPost({ slug }: BlogPostProps) {
                     </a>
                     <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Ready to Try It?</h2>
                     <p className="text-muted-foreground text-sm sm:text-base mt-2">
-                        Start shortening URLs and generating QR codes for free. No signup needed.
+                        Start shortening URLs and generating QR codes for free. Just sign in with Google.
                     </p>
                     <a href="/" className="inline-block mt-6">
                         <Button size="lg" className="gap-2">
