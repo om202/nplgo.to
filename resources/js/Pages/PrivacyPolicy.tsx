@@ -8,6 +8,7 @@ export default function PrivacyPolicy() {
             title="Privacy Policy"
             description="npgo.to Privacy Policy by Noble Stack. Learn how we collect, use, and protect your data when using our free URL shortener and QR code generator for Nepal."
             canonicalPath="/privacy"
+            noIndex={true}
         >
             <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-16 sm:py-20">
                 <div className="text-center">

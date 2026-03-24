@@ -8,6 +8,7 @@ export default function TermsOfService() {
             title="Terms of Service"
             description="npgo.to Terms of Service by Noble Stack. Read the terms and conditions for using our free URL shortener and QR code generator service for Nepal."
             canonicalPath="/terms"
+            noIndex={true}
         >
             <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-16 sm:py-20">
                 <div className="text-center">

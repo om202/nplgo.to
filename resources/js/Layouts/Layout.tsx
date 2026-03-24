@@ -146,7 +146,7 @@ export default function Layout({ title, description, canonicalPath = '/', childr
                     {JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "WebApplication",
-                        "name": "npgo.to - Free URL Shortner for Nepal by Noble Stack",
+                        "name": "npgo.to - Free URL Shortener for Nepal by Noble Stack",
                         "alternateName": ["Nepal URL Shortener", "Free QR Code Generator Nepal", "Nepali Link Shortener", "Noble Stack URL Shortener"],
                         "url": "https://npgo.to",
                         "description": "Nepal's best free URL shortener and QR code generator by Noble Stack. Create short links and QR codes instantly. Quick Google sign-in. Made for Nepali businesses, marketers, and creators.",
@@ -175,7 +175,7 @@ export default function Layout({ title, description, canonicalPath = '/', childr
                             "name": "Noble Stack",
                             "url": "https://www.noblestack.io"
                         },
-                        "keywords": "Noble Stack, URL shortner for Nepal, QR code generator for Nepal, free URL shortner, free QR code generator, Nepal URL shortener"
+                        "keywords": "Noble Stack, URL shortener for Nepal, QR code generator for Nepal, free URL shortener, free QR code generator, Nepal URL shortener"
                     })}
                 </script>
 

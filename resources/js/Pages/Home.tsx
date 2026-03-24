@@ -108,7 +108,7 @@ export default function Home() {
                         "mainEntity": [
                             {
                                 "@type": "Question",
-                                "name": "What is the best free URL shortner for Nepal?",
+                                "name": "What is the best free URL shortener for Nepal?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
                                     "text": "npgo.to by Noble Stack is Nepal's best free URL shortener. It's completely free, just sign in with Google, and includes a free QR code generator. Perfect for Nepali businesses, marketers, and content creators."
@@ -143,7 +143,7 @@ export default function Home() {
                                 "name": "Can I use npgo.to for my business in Nepal?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Absolutely! npgo.to by Noble Stack is perfect for Nepali businesses. Use our free URL shortner for social media marketing, email campaigns, SMS marketing, and print materials. Generate QR codes for business cards and brochures. You can also create a free Link in Bio page to share all your business links from one place."
+                                    "text": "Absolutely! npgo.to by Noble Stack is perfect for Nepali businesses. Use our free URL shortener for social media marketing, email campaigns, SMS marketing, and print materials. Generate QR codes for business cards and brochures. You can also create a free Link in Bio page to share all your business links from one place."
                                 }
                             },
                             {
@@ -240,11 +240,11 @@ export default function Home() {
                             textShadow: '0 1px 0 rgba(255,255,255,0.4), 0 -1px 0 rgba(0,0,0,0.6)'
                         }}
                     >
-                        Free URL Shortner for <span className="text-primary">Nepal</span>
+                        Free URL Shortener for <span className="text-primary">Nepal</span>
                     </h1>
 
                     <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-xl mx-auto leading-relaxed mt-3">
-                        Nepal's #1 free URL shortner, QR code generator & Link in Bio tool by Noble Stack. Create short links and bio pages instantly. Made for Nepali businesses & creators.
+                        Nepal's #1 free URL shortener, QR code generator & Link in Bio tool by Noble Stack. Create short links and bio pages instantly. Made for Nepali businesses & creators.
                     </p>
 
                     {/* URL Shortener Form */}
@@ -329,7 +329,7 @@ export default function Home() {
                 {/* Features Section */}
                 <section className="py-16 sm:py-20">
                     <div className="text-center mb-10">
-                        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Why npgo.to? Best Free URL Shortner for Nepal</h2>
+                        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Why npgo.to? Best Free URL Shortener for Nepal</h2>
                         <p className="text-muted-foreground mt-2 text-sm sm:text-base">Fast, secure, and feature-rich URL shortening, QR code generation & Link in Bio pages for Nepali users.</p>
                     </div>
 
@@ -339,9 +339,9 @@ export default function Home() {
                                 <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <ArrowRight className="h-5 w-5 -rotate-45" />
                                 </div>
-                                <h3 className="font-semibold text-center text-sm">Free URL Shortner</h3>
+                                <h3 className="font-semibold text-center text-sm">Free URL Shortener</h3>
                                 <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                                    Best free URL shortner for Nepal. Transform long URLs into short, memorable npgo.to links that are easy to share across all platforms.
+                                    Best free URL shortener for Nepal. Transform long URLs into short, memorable npgo.to links that are easy to share across all platforms.
                                 </p>
                             </CardContent>
                         </Card>
@@ -484,12 +484,12 @@ export default function Home() {
                 <section className="py-16 sm:py-20">
                     <div className="text-center mb-10">
                         <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Frequently Asked Questions</h2>
-                        <p className="text-muted-foreground mt-2 text-sm sm:text-base">Everything you need to know about Nepal's free URL shortner</p>
+                        <p className="text-muted-foreground mt-2 text-sm sm:text-base">Everything you need to know about Nepal's free URL shortener</p>
                     </div>
                     <div className="max-w-2xl mx-auto">
                         <Accordion type="single" collapsible className="w-full">
                             <AccordionItem value="item-1">
-                                <AccordionTrigger>What is the best free URL shortner for Nepal?</AccordionTrigger>
+                                <AccordionTrigger>What is the best free URL shortener for Nepal?</AccordionTrigger>
                                 <AccordionContent>
                                     npgo.to by Noble Stack is Nepal's best free URL shortener. It's 100% free, just sign in with Google, and includes a free QR code generator. Perfect for Nepali businesses, marketers, and content creators who need reliable link shortening.
                                 </AccordionContent>
@@ -503,7 +503,7 @@ export default function Home() {
                             <AccordionItem value="item-3">
                                 <AccordionTrigger>Is npgo.to really free?</AccordionTrigger>
                                 <AccordionContent>
-                                    Yes! npgo.to is 100% free URL shortner for Nepal. Create unlimited short links, generate free QR codes, and manage your URLs through our dashboard at no cost. No hidden fees, no premium tiers, no paywalls.
+                                    Yes! npgo.to is 100% free URL shortener for Nepal. Create unlimited short links, generate free QR codes, and manage your URLs through our dashboard at no cost. No hidden fees, no premium tiers, no paywalls.
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-4">
@@ -521,7 +521,7 @@ export default function Home() {
                             <AccordionItem value="item-6">
                                 <AccordionTrigger>Can I use npgo.to for my business in Nepal?</AccordionTrigger>
                                 <AccordionContent>
-                                    Absolutely! npgo.to is perfect for Nepali businesses. Use our free URL shortner for social media marketing, email campaigns, SMS marketing, and print materials. Generate QR codes for business cards, brochures, and banners.
+                                    Absolutely! npgo.to is perfect for Nepali businesses. Use our free URL shortener for social media marketing, email campaigns, SMS marketing, and print materials. Generate QR codes for business cards, brochures, and banners.
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-7">
