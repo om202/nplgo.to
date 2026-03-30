@@ -8,6 +8,7 @@ author: "Noble Stack"
 readingTime: 10
 category: "गाइड"
 language: "ne"
+featuredImage: "/images/blog/url-shortener-hero-2026.png"
 excerpt: "नेपालको डिजिटल अर्थतन्त्रले 2026 मा GDP को 12% योगदान गर्ने अनुमान छ, 1 करोड 66 लाख इन्टरनेट प्रयोगकर्ता र 1 करोड 74 लाख Facebook प्रयोगकर्ता सहित। चाहे तपाईं काठमाडौंमा व्यवसाय चलाउनुहुन्छ, पोखरामा क्रिएटर हुनुहुन्छ, वा नेपालको जुनसुकै ठाउँमा मार्केटर हुनुहुन्छ, तपाईंलाई छोटो, ट्र्याक गर्न सकिने लिंकहरू चाहिन्छ।"
 faqs:
   - question: "के npgo.to साँच्चिकै 100% निःशुल्क हो?"
@@ -23,6 +24,8 @@ faqs:
   - question: "के npgo.to सुरक्षित छ?"
     answer: "हो। npgo.to ले HTTPS encryption, Google OAuth authentication प्रयोग गर्छ, र sign-in को समयमा प्रदान गरिएको बाहेक कुनै व्यक्तिगत डाटा भण्डारण गर्दैन। सबै लिंकहरूले permanent 301 redirect प्रयोग गर्छन्।"
 ---
+
+![नेपालको लागि सबैभन्दा राम्रो निःशुल्क URL Shortener 2026](/images/blog/url-shortener-hero-2026.png)
 
 ## नेपाललाई आफ्नो URL Shortener किन चाहिन्छ
 

@@ -8,6 +8,7 @@ author: "Noble Stack"
 readingTime: 14
 category: "Guide"
 language: "en"
+featuredImage: "/images/blog/qr-marketing-hero-2026.png"
 excerpt: "Nepal's QR code payments surged 50x in five years, reaching NPR 958 billion in FY 2024/25. With 2.34 million QR merchant points and 33 million monthly transactions, QR codes have become essential infrastructure for Nepali businesses. This guide covers everything from payment integration to print specifications."
 faqs:
   - question: "How do I create a free QR code for my business in Nepal?"
@@ -23,6 +24,8 @@ faqs:
   - question: "How many QR codes can I create with npgo.to for free?"
     answer: "Unlimited. Every URL you shorten on npgo.to automatically gets a free high-resolution QR code. There are no monthly limits, no watermarks, and no paid tiers. Bitly limits free users to just 2 QR codes per month."
 ---
+
+![QR Code Marketing Guide for Nepali Businesses in 2026](/images/blog/qr-marketing-hero-2026.png)
 
 ## QR Codes in Nepal: From Curiosity to Critical Infrastructure
 
