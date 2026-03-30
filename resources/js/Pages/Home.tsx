@@ -9,12 +9,14 @@ import { Separator } from '@/components/ui/separator';
 import { ArrowRight, QrCode, LayoutDashboard, Share2, Mail, Printer, MessageSquare, Scissors, UserCircle } from 'lucide-react';
 import { GoogleSignInButton } from '@/components/GoogleSignInButton';
 import { Footer } from '@/components/Footer';
+import { getBlogPostsByLanguage } from '@/data/blogData';
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion';
+import { BookOpen, Calendar, Clock, Tag, Check, X } from 'lucide-react';
 
 const PLACEHOLDER_URLS = [
     'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
@@ -99,6 +101,9 @@ function useRotatingText(phrases: string[], interval: number = 3000) {
 export default function Home() {
     const { totalLinks } = usePage<{ totalLinks: number }>().props;
     const inputRef = useRef<HTMLInputElement>(null);
+
+    // Fetch latest 3 English blog posts for the homepage
+    const latestPosts = getBlogPostsByLanguage('en').slice(0, 3);
     const { data, setData, post, processing, errors } = useForm({
         url: '',
     });
@@ -388,9 +393,9 @@ export default function Home() {
                                 <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <ArrowRight className="h-5 w-5 -rotate-45" />
                                 </div>
-                                <h3 className="font-semibold text-center text-sm">Free URL Shortener</h3>
+                                <h3 className="font-semibold text-center text-sm">Free URL Shortener for Nepal</h3>
                                 <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                                    Best free URL shortener for Nepal. Transform long URLs into short, memorable npgo.to links that are easy to share across all platforms.
+                                    Our <strong>free URL shortener</strong> is built for speed and reliability in the Nepali market. Transform massive links into professional, easily shareable npgo.to links. Perfect for SMS marketing and social media in Nepal.
                                 </p>
                             </CardContent>
                         </Card>
@@ -399,9 +404,9 @@ export default function Home() {
                                 <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <QrCode className="h-5 w-5" />
                                 </div>
-                                <h3 className="font-semibold text-center text-sm">Free QR Code Generator</h3>
+                                <h3 className="font-semibold text-center text-sm">Free QR Code Generator Nepal</h3>
                                 <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                                    Free QR code generator for Nepal. Every shortened link automatically gets a QR code. Perfect for business cards, posters & marketing materials.
+                                    Every link you shorten automatically generates a <strong>free high-resolution QR code</strong>. Download it instantly for business cards, restaurant menus, or marketing posters across Nepal.
                                 </p>
                             </CardContent>
                         </Card>
@@ -411,9 +416,9 @@ export default function Home() {
                                 <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <LayoutDashboard className="h-5 w-5" />
                                 </div>
-                                <h3 className="font-semibold text-center text-sm">Free Link Management</h3>
+                                <h3 className="font-semibold text-center text-sm">Free Analytics & Management</h3>
                                 <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                                    Free link management dashboard for Nepal. Track, manage and organize unlimited URLs with real-time stats and one-click actions.
+                                    Track your link performance with our free dashboard. Monitor clicks and manage your digital presence with zero monthly fees. The most comprehensive <strong>link management tool for Nepali businesses</strong>.
                                 </p>
                             </CardContent>
                         </Card>
@@ -422,9 +427,9 @@ export default function Home() {
                                 <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                     <UserCircle className="h-5 w-5" />
                                 </div>
-                                <h3 className="font-semibold text-center text-sm">Free Link in Bio Page</h3>
+                                <h3 className="font-semibold text-center text-sm">Free Link in Bio for Creators</h3>
                                 <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                                    Create a beautiful <a href="/link-in-bio" className="text-primary hover:underline">Link in Bio</a> page with all your links in one place. 15 themes, unlimited links, and a custom npgo.to/@yourname URL.
+                                    Create a stunning personal landing page. Our <strong>Free Link in Bio</strong> builder offers 15 themes and unlimited links, helping Nepali content creators and influencers centralize their online presence.
                                 </p>
                             </CardContent>
                         </Card>
@@ -524,6 +529,171 @@ export default function Home() {
                                 </p>
                             </CardContent>
                         </Card>
+                    </div>
+                </section>
+
+                <Separator />
+
+                {/* Why Noble Stack Created npgo.to Section */}
+                <section className="py-16 sm:py-20">
+                    <div className="max-w-4xl mx-auto">
+                        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                            <div className="flex-1 space-y-4 text-center md:text-left">
+                                <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Why We Created npgo.to</h2>
+                                <p className="text-muted-foreground leading-relaxed">
+                                    At <a href="https://www.noblestack.io" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Noble Stack</a>, we believe that essential digital tools should be accessible to everyone in Nepal without barriers. 
+                                </p>
+                                <p className="text-muted-foreground leading-relaxed">
+                                    We noticed a gap in the Nepali market: most URL shorteners were either filled with intrusive ads, required expensive subscriptions for basic features, or were simply too slow for local users. 
+                                </p>
+                                <p className="leading-relaxed font-medium text-foreground">
+                                    That's why we built npgo.to — a free, high-performance, and ad-free platform dedicated specifically to the Nepali digital ecosystem.
+                                </p>
+                                <div className="pt-2 flex flex-wrap justify-center md:justify-start gap-4">
+                                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                        <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                                        <span>100% Free Forever</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                        <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                                        <span>Ad-Free Experience</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                        <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                                        <span>Made in Nepal</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="w-48 h-48 md:w-64 md:h-64 shrink-0 relative">
+                                <div className="absolute inset-0 bg-primary/5 rounded-2xl -rotate-3" />
+                                <div className="absolute inset-0 bg-white border-2 border-border/60 rounded-2xl shadow-sm flex items-center justify-center p-8 rotate-3 transition-transform hover:rotate-0 duration-500">
+                                    <img 
+                                        src="/images/noblestack-logo.webp" 
+                                        alt="Noble Stack Logo" 
+                                        className="w-full h-auto opacity-90"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <Separator />
+
+                {/* Comparison Section */}
+                <section className="py-16 sm:py-20">
+                    <div className="text-center mb-10">
+                        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">The Better Way to Shorten Links in Nepal</h2>
+                        <p className="text-muted-foreground mt-2 text-sm sm:text-base max-w-xl mx-auto">
+                            See why thousands of Nepali creators and businesses are switching to npgo.to
+                        </p>
+                    </div>
+
+                    <div className="max-w-4xl mx-auto overflow-hidden border border-border/60 rounded-2xl bg-white shadow-sm">
+                        <div className="grid grid-cols-3 bg-muted/40 border-b border-border/60">
+                            <div className="p-4 sm:p-6 font-semibold text-sm sm:text-base">Feature</div>
+                            <div className="p-4 sm:p-6 font-semibold text-sm sm:text-base text-center text-primary bg-primary/5">npgo.to</div>
+                            <div className="p-4 sm:p-6 font-semibold text-sm sm:text-base text-center text-muted-foreground">Global Platforms (Bitly, Linktree, TinyURL)</div>
+                        </div>
+                        
+                        <div className="divide-y divide-border/60">
+                            {(
+                                [
+                                    { name: 'Price', npgo: '100% Free Forever', global: '$8 - $35 / mo' },
+                                    { name: 'High-Res QR Codes', npgo: true, global: 'Paid Add-on' },
+                                    { name: 'Link in Bio Page', npgo: 'Unlimited Links', global: '3-5 Links (Free)' },
+                                    { name: 'Custom Branding', npgo: true, global: 'Premium Only' },
+                                    { name: 'Nepal-Specific Nodes', npgo: 'Fast Redirects', global: 'Global Lag' },
+                                    { name: 'Privacy & Ads', npgo: 'No Ads', global: 'Varies' },
+                                ] as { name: string; npgo: string | boolean; global: string | boolean }[]
+                            ).map((row, i) => (
+                                <div key={i} className="grid grid-cols-3 items-center">
+                                    <div className="p-4 sm:p-6 text-sm font-medium">{row.name}</div>
+                                    <div className="p-4 sm:p-6 text-center bg-primary/5">
+                                        {row.npgo === true ? (
+                                            <div className="flex justify-center"><Check className="h-5 w-5 text-primary" /></div>
+                                        ) : (
+                                            <span className="text-xs sm:text-sm font-bold text-primary">{row.npgo}</span>
+                                        )}
+                                    </div>
+                                    <div className="p-4 sm:p-6 text-center text-muted-foreground">
+                                        {row.global === true ? (
+                                            <div className="flex justify-center"><Check className="h-5 w-5" /></div>
+                                        ) : row.global === false ? (
+                                            <div className="flex justify-center"><X className="h-5 w-5 opacity-40" /></div>
+                                        ) : (
+                                            <span className="text-xs sm:text-sm">{row.global}</span>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    
+                    <div className="mt-8 text-center">
+                        <p className="text-sm text-muted-foreground italic">
+                            * Based on comparison with popular platforms like Bitly, Linktree, and TinyURL (March 2026).
+                        </p>
+                    </div>
+                </section>
+
+                {/* Latest Resources & Guides Section */}
+                <section className="py-16 sm:py-20 bg-muted/5 -mx-4 sm:-mx-6 md:-mx-8 px-4 sm:px-6 md:px-8">
+                    <div className="text-center mb-10">
+                        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Latest Resources & Guides</h2>
+                        <p className="text-muted-foreground mt-2 text-sm sm:text-base max-w-xl mx-auto">
+                            Tips and insights on digital marketing, URL shortening, and growth in the Nepali market.
+                        </p>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                        {latestPosts.map((post) => (
+                            <a key={post.slug} href={`/blog/${post.slug}`} className="group h-full">
+                                <Card className="h-full border-border/60 hover:border-primary/50 transition-all duration-300 hover:shadow-lg flex flex-col bg-background">
+                                    <CardContent className="p-5 flex-1 flex flex-col">
+                                        <div className="space-y-3 flex-1 flex flex-col">
+                                            <div className="flex items-center gap-2">
+                                                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-primary/10 text-primary text-[10px] uppercase tracking-wider font-bold">
+                                                    <Tag className="h-3 w-3" />
+                                                    {post.category}
+                                                </span>
+                                            </div>
+                                            <h3 className="text-lg font-semibold tracking-tight group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                                                {post.title}
+                                            </h3>
+                                            <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                                                {post.excerpt}
+                                            </p>
+                                        </div>
+                                        <div className="pt-4 mt-8 border-t border-border/40 flex items-center justify-between text-[11px] text-muted-foreground/80">
+                                            <div className="flex items-center gap-3">
+                                                <span className="flex items-center gap-1">
+                                                    <Calendar className="h-3 w-3" />
+                                                    {new Date(post.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                                                </span>
+                                                <span className="flex items-center gap-1">
+                                                    <Clock className="h-3 w-3" />
+                                                    {post.readingTime} min
+                                                </span>
+                                            </div>
+                                            <div className="flex items-center gap-1 font-semibold text-primary group-hover:gap-1.5 transition-all">
+                                                Read <ArrowRight className="h-3 w-3" />
+                                            </div>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </a>
+                        ))}
+                    </div>
+
+                    <div className="text-center mt-10">
+                        <a href="/blog">
+                            <Button variant="outline" className="gap-2 group">
+                                <BookOpen className="h-4 w-4" />
+                                View All Resources
+                                <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                            </Button>
+                        </a>
                     </div>
                 </section>
 
