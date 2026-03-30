@@ -24,6 +24,7 @@ class RedirectController extends Controller
             abort(Response::HTTP_NOT_FOUND, 'Short URL not found.');
         }
 
-        return redirect()->away($url->original_url, Response::HTTP_MOVED_PERMANENTLY);
+        return redirect()->away($url->original_url, Response::HTTP_FOUND)
+            ->header('X-Robots-Tag', 'noindex, nofollow');
     }
 }

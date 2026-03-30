@@ -35,9 +35,36 @@ Route::get('/url-shortener', fn() => inertia('UrlShortener'))->name('url-shorten
 Route::get('/link-in-bio', fn() => inertia('LinkInBio'))->name('link-in-bio');
 
 // Blog
-Route::get('/blog', fn() => inertia('Blog'))->name('blog');
-Route::get('/blog/{slug}', fn($slug) => inertia('BlogPost', ['slug' => $slug]))->name('blog.post');
+Route::get('/blog', function () {
+    $meta = [
+        'title' => 'Blog | npgo.to',
+        'description' => 'Tips, guides, and insights on URL shortening, QR code generation, and digital marketing for Nepali businesses.',
+        'image' => url('/images/og-image.webp'),
+        'url' => url()->current(),
+    ];
+    return inertia('Blog', ['meta' => $meta]);
+})->name('blog');
 
+Route::get('/blog/{slug}', function ($slug) {
+    $path = resource_path("content/blog/{$slug}/index.md");
+    if (!file_exists($path)) abort(404);
+
+    $content = file_get_contents($path);
+    preg_match('/title:\s*"([^"]+)"/', $content, $t);
+    preg_match('/description:\s*"([^"]+)"/', $content, $d);
+
+    $meta = [
+        'title' => ($t[1] ?? 'Blog Post') . ' | npgo.to',
+        'description' => $d[1] ?? 'Read our latest blog post on url shortening and digital marketing in Nepal.',
+        'image' => url('/images/og-image.webp'),
+        'url' => url()->current(),
+    ];
+
+    return inertia('BlogPost', [
+        'slug' => $slug,
+        'meta' => $meta
+    ]);
+})->name('blog.post');
 // Bio Page (public) - Must be before the catch-all redirect
 Route::get('/@{username}', [BioPagePublicController::class, 'show'])->name('bio.public');
 

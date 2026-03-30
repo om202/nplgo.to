@@ -39,6 +39,12 @@ class BioPagePublicController extends Controller
                     'icon' => $link->icon,
                 ]),
             ],
+            'meta' => [
+                'title' => "{$bioPage->display_name} (@{$bioPage->username}) | Link in Bio",
+                'description' => $bioPage->bio ?: "Check out {$bioPage->display_name}'s official Link in Bio page.",
+                'image' => $bioPage->avatar_url ? url('/storage/' . $bioPage->avatar_url) : url('/images/og-image.webp'),
+                'url' => url()->current(),
+            ]
         ]);
     }
 }

@@ -1,5 +1,5 @@
 import { useForm, usePage } from '@inertiajs/react';
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import { useRef, useEffect, useState, FormEvent } from 'react';
 import Layout from '@/Layouts/Layout';
 import { Button } from '@/components/ui/button';
@@ -648,7 +648,7 @@ export default function Home() {
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {latestPosts.map((post) => (
-                            <a key={post.slug} href={`/blog/${post.slug}`} className="group h-full">
+                            <Link key={post.slug} href={`/blog/${post.slug}`} className="group h-full">
                                 <Card className="h-full border-border/60 hover:border-primary/50 transition-all duration-300 hover:shadow-lg flex flex-col bg-background">
                                     <CardContent className="p-5 flex-1 flex flex-col">
                                         <div className="space-y-3 flex-1 flex flex-col">
@@ -682,18 +682,18 @@ export default function Home() {
                                         </div>
                                     </CardContent>
                                 </Card>
-                            </a>
+                            </Link>
                         ))}
                     </div>
 
                     <div className="text-center mt-10">
-                        <a href="/blog">
+                        <Link href="/blog">
                             <Button variant="outline" className="gap-2 group">
                                 <BookOpen className="h-4 w-4" />
                                 View All Resources
                                 <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
                             </Button>
-                        </a>
+                        </Link>
                     </div>
                 </section>
 
@@ -764,7 +764,7 @@ export default function Home() {
                             <AccordionItem value="item-10">
                                 <AccordionTrigger>Does npgo.to offer a free Link in Bio page?</AccordionTrigger>
                                 <AccordionContent>
-                                    Yes! npgo.to includes a free <a href="/link-in-bio" className="text-primary hover:underline">Link in Bio</a> page builder. Create a beautiful landing page at npgo.to/@yourname with unlimited links, 15 themes, and a custom profile. Perfect for Instagram, TikTok, YouTube bios and more.
+                                    Yes! npgo.to includes a free <Link href="/link-in-bio" className="text-primary hover:underline">Link in Bio</Link> page builder. Create a beautiful landing page at npgo.to/@yourname with unlimited links, 15 themes, and a custom profile. Perfect for Instagram, TikTok, YouTube bios and more.
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>

@@ -22,28 +22,34 @@ export function Footer() {
                         <div className="space-y-4">
                             <h3 className="font-semibold text-base">Product</h3>
                             <nav className="flex flex-col gap-3">
-                                <a href="/about" className="text-base text-muted-foreground hover:text-foreground transition-colors">
-                                    About
-                                </a>
                                 <a href="/features" className="text-base text-muted-foreground hover:text-foreground transition-colors">
                                     Features
-                                </a>
-                                <a href="/how-to-shorten-url" className="text-base text-muted-foreground hover:text-foreground transition-colors">
-                                    How to Shorten a URL
-                                </a>
-                                <a href="/qr-code-generator" className="text-base text-muted-foreground hover:text-foreground transition-colors">
-                                    QR Code Generator
                                 </a>
                                 <a href="/url-shortener" className="text-base text-muted-foreground hover:text-foreground transition-colors">
                                     URL Shortener
                                 </a>
+                                <a href="/qr-code-generator" className="text-base text-muted-foreground hover:text-foreground transition-colors">
+                                    QR Code Generator
+                                </a>
+                                <a href="/link-in-bio" className="text-base text-muted-foreground hover:text-foreground transition-colors">
+                                    Link in Bio
+                                </a>
+                                <a href="/how-to-shorten-url" className="text-base text-muted-foreground hover:text-foreground transition-colors">
+                                    How to Shorten a URL
+                                </a>
                             </nav>
                         </div>
 
-                        {/* Legal Links */}
+                        {/* Company & Legal Links */}
                         <div className="space-y-4">
-                            <h3 className="font-semibold text-base">Legal</h3>
+                            <h3 className="font-semibold text-base">Company</h3>
                             <nav className="flex flex-col gap-3">
+                                <a href="/about" className="text-base text-muted-foreground hover:text-foreground transition-colors">
+                                    About
+                                </a>
+                                <a href="/blog" className="text-base text-muted-foreground hover:text-foreground transition-colors">
+                                    Blog
+                                </a>
                                 <a href="/privacy" className="text-base text-muted-foreground hover:text-foreground transition-colors">
                                     Privacy Policy
                                 </a>
