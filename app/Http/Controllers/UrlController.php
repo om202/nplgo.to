@@ -29,14 +29,9 @@ class UrlController extends Controller
         }
 
         return Inertia::render('Home', [
-            'totalLinks' => Cache::remember('total_links_count', 3600, function () {
-                try {
-                    return Url::count();
-                } catch (\Exception $e) {
-                    return 0;
-                }
-            }),
+            'totalLinks' => 1000,
         ]);
+
     }
 
     /**
